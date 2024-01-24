@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
 const messageSchema = new mongoose.Schema({
-  user: String,
+  roomId: String, // Add this field
+  sender: String,
   text: String,
 });
 

@@ -11,6 +11,7 @@ const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate(); // Replace useHistory with useNavigate
   const [authenticated, setauthenticated] = useState(null)
+  
 
 
   useEffect(()=>{
@@ -33,6 +34,7 @@ const handleSignIn = async () => {
     localStorage.setItem('userType',JSON.stringify(data.user.userType));
     localStorage.setItem('userEmail',JSON.stringify(data.user.userEmail));
     console.log(data);
+    setEmail(data.user.userEmail);
 
     if (response.status === 200) {
       
@@ -64,9 +66,7 @@ const handleSignIn = async () => {
         {loading ? 'Logging In...' : 'Login'}
       </button>
      
-    <Map height={300} defaultCenter={[50.879, 4.6997]} defaultZoom={11}>
-      <Marker width={50} anchor={[50.879, 4.6997]} />
-    </Map>
+ 
     </div>
   );
 };

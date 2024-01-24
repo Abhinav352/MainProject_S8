@@ -1,36 +1,83 @@
-// Import React and necessary components
+// Import necessary modules
 import React, { useState, useEffect } from 'react';
-import ChatWindow from './ChatWindow';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import io from 'socket.io-client';
 
-function Chat() {
+const socket = io('http://localhost:5000', { transports: ['websocket'] });
+
+const Chat = () => {
+  const { roomId } = useParams();
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
-const user = localStorage.getItem("userEmail")
+  const [roomDetails, setRoomDetails] = useState({});
+  const currentUserEmail = localStorage.getItem('userEmail'); // Retrieve current user's email from local storage
+  
   useEffect(() => {
-    // Fetch messages from the backend when the component mounts
-    axios.get('/messages')
-      .then(response => setMessages(response.data))
-      .catch(error => console.error('Error fetching messages:', error));
-  }, []);
+    const fetchMessages = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/messages/${roomId}`);
+        setMessages(response.data);
+      } catch (error) {
+        console.error('Error fetching messages:', error.message);
+      }
+    };
+
+    const fetchRoomDetails = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/room/${roomId}`);
+        setRoomDetails(response.data);
+        console.log('Room Details:', response.data); // Log room details
+      } catch (error) {
+        console.error('Error fetching room details:', error.message);
+      }
+    };
+
+    fetchMessages();
+    fetchRoomDetails();
+
+    socket.on('message', (newMessage) => {
+      setMessages((prevMessages) => [...prevMessages, newMessage]);
+    });
+
+    return () => {
+      socket.off('message');
+    };
+  }, [roomId]);
 
   const handleSendMessage = () => {
-    if (newMessage.trim() !== '') {
-      // Send the new message to the backend using Axios
-      axios.post('/messages', { text: newMessage, sender: user })
-        .then(response => setMessages([...messages, response.data]))
-        .catch(error => console.error('Error sending message:', error));
-
+    if (roomDetails.user1 && roomDetails.user2) {
+      console.log('User 1:', roomDetails.user1);
+      console.log('User 2:', roomDetails.user2);
+      
+      // You can emit the message using socket.io here
+      socket.emit('sendMessage', { roomId, sender: currentUserEmail, text: newMessage }); // Pass sender email
       setNewMessage('');
+    } else {
+      console.error('Users not set.');
     }
   };
 
   return (
     <div>
-      <h1>Instagram Chat Clone</h1>
-      <ChatWindow messages={messages} onSendMessage={handleSendMessage} newMessage={newMessage} setNewMessage={setNewMessage} />
+      <h2>Chat in Room {roomId}</h2>
+      <div>
+        {messages.map((message) => (
+          <div key={message._id}>
+            <strong>{message.sender === currentUserEmail ? 'You' : (message.sender === roomDetails.user1 ? roomDetails.user1 : roomDetails.user2)}:</strong> {message.text}
+          </div>
+        ))}
+      </div>
+      <div>
+        <input
+          type="text"
+          value={newMessage}
+          onChange={(e) => setNewMessage(e.target.value)}
+        />
+        <button onClick={handleSendMessage}>Send</button>
+      </div>
     </div>
   );
-}
+};
 
 export default Chat;
