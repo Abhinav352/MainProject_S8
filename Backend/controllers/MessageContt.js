@@ -26,7 +26,7 @@ const MessageContt = {
       const sender = 'current_user';
       const receiver = req.body.receiver || sender;
   
-      const newMessage = new Message({ roomId, userId: sender, sender, receiver, text });
+      const newMessage = new Message({ roomId, sender, text });
       await newMessage.save();
   
       req.app.io.emit('message', newMessage);

@@ -51,7 +51,7 @@ const Chat = () => {
       console.log('User 2:', roomDetails.user2);
       
       // You can emit the message using socket.io here
-      socket.emit('sendMessage', { roomId, sender: currentUserEmail, text: newMessage }); // Pass sender email
+      socket.emit('sendMessage', { roomId:roomId, sender: currentUserEmail, text: newMessage }); // Pass sender email
       setNewMessage('');
     } else {
       console.error('Users not set.');

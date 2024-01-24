@@ -94,8 +94,8 @@ io.on('connection', (socket) => {
   console.log('A user connected');
 
   // Handle new messages
-  socket.on('sendMessage', async ({ userId, sender, text }) => {
-    const newMessage = new Message({ userId, sender, text });
+  socket.on('sendMessage', async ({ roomId, sender, text }) => {
+    const newMessage = new Message({ roomId, sender, text });
     await newMessage.save();
     io.emit('message', newMessage);
   });
