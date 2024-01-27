@@ -1,8 +1,11 @@
+// SignUp.js
 import React, { useState } from 'react';
 
 const SignUp = () => {
   const [userEmail, setEmail] = useState('');
   const [userPassword, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [userType, setUserType] = useState('non-volunteer');
@@ -16,7 +19,7 @@ const SignUp = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ userEmail, userPassword,userType }),
+        body: JSON.stringify({ userEmail, userPassword, userType, firstName, lastName }),
       });
 
       const data = await response.json();
@@ -25,6 +28,8 @@ const SignUp = () => {
       // Clear form fields after successful signup
       setEmail('');
       setPassword('');
+      setFirstName('');
+      setLastName('');
     } catch (error) {
       setError('Error during sign up. Please try again.');
       console.error('Error during sign up:', error);
@@ -41,6 +46,12 @@ const SignUp = () => {
       </label>
       <label>Password:
         <input type="password" value={userPassword} onChange={(e) => setPassword(e.target.value)} />
+      </label>
+      <label>First Name:
+        <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+      </label>
+      <label>Last Name:
+        <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
       </label>
       <label>
         User Type:

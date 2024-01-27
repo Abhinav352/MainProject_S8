@@ -1,56 +1,58 @@
 // RequestList.js
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
-const RequestList = () => {
-  const [requests, setRequests] = useState([]);
-  const navigate = useNavigate();
+const RequestPage = () => {
+  const [itemType, setItemType] = useState('');
+  const [quantity, setQuantity] = useState('');
+  const username=localStorage.getItem("userName");
 
-  const handleContactClick = async (requesterEmail) => {
+  
+  const handleItemTypeChange = (e) => {
+    setItemType(e.target.value);
+  };
+
+  const handleQuantityChange = (e) => {
+    setQuantity(e.target.value);
+  };
+
+
+  const handleRequestSubmit = async (e) => {
+    e.preventDefault();
+
     try {
-      const currentUserEmail = localStorage.getItem('userEmail');
-      const response = await axios.post('http://localhost:5000/create-chat-room', {
-        requesterEmail,
-        currentUserEmail,
+      // Make a POST request to the backend endpoint
+      await axios.post('http://localhost:5000/requests', {
+        itemType,
+        quantity: parseInt(quantity, 10),
+        username,
       });
 
-      const room = response.data.room;
-      navigate(`/chat/${room}`);
+      console.log('Request submitted successfully');
     } catch (error) {
-      console.error('Error creating chat room:', error.message);
+      console.error('Error submitting request:', error.message);
     }
   };
 
-  useEffect(() => {
-    const fetchRequests = async () => {
-      try {
-        const response = await axios.get('http://localhost:5000/requests');
-        setRequests(response.data);
-      } catch (error) {
-        console.error('Error fetching requests:', error.message);
-      }
-    };
-
-    fetchRequests();
-  }, []);
-
   return (
     <div>
-      <h2>Requests List</h2>
-      <ul>
-        {requests.map((request) => (
-          <li key={request._id}>
-            <strong>Item Type:</strong> {request.itemType},{' '}
-            <strong>Quantity:</strong> {request.quantity},{' '}
-            <strong>Username:</strong> {request.username},{' '}
-            <strong>Email:</strong> {request.email}{' '}
-            <button onClick={() => handleContactClick(request.email)}>Contact</button>
-          </li>
-        ))}
-      </ul>
+      <h2>Request Page</h2>
+      <form onSubmit={handleRequestSubmit}>
+        <label>
+          Item Type:
+          <input type="text" value={itemType} onChange={handleItemTypeChange} />
+        </label>
+        <br />
+        <label>
+          Quantity:
+          <input type="number" value={quantity} onChange={handleQuantityChange} />
+        </label>
+        <br />
+        
+        <button type="submit">Submit Request</button>
+      </form>
     </div>
   );
 };
 
-export default RequestList;
+export default RequestPage;

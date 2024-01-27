@@ -23,10 +23,19 @@ const MessageContt = {
     try {
       const { roomId } = req.params;
       const { text } = req.body;
-      const sender = 'current_user';
+      const sender = 'current_user';  // You may want to change this depending on your user handling
       const receiver = req.body.receiver || sender;
   
-      const newMessage = new Message({ roomId, sender, text });
+      // Fetch sender's user details from localStorage
+      const senderUser = JSON.parse(localStorage.getItem('user'));
+  
+      const newMessage = new Message({
+        roomId,
+        sender,
+        senderName: senderUser.firstName,  // Include sender's userName
+        text,
+      });
+  
       await newMessage.save();
   
       req.app.io.emit('message', newMessage);
@@ -36,5 +45,4 @@ const MessageContt = {
     }
   }
 };
-
 module.exports = MessageContt;

@@ -20,18 +20,21 @@ const RequestList = () => {
     fetchRequests();
   }, []);
 
-  const handleContactClick = async (userEmail) => {
+  const handleContactClick = async (userEmail, userName) => {
     try {
       const currentUserEmail = localStorage.getItem('userEmail');
+      const currentUserName = localStorage.getItem('userName');
 
       // Check if a room with the given user emails already exists
       const response = await axios.post('http://localhost:5000/createRoom', {
         user1: currentUserEmail,
         user2: userEmail,
+        userName1: currentUserName, // Include the current user's userName
+        userName2: userName,      // Include the other user's userName
       });
 
       // Navigate to the chat with both user emails and room ID
-      navigate(`/chat/${response.data.roomId}`, { state: { user1: currentUserEmail, user2: userEmail } });
+      navigate(`/chat/${response.data.roomId}`, { state: { user1: currentUserEmail, user2: userEmail, userName2: userName } });
     } catch (error) {
       console.error('Error navigating to chat room:', error.message);
     }
@@ -47,7 +50,7 @@ const RequestList = () => {
             <strong>Quantity:</strong> {request.quantity},{' '}
             <strong>Username:</strong> {request.username},{' '}
             <strong>Email:</strong> {request.email}{' '}
-            <button onClick={() => handleContactClick(request.email)}>
+            <button onClick={() => handleContactClick(request.email, request.username)}>
               Contact
             </button>
           </li>

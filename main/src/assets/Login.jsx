@@ -33,6 +33,7 @@ const handleSignIn = async () => {
     localStorage.setItem('user',JSON.stringify(data.user));
     localStorage.setItem('userType',JSON.stringify(data.user.userType));
     localStorage.setItem('userEmail',JSON.stringify(data.user.userEmail));
+    localStorage.setItem('userName',JSON.stringify(data.user.firstName));
     console.log(data);
     setEmail(data.user.userEmail);
 

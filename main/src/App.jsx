@@ -12,6 +12,7 @@ import Emergency from './assets/Emergency';
 import { MyMap } from './assets/MyMap';
 import Chat from './assets/Chat';
 import MessageList from './assets/MessageList';
+import Profile from './assets/Profile';
 
 const App = () => {
  return (
@@ -29,6 +30,7 @@ const App = () => {
          <Route path='/List' element={<RequestList/>} />
          <Route path='/Pending' element={<PendingList/>} />
          <Route path='/Emergency' element={<Emergency/>} />
+         <Route path='/Profile' element={<Profile/>} />
          <Route path='/Map/:latitude/:longitude' element={<MyMap/>} />
        </Routes>
      </BrowserRouter>

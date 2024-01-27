@@ -11,7 +11,8 @@ const Message = require('./models/Message');
 const messageController = require('./controllers/MessageContt');
 const { v4: uuidv4 } = require('uuid');
 const Room = require('./models/Room');
-
+const multer = require('multer'); // Add multer for handling file uploads
+const userInfo= require('./models/User');
 
 const app = express();
 const server = http.createServer(app);
@@ -20,6 +21,9 @@ const io = socketIO(server);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
+
+// Set up multer storage for profile pictures
+
 
 app.get('/', async (req, res) => {
   const result = await Message.find();
@@ -38,9 +42,27 @@ app.get('/emergency', Emergency.getAllEmergency);
 app.get('/messages/recent', messageController.getRecentChats);
 app.get('/messages/:roomId', messageController.getMessagesByRoomId);
 app.post('/messages/:roomId', messageController.sendMessage);
+
+app.get('/profile', async (req, res) => {
+  try {
+    const { userEmail } = req.query; // Use req.query to get parameters from the query string
+ 
+    // Find the user by userEmail
+    const userProfile = await userInfo.findOne({ userEmail: userEmail });
+    
+    console.log(userProfile);
+    if (userProfile) {
+      res.json(userProfile);
+    } else {
+      res.status(404).json({ error: 'User not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 app.post('/createRoom', async (req, res) => {
   try {
-    const { user1, user2 } = req.body;
+    const { user1, user2, userName1, userName2 } = req.body;
 
     // Check if a room with the given user emails already exists
     const existingRoom = await Room.findOne({ $or: [{ user1, user2 }, { user1: user2, user2: user1 }] });
@@ -52,8 +74,8 @@ app.post('/createRoom', async (req, res) => {
       // Generate a unique room ID
       const roomId = uuidv4();
 
-      // Store room ID and user emails in MongoDB
-      const roomData = { roomId, user1, user2 };
+      // Store room ID, user emails, and userName in MongoDB
+      const roomData = { roomId, user1, user2, userName1, userName2 };
       const result = await Room.create(roomData);
 
       res.json({ roomId });
@@ -67,7 +89,7 @@ app.get('/room/:roomId', async (req, res) => {
     const room = await Room.findOne({ roomId: req.params.roomId });
 
     if (room) {
-      res.json({ user1: room.user1, user2: room.user2 });
+      res.json({ user1: room.user1, user2: room.user2 , userName1: room.userName1 , userName2: room.userName2 });
     } else {
       res.status(404).json({ error: 'Room not found' });
     }

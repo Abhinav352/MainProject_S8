@@ -1,4 +1,3 @@
-// Import necessary modules
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
@@ -11,7 +10,8 @@ const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const [roomDetails, setRoomDetails] = useState({});
-  const currentUserEmail = localStorage.getItem('userEmail'); // Retrieve current user's email from local storage
+  const currentUserEmail = localStorage.getItem('userEmail');
+  const currentUserName = localStorage.getItem('userName');
   
   useEffect(() => {
     const fetchMessages = async () => {
@@ -27,7 +27,7 @@ const Chat = () => {
       try {
         const response = await axios.get(`http://localhost:5000/room/${roomId}`);
         setRoomDetails(response.data);
-        console.log('Room Details:', response.data); // Log room details
+        console.log('Room Details:', response.data);
       } catch (error) {
         console.error('Error fetching room details:', error.message);
       }
@@ -50,8 +50,7 @@ const Chat = () => {
       console.log('User 1:', roomDetails.user1);
       console.log('User 2:', roomDetails.user2);
       
-      // You can emit the message using socket.io here
-      socket.emit('sendMessage', { roomId:roomId, sender: currentUserEmail, text: newMessage }); // Pass sender email
+      socket.emit('sendMessage', { roomId: roomId, sender: currentUserEmail, senderName: currentUserName, text: newMessage });
       setNewMessage('');
     } else {
       console.error('Users not set.');
@@ -64,7 +63,10 @@ const Chat = () => {
       <div>
         {messages.map((message) => (
           <div key={message._id}>
-            <strong>{message.sender === currentUserEmail ? 'You' : (message.sender === roomDetails.user1 ? roomDetails.user1 : roomDetails.user2)}:</strong> {message.text}
+            <strong>{message.sender === currentUserEmail ? 'You' : (message.sender === roomDetails.user1 ? roomDetails.userName1 : roomDetails.userName2)}:</strong> {message.text}
+            <span style={{ marginLeft: '8px', fontSize: '0.8em', color: '#888' }}>
+              {new Date(message.createdAt).toLocaleTimeString()}
+            </span>
           </div>
         ))}
       </div>
