@@ -31,6 +31,8 @@ const handleSignIn = async () => {
     const data = response.data;
     localStorage.setItem('authenticated', true);
     localStorage.setItem('user',JSON.stringify(data.user));
+    localStorage.setItem('token',JSON.stringify(data.token));
+    localStorage.setItem('users',JSON.stringify(data.user._id));
     localStorage.setItem('userType',JSON.stringify(data.user.userType));
     localStorage.setItem('userEmail',JSON.stringify(data.user.userEmail));
     localStorage.setItem('userName',JSON.stringify(data.user.firstName));

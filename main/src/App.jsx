@@ -13,6 +13,8 @@ import { MyMap } from './assets/MyMap';
 import Chat from './assets/Chat';
 import MessageList from './assets/MessageList';
 import Profile from './assets/Profile';
+import NavBar from './assets/NavBar';
+
 
 const App = () => {
  return (
@@ -33,6 +35,7 @@ const App = () => {
          <Route path='/Profile' element={<Profile/>} />
          <Route path='/Map/:latitude/:longitude' element={<MyMap/>} />
        </Routes>
+       <NavBar />
      </BrowserRouter>
    </div>
  )

@@ -7,22 +7,32 @@ const Emergency = require('./controllers/EmergencyCont');
 const messagesRouter = require('./controllers/messages');
 const http = require('http');
 const socketIO = require('socket.io');
+const multer = require('multer');
+const path = require('path');
 const Message = require('./models/Message');
 const messageController = require('./controllers/MessageContt');
 const { v4: uuidv4 } = require('uuid');
 const Room = require('./models/Room');
-const multer = require('multer'); // Add multer for handling file uploads
-const userInfo= require('./models/User');
+const userInfo = require('./models/User');
 
 const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/'); // Destination folder for uploaded files
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${Date.now()}${path.extname(file.originalname)}`);
+  },
+});
 
+const upload = multer({ storage });
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-// Set up multer storage for profile pictures
 
 
 app.get('/', async (req, res) => {
@@ -43,14 +53,11 @@ app.get('/messages/recent', messageController.getRecentChats);
 app.get('/messages/:roomId', messageController.getMessagesByRoomId);
 app.post('/messages/:roomId', messageController.sendMessage);
 
-app.get('/profile', async (req, res) => {
+app.get('/Profile', async (req, res) => {
   try {
-    const { userEmail } = req.query; // Use req.query to get parameters from the query string
- 
-    // Find the user by userEmail
-    const userProfile = await userInfo.findOne({ userEmail: userEmail });
-    
-    console.log(userProfile);
+    const { userEmail } = req.query;
+    const userProfile = await userInfo.findOne({ userEmail });
+
     if (userProfile) {
       res.json(userProfile);
     } else {
@@ -60,6 +67,21 @@ app.get('/profile', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+app.post('/Profile/upload/:userEmail', upload.single('profilePicture'), async (req, res) => {
+  try {
+    const userEmail = req.params.userEmail;
+    const profilePicturePath = req.file.path;
+
+    // Update the user's profile picture URL in the database
+    await userInfo.findOneAndUpdate({ userEmail }, { profilePic: profilePicturePath });
+
+    res.status(200).json({ message: 'Profile picture uploaded successfully' });
+  } catch (error) {
+    console.error('Error uploading profile picture:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 app.post('/createRoom', async (req, res) => {
   try {
     const { user1, user2, userName1, userName2 } = req.body;
