@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Map, Marker } from "pigeon-maps"
+import './Login.css';
 
 
 const Login = () => {
@@ -57,18 +58,27 @@ const handleSignIn = async () => {
 
   return (
     <div>
-      <h2>Login</h2>
-      <label>Email:
-        <input type="email" value={userEmail} onChange={(e) => setEmail(e.target.value)} />
-      </label>
-      <label>Password:
+    
+      <h2 className='head'>Login</h2>
+      <div className='dk'><label className='jl'>Email : </label>
+        <input type="email"  value={userEmail} onChange={(e) => setEmail(e.target.value)}  />
+      </div>
+
+      <div className='dk'>
+        <label className='lj'>Password :  </label>
         <input type="password" value={userPassword} onChange={(e) => setPassword(e.target.value)} />
-      </label>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <button onClick={handleSignIn} disabled={loading}>
+      </div>
+      
+      <div className='ls'>{error && <p style={{ color: 'red' }}>{error}</p>}</div>
+      <div className='dk'><button onClick={handleSignIn} disabled={loading}>
         {loading ? 'Logging In...' : 'Login'}
-      </button>
-     
+      </button></div>
+     <div className='dk'>
+      <a href='http://localhost:5173/Sign'>
+      <button className='li'>Sign Up </button>
+
+      </a>
+     </div>
  
     </div>
   );

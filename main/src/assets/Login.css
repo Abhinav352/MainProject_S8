@@ -1,0 +1,91 @@
+/* Common styles for both email and password inputs */
+input[type=email],
+input[type=password] {
+    width: 45%; /* Set the width to medium */
+    padding: 5px;
+    margin: 10px 0;
+    
+    border: 1px solid #ccc;
+}
+
+/* Styles for buttons */
+button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 5px;
+    
+    margin-left: 28%;
+    margin-top: 5%;
+    border: none;
+    cursor: pointer;
+    width: 45%; /* Set the width to medium */
+    
+}
+.li{
+    margin-left: 25%;
+}
+
+/* Styles for heading */
+.head {
+    margin-top: 40%;
+    text-align: center;
+}
+
+/* Styles for container div */
+.dk {
+    margin: 0 auto;
+    max-width: 600px; /* Adjust the max-width based on your design */
+}
+
+/* Hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+}
+
+/* Styles for error message */
+.ls {
+    text-align: center;
+}
+
+/* Styles for labels */
+ .lj {
+    margin: 5px 0 0 1px;
+    text-align: center;
+    margin-right: 1%;
+    
+}
+.jl{
+    margin-right: 5px;
+    text-align: center;
+    
+
+}
+
+/* Styles for input within .dk */
+.dk input {
+    width: 60%;
+    padding: 5px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+    /* Adjust styles for smaller screens here */
+    .head, .dk {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+     .lj {
+        margin-left: 5%;
+        margin-right: 7%;
+    }
+    .jl{
+        margin-left: 5%;
+        margin-right: 14%;
+    }
+    .ls {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
