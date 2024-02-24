@@ -1,6 +1,7 @@
 // RequestList.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import './Req.css';
 
 const RequestPage = () => {
   const [itemType, setItemType] = useState('');
@@ -35,21 +36,24 @@ const RequestPage = () => {
   };
 
   return (
-    <div>
+    <div className='head3'>
       <h2>Request Page</h2>
       <form onSubmit={handleRequestSubmit}>
+        
+        <div className='input-item'>
         <label>
-          Item Type:
+          Item Type :</label>
           <input type="text" value={itemType} onChange={handleItemTypeChange} />
-        </label>
-        <br />
-        <label>
-          Quantity:
-          <input type="number" value={quantity} onChange={handleQuantityChange} />
-        </label>
+        </div>
         <br />
         
-        <button type="submit">Submit Request</button>
+        <div className='input-quantity'> <label>
+          Quantity :</label>
+          <input type="number" value={quantity} onChange={handleQuantityChange} />
+        </div>
+        <br />
+        
+        <div className='input-sub'><button type="submit">Submit Request</button></div>
       </form>
     </div>
   );

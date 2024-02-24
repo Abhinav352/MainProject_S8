@@ -1,0 +1,57 @@
+.head3 {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styles for input fields */
+.input-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Add margin between input groups */
+    margin-top: 10px;
+}
+
+.input-item label {
+    margin-right: 8px; /* Add margin between label and input */
+}
+
+.input-item input {
+    width: 200px; /* Adjust the width as needed */
+    
+}
+.input-quantity {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Add margin between input groups */
+}
+
+.input-quantity label {
+    margin-right: 14.9px; /* Add margin between label and input */
+}
+
+.input-quantity input {
+    width: 200px; /* Adjust the width as needed */
+    
+}
+
+.input-sub {
+    margin-left: 65px;
+}
+
+/* Styles for button */
+button {
+    margin-top: 10px; /* Add margin above the button */
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+    /* Adjust styles for smaller screens here */
+    .head3 {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
