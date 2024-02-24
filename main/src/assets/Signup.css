@@ -1,0 +1,104 @@
+.head1 {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styles for input fields */
+.input-email {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Add margin between input groups */
+}
+
+.input-email label {
+    margin-right: 39px; /* Add margin between label and input */
+}
+
+.input-email input {
+    width: 200px; /* Adjust the width as needed */
+    
+}
+.input-pass {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Add margin between input groups */
+}
+
+.input-pass label {
+    margin-right: 11px; /* Add margin between label and input */
+}
+
+.input-pass input {
+    width: 200px; /* Adjust the width as needed */
+    
+}
+
+
+.input-fname {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Add margin between input groups */
+}
+
+.input-fname label {
+    margin-left: -0.5px;
+    margin-right: 3.8px; /* Add margin between label and input */
+}
+
+.input-fname input {
+    width: 200px; /* Adjust the width as needed */
+    
+}
+
+.input-lname {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Add margin between input groups */
+}
+
+.input-lname label {
+    margin-left: -0.1px;
+    margin-right: 3.3px; /* Add margin between label and input */
+}
+
+.input-lname input {
+    width: 200px; /* Adjust the width as needed */
+    
+}
+
+.input-user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px; /* Add margin between input groups */
+    margin-top: 4%;
+}
+
+.input-user label {
+    margin-right: 10px; /* Add margin between label and input */
+   
+}
+
+.input-user input {
+    width: 800px; /* Adjust the width as needed */
+    
+}
+
+
+
+/* Styles for button */
+button {
+    margin-top: 10px; /* Add margin above the button */
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+    /* Adjust styles for smaller screens here */
+    .head1 {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}

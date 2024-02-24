@@ -1,5 +1,7 @@
 // SignUp.js
 import React, { useState } from 'react';
+import './Signup.css';
+import { Navigate } from 'react-router-dom';
 
 const SignUp = () => {
   const [userEmail, setEmail] = useState('');
@@ -38,32 +40,56 @@ const SignUp = () => {
     }
   };
 
+  const handleback = () => {
+    Navigate('/Login');
+  };
+
+
+
   return (
-    <div>
+    <div className='head1'>
       <h2>Sign Up</h2>
-      <label>Email:
+     
+     <div className='input-email'>
+      <label>Email : </label>
         <input type="email" value={userEmail} onChange={(e) => setEmail(e.target.value)} />
-      </label>
-      <label>Password:
+      </div>
+
+      <div className='input-pass'>
+      <label>Password :   </label>
         <input type="password" value={userPassword} onChange={(e) => setPassword(e.target.value)} />
-      </label>
-      <label>First Name:
+      </div>
+
+      <div className='input-fname'>
+      <label>First Name : </label>
         <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-      </label>
-      <label>Last Name:
+      </div>
+
+      <div className='input-lname'>
+      <label>Last Name : </label>
         <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
-      </label>
+      </div>
+      
+      <div className='input-user'>
       <label>
-        User Type:
+        User Type : </label>
         <select value={userType} onChange={(e) => setUserType(e.target.value)}>
           <option value="non-volunteer">Non-Volunteer</option>
           <option value="volunteer">Volunteer</option>
         </select>
-      </label>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      </div>
+
+      <div>{error && <p style={{ color: 'red' }}>{error}</p>}</div>
+     
+      <div>
       <button onClick={handleSignUp} disabled={loading}>
         {loading ? 'Signing Up...' : 'Sign Up'}
-      </button>
+      </button></div>
+    
+    <div>
+      <button onClick={handleback}>Cancel</button>
+    </div>
+
     </div>
   );
 };
