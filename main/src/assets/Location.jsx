@@ -120,15 +120,17 @@ const Location = () => {
     
           {/* Button to get current location and check if in disaster area */}
           <button
-            className="checkButton" 
+            className="circle" 
             onClick={() => {
               getCurrentLocation();
             }}
           >
-            <span style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              HELLO
+            <span style={{ display: 'flex', justifyContent: 'center', alignItems: 'center',color: 'red',fontSize:50 ,fontWeight:'bold'}}>
+              HELP!
               </span>
           </button>
+          <div class="circle small"></div>
+          <div class="circle smaller"></div>
     
           {/* Your React component UI goes here */}
           {/* You can render the fetched disaster data, display warnings, etc. */}
