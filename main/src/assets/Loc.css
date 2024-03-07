@@ -39,13 +39,12 @@ background-color: #3498db;
 
 }
 
-
+*/
  @media only screen and (max-width: 600px) {
-  .checkButton {
-    padding: 100% ; 
-    font-size: 14px;
+  .container {
+    margin-top: -15%;
   }
-} */
+} 
 
 .circle {
   width: 300px;
