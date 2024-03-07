@@ -13,7 +13,9 @@ const NavBar = () => {
         <li ><Link to='/'>Home</Link></li>
         <li ><Link to='/loc'>Location</Link></li>
         <li ><Link to='/News'>News</Link></li>
-        {/* Add more links as needed */}
+        <li ><Link to='/Login'>Login</Link></li>
+        
+        
       </ul>
     </nav>
     </div>
