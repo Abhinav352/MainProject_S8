@@ -64,3 +64,15 @@ background-color: #3498db;
   height: 50px;
   background-color: #dcdcdc;
 }
+
+.floating {  
+  animation-name: floating;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+@keyframes floating {
+  0%   { transform: translateZ(0) scale(1); }
+  50%  { transform: translateZ(-5vw) scale(0.9); } 
+  100% { transform: translateZ(0) scale(1); }   
+}
