@@ -125,7 +125,7 @@ const Location = () => {
               getCurrentLocation();
             }}
           >
-            <span style={{ display: 'flex', justifyContent: 'center', alignItems: 'center',color: 'red',fontSize:50 ,fontWeight:'bold'}}>
+            <span style={{ display: 'flex', justifyContent: 'center', alignItems: 'center',color: 'red',fontSize:50 ,fontWeight:'bold'}}className="floating">
               HELP!
               </span>
           </button>
