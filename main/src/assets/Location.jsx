@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Loc.css'
+import './Loc.css';
+
 const Location = () => {
   
         const [userLocation, setUserLocation] = useState({ latitude: '', longitude: '' });
