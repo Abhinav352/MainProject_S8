@@ -19,10 +19,12 @@ import NavBar from './assets/NavBar';
 const App = () => {
  return (
    <div>
+    
      <BrowserRouter>
+     <NavBar />
        <Routes>
-         <Route path='/' element={<Veedu/>} />
-         <Route path='/loc' element={<Location/>} />
+         <Route path='/' element={<Location/>} />
+         <Route path='/loc' element={<Veedu/>} />
          <Route path='/News' element={<NewsComponent/>} />
          <Route path='/Login' element={<Login/>} />
          <Route path='/Sign' element={<SignUp/>} />
@@ -35,7 +37,7 @@ const App = () => {
          <Route path='/Profile' element={<Profile/>} />
          <Route path='/Map/:latitude/:longitude' element={<MyMap/>} />
        </Routes>
-       <NavBar />
+      
      </BrowserRouter>
    </div>
  )
