@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(to right, #642b73, #c6426e);
+  background-image: linear-gradient(-45deg,  #670d10 0%, #092756 100%);
     margin: 0;
     padding: 0;
 }
@@ -74,7 +74,8 @@ background-color: #3498db;
   background-color: #dcdcdc;
 }
 
-.floating {  
+.floating { 
+  text-shadow: 3px px 5px rgba(162, 12, 12, 0.6); 
   animation-name: floating;
   animation-duration: 2s;
   animation-iteration-count: infinite;
