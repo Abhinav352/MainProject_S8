@@ -12,6 +12,7 @@ body {
   justify-content: center;
   align-items: center;
  flex-direction: column;
+ 
 }
 
 
@@ -40,6 +41,14 @@ background-color: #3498db;
 }
 
 */
+@media screen and (min-width: 601px){
+
+  .container{
+    height:120vh;
+  }
+}
+
+
  @media only screen and (max-width: 600px) {
   .container {
     margin-top: -15%;

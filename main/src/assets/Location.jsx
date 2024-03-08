@@ -132,7 +132,7 @@ const Location = () => {
           </button>
           <div class="circle small"></div>
           <div class="circle smaller"></div>
-    
+          
           {/* Your React component UI goes here */}
           {/* You can render the fetched disaster data, display warnings, etc. */}
         </div>
