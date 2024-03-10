@@ -45,13 +45,7 @@ body{
     text-decoration:underline!important;
     
   }
-  .logopic {
-    width: 10%; 
-  height: 4vh; 
-  margin-top: 3vh;
-  margin-right: 2vw;
   
-  }
   
 
 
@@ -74,7 +68,10 @@ body{
     height: 60px; 
     z-index: 1000;
     margin-top: 0.2vh;
-    margin-right: 2vw;
+    left:0;
+    }
+    .logopicmob{
+      display: none;
     }
   } 
   
@@ -102,19 +99,26 @@ body{
       display: none;
       
     }
-  
+    
    
-    .logopic {
+    .logopicmob {
+      position: fixed;
       width: 40%;
       height: auto; 
-      margin-top: 10%;
-      margin-left: 30%;
+      top: 5%;
+      left: 30%;
     }
     a{
       font-size:5vw;
        padding: 1vh 3.5vw;
        
     }
+    .logopic{
+      display: none;
+    }
+    
+  
+
   } 
 
  
