@@ -6,9 +6,10 @@ import 'boxicons';
 const NavBar = () => {
   return (
     <div>
-      <img src="/logo1.svg" alt="log" className="logopic" />
+    <img src="/logo1.svg" alt="log" className="logopicmob" />
+      
     <nav className="navbar">
-    
+    <img src="/logo1.svg" alt="log" className="logopic" />
       <ul >
         <li ><Link to='/'>Home</Link></li>
         <li ><Link to='/loc'>Location</Link></li>
