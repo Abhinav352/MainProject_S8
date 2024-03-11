@@ -53,29 +53,40 @@ const Login = () => {
   };
 
   return (
-    <div className='head'>
+    <div className='wrapper'>
+      <form >
       <h2>Login</h2>
-      <div className="input-Email">
-        <label>Email :</label>
+      <div className="input-field">
+      <label>Enter your email</label>
+      <div></div>
         <input type="email" value={userEmail} onChange={(e) => setEmail(e.target.value)} />
+        
       </div>
-
-      <div className="input-Password">
-        <label>Password :</label>
+      <div className='space'></div>
+      
+      <div className="input-field">
+        
+      <label>Enter Your Password </label>
         <input type="password" value={userPassword} onChange={(e) => setPassword(e.target.value)} />
+       </div>
+       <div>{error && <p style={{ color: 'red' }}>{error}</p>}</div>
+      
+      <div className='forget'>
+        <label for="remember">
+          <input type="checkbox" className='remember' />
+          <p>Remember me</p>
+        </label>
+        <a href="#" className='pass'>Forgot Password?</a>
       </div>
       
-      <div>{error && <p style={{ color: 'red' }}>{error}</p>}</div>
       
-      <div>
-        <button onClick={handleSignIn} disabled={loading}>
-          {loading ? 'Logging In...' : 'Login'}
+        <button onClick={handleSignIn} disabled={loading} className='but'>
+          {loading ? 'Logging In...' : 'Log In'}
         </button>
+        <div className='register'>
+        <p>Don't have an account? <a href="/Sign">Register</a> </p>
       </div>
-
-      <div>
-        <button onClick={handleSignUp}>Sign Up</button>
-      </div>
+      </form>
     </div>
   );
 };

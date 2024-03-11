@@ -1,16 +1,18 @@
 body {
-    background: linear-gradient(to right, #642b73, #c6426e);
-
+  background-image: linear-gradient(-45deg,  #670d10 0%, #092756 100%);
+    margin: 0;
+    padding: 0;
 }
 .container {
  
-  margin-top: 20px;
+  margin-top: 0;
   height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
  flex-direction: column;
+ 
 }
 
 
@@ -38,13 +40,20 @@ background-color: #3498db;
 
 }
 
+*/
+@media screen and (min-width: 601px){
+
+  .container{
+    height:120vh;
+  }
+}
+
 
  @media only screen and (max-width: 600px) {
-  .checkButton {
-    padding: 100% ; 
-    font-size: 14px;
+  .container {
+    margin-top: -15%;
   }
-} */
+} 
 
 .circle {
   width: 300px;
@@ -52,6 +61,14 @@ background-color: #3498db;
   border-radius: 50%;
   background-color: #ffffff;
   margin-bottom: 15px;
+}
+@keyframes circle {
+  0%   { transform: translateZ(0) scale(1); }
+  50%  { transform: translateZ(-5vw) scale(0.9); } 
+  100% { transform: translateZ(0) scale(1); }   
+}
+.circle :hover{
+  animation: circle 2s ease-in-out;
 }
 .circle.small {
   width: 100px;
@@ -65,7 +82,8 @@ background-color: #3498db;
   background-color: #dcdcdc;
 }
 
-.floating {  
+.floating { 
+  text-shadow: 3px px 5px rgba(162, 12, 12, 0.6); 
   animation-name: floating;
   animation-duration: 2s;
   animation-iteration-count: infinite;

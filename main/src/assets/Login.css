@@ -1,53 +1,249 @@
-/* Styles for heading */
-.head {
-    height: 100vh;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
+
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
     width: 100%;
+    padding: 5vw;
+    box-sizing: border-box;
+  }
+
+  form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+      }
 
-/* Styles for input fields */
-.input-Email {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px; /* Add margin between input groups */
-}
-
-.input-Email label {
-    margin-right: 35px; /* Add margin between label and input */
-}
-
-.input-Email input {
-    width: 200px; /* Adjust the width as needed */
-    
-}
-.input-Password {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px; /* Add margin between input groups */
-}
-
-.input-Password label {
-    margin-right: 10px; /* Add margin between label and input */
-}
-
-.input-Password input {
-    width: 200px; /* Adjust the width as needed */
-    
-}
-
-/* Styles for button */
-button {
-    margin-top: 10px; /* Add margin above the button */
-}
-
-/* Media query for smaller screens */
-@media screen and (max-width: 600px) {
-    /* Adjust styles for smaller screens here */
-    .head {
-        margin-left: 5%;
-        margin-right: 5%;
+    .input-field label {
+    position: absolute;
+     color: #fff;
+    pointer-events: none;
     }
+  
+  .input-field input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+      }
+
+  
+  .forget {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    color: #fff;
+  }
+  
+  .remember {
+    accent-color: #fff;
+   
+  }
+  
+  .forget label {
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  
+  .wrapper a {
+
+    color: #efefef;
+    text-decoration: none;
+  }
+  
+  .wrapper a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  
+  .but:hover {
+    color: #fff;
+    background-color: #43b6cd ;
+  }
+  
+  .register {
+    text-align: center;
+    margin-top: 1vh;
+    color: #fff;
+  }
+
+  @media screen and (min-width: 601px){
+    .wrapper {
+    
+      width: 80vw;
+      max-width: 400px;
+      border-radius: 8px;
+      
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(9px);
+      -webkit-backdrop-filter: blur(9px);
+    }
+     body .wrapper{
+        padding: 2vh 2vw;
+        margin-top: 15%;
+        margin-bottom: 5%;
+     }
+     h2 {
+      font-size: 3vw;
+      margin-bottom:10vh;
+      color: #fff;
+    }
+    .input-field {
+      position: relative;
+      border-bottom: 0.2vw solid #ccc;
+     
+      margin: 2vh 2vh ;
+    }
+    .input-field label {
+     bottom:120%;
+     left: 0;
+     font-size:1vw;
+  }
+  .input-field input {
+    height: 3vh;
+    font-size: 1.3vw;
+    padding-bottom: 0.01vh;
+  }
+  .space{
+    padding: 3vh;
+  }
+  .forget {
+    
+    margin: 0.1vw 1vw 2vw 0;
+   
+  }
+  
+  .remember {
+   margin-top: 1vh;
+   margin-left: 1vw;
+  }
+  
+  .forget label p {
+    margin-left: 0.1vw;
+  }
+  .pass{
+    font-size: 1vw;
+  }
+  .but {
+    background-color: #ffff ;
+    color: #000000;
+    font-weight: 700 ;
+    padding: 2vh 2vh ;
+    border: none;
+    margin: 0 auto;
+    width: 80%;
+    
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 1vw;
+    
+    transition: 0.3s ease;
+  }
+ 
+      .register {
+        margin-top: 1vh;
+        text-decoration: none;
+      }
+      .register p{
+        
+        margin-left: 1vw;
+      }
+      .register a{
+        
+        font-size: 1vw;
+    
+      }
+}
+
+
+  /*mobile */
+    @media screen and (max-width: 600px){
+      .wrapper {
+    
+        width: 80vw;
+        max-width: 400px;
+        border-radius: 8px;
+        
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(9px);
+        -webkit-backdrop-filter: blur(9px);
+      }
+      h2 {
+        font-size:10vw;
+        margin-bottom:9vh;
+        color: #fff;
+      }
+      .input-field {
+        position: relative;
+        border-bottom: 0.2vw solid #ccc;
+       
+        margin: 2vh 2vh ;
+      }
+      .input-field label {
+         bottom:130%;
+         left: 0;
+         font-size:5vw;
+  }
+  .input-field input {
+    height: 3vh;
+    font-size: 5vw;
+    padding-bottom: 0.01vh;
+  }
+   .space{
+    padding: 2vw;
+   }
+  .forget {
+    
+    margin: 10vw 0 10vw 0;
+    margin-top: 0%;
+   
+  }
+  .pass{
+    font-size: 4vw;
+  }
+  
+  .remember {
+   margin-top: 1vh;
+  }
+  
+  .forget label p {
+    margin-left: 0.1vw;
+  }
+  .but {
+    background-color: #ffff ;
+    color: #000000;
+    font-weight: 700 ;
+    border: none;
+    margin: 0 auto;
+    width: 80%;
+    padding: 1vh 1vw 2vw 0;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 5vw;
+    border: 0.5vw solid transparent;
+    transition: 0.3s ease;
+  }
+  .register {
+    margin-top: 1vh;
+    text-decoration: none;
+  }
+  .register p{
+    margin-bottom: 10vw;
+    margin-left: 1vw;
+  }
+  .register a{
+    
+    margin-left: -5%;
+    font-size: 4vw;
+
+  }
 }

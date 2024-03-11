@@ -7,6 +7,7 @@ const RequestPage = () => {
   const [itemType, setItemType] = useState('');
   const [quantity, setQuantity] = useState('');
   const username=localStorage.getItem("userName");
+  const email=localStorage.getItem("userEmail")
 
   
   const handleItemTypeChange = (e) => {
@@ -27,6 +28,7 @@ const RequestPage = () => {
         itemType,
         quantity: parseInt(quantity, 10),
         username,
+        email,
       });
 
       console.log('Request submitted successfully');
