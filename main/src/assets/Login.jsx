@@ -43,6 +43,7 @@ const Login = () => {
     } catch (error) {
       setError('Error during login. Please try again.');
       console.error('Error during login:', error);
+      window.alert('Error during login. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -69,7 +70,7 @@ const Login = () => {
       <label>Enter Your Password </label>
         <input type="password" value={userPassword} onChange={(e) => setPassword(e.target.value)} />
        </div>
-       <div>{error && <p style={{ color: 'red' }}>{error}</p>}</div>
+       
       
       <div id='forget'>
         <label for="remember">
