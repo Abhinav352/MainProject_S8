@@ -104,6 +104,7 @@ body{
     .logopicmob {
       position: fixed;
       width: 40%;
+      opacity: 0.8;
       height: auto; 
       top: 5%;
       left: 30%;
