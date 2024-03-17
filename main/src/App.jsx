@@ -16,6 +16,7 @@ import Profile from './assets/Profile';
 import NavBar from './assets/NavBar';
 
 
+
 const App = () => {
  return (
    <div>

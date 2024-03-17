@@ -1,104 +1,224 @@
-.head1 {
-    height: 100vh;
+body {
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
     width: 100%;
+    padding: 5vw;
+    box-sizing: border-box;
+  }
+  form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+      }
 
-/* Styles for input fields */
-.input-email {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px; /* Add margin between input groups */
-}
-
-.input-email label {
-    margin-right: 39px; /* Add margin between label and input */
-}
-
-.input-email input {
-    width: 200px; /* Adjust the width as needed */
-    
-}
-.input-pass {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px; /* Add margin between input groups */
-}
-
-.input-pass label {
-    margin-right: 11px; /* Add margin between label and input */
-}
-
-.input-pass input {
-    width: 200px; /* Adjust the width as needed */
-    
-}
+      
+      #field label {
+        position: relative;
+         color: #fff;
+        pointer-events: none;
+        }
+      
+      #field input {
+      
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #fff;
+          }
+          #bu:hover {
+            color: #fff;
+            background-color: #43b6cd ;
+          }
 
 
-.input-fname {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px; /* Add margin between input groups */
-}
-
-.input-fname label {
-    margin-left: -0.5px;
-    margin-right: 3.8px; /* Add margin between label and input */
-}
-
-.input-fname input {
-    width: 200px; /* Adjust the width as needed */
-    
-}
-
-.input-lname {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px; /* Add margin between input groups */
-}
-
-.input-lname label {
-    margin-left: -0.1px;
-    margin-right: 3.3px; /* Add margin between label and input */
-}
-
-.input-lname input {
-    width: 200px; /* Adjust the width as needed */
-    
-}
-
-.input-user {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px; /* Add margin between input groups */
-    margin-top: 4%;
-}
-
-.input-user label {
-    margin-right: 10px; /* Add margin between label and input */
+@media screen and (min-width: 601px){
+    #wrap {
+        width: 80vw;
+        max-width: 400px;
+        border-radius: 8px;
+       
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0px 4px 10px rgba(230, 224, 224, 0.3);
+        backdrop-filter: blur(9px);
+        -webkit-backdrop-filter: blur(9px);
+    }
+    body #wrap{
+        padding: 2vh 2vw;
+        margin-top: 15%;
+        margin-bottom: 5%;
+     }
+     h2{
+      padding: 2vh 2vh;
+      margin-top: 1vh;
+     }
+     
+     #field {
+        position:relative;
+        
+       
+       padding: 2vh 2vh;
+      }
+      #field label {
+      position: absolute;
+      bottom: 150%;
+       left: 0;
+       font-size:1.2vw;
+    }
    
-}
-
-.input-user input {
-    width: 800px; /* Adjust the width as needed */
     
+    #field input {
+        position: absolute;
+        
+        border-bottom: 0.2vw solid #f7fbfa;
+        margin-top: -14.5%;
+        left: 35%;
+      height: 3vh;
+      font-size: 1.3vw;
+      width: 60%;
+      
+    }
+  #typelabel{
+      position: absolute;
+      font-size: 1.2vw;
+      color: white;
+      left:7%;
+    }
+    div #userTypeSelect{
+      position: relative;
+      background: transparent;
+      height: 3.5vh;
+      margin-top: -15%;
+      margin-left: 30%;
+      width: 60%;
+      font-size: 15px;
+      color: rgb(245, 249, 248);
+      border: 2px solid rgb(176, 180, 180);
+    }
+    div #userTypeSelect option {
+      
+      color: rgb(24, 77, 212);
+      height: 3.5vh;
+      
+      background: transparent;
+    }
+    
+    
+
+    #bu{
+      background-color: #ffff ;
+      color: #000000;
+      font-weight: 700 ;
+      padding: 2vh 2vh ;
+      margin-top: 6vh;
+      margin-bottom: 3vh;
+      border: none;
+      
+      width: 80%;
+      
+      cursor: pointer;
+      border-radius: 20px;
+      font-size: 1vw;
+      
+      transition: 0.3s ease;
+    }
+   
+
 }
 
 
 
-/* Styles for button */
-button {
-    margin-top: 10px; /* Add margin above the button */
-}
+
+
 
 /* Media query for smaller screens */
 @media screen and (max-width: 600px) {
-    /* Adjust styles for smaller screens here */
-    .head1 {
-        margin-left: 5%;
-        margin-right: 5%;
+   
+    #wrap {
+        
+        width: 85vw;
+        max-width: 400px;
+        border-radius: 8px;
+        margin-bottom: 5vh;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0px 4px 10px rgba(230, 224, 224, 0.3);
+        backdrop-filter: blur(9px);
+        -webkit-backdrop-filter: blur(9px);
+      }
+      body #wrap{
+        padding: vh 1vw;
+        margin-top: -8%;
+        margin-bottom: 5%;
+      }
+      h2 {
+        font-size:10vw;
+        margin-bottom:9vh;
+        color: #fff;
+      }
+      #field {
+        position: relative;
+        
+        margin: 2vh 2vh ;
+        margin-top: 0.1vh;
+      }
+      #field label {
+        position: absolute;
+         bottom:130%;
+         left: 0;
+         font-size:5vw;
+  }
+  #field input {
+    position: absolute;
+    border-bottom: 0.2vw solid #f7fbfa;
+    
+    margin-top:-9.5%;
+    height: 3vh;
+    left: 39%;
+    font-size: 5vw;
+    
+    width: 60%;
+    
+  }
+  #space{
+    padding: 8vw;
+  }
+  #typelabel{
+    position: absolute;
+    font-size: 4.8vw;
+    margin-top: 2%;
+    color: white;
+    left: 5%;
+  }
+  div #userTypeSelect{
+    position: relative;
+    background: transparent;
+    height: 3vh;
+    margin-bottom: 5%;
+    bottom: 10%;
+    margin-top: 2.5%;
+    margin-left: 36%;
+    width: 55%;
+    font-size: 15px;
+    color: rgb(245, 249, 248);
+    border: 2px solid rgb(176, 180, 180);
+  }
+   
+  #bu{
+    background-color: #ffff ;
+    color: #000000;
+    font-weight: 700 ;
+    border: none;
+    margin: 2.5vh auto;
+    width: 70%;
+    padding: 1vh 1vw 2vw 0;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 5vw;
+    border: 0.5vw solid transparent;
+    transition: 0.3s ease;
+  }
+  
     }
-}
