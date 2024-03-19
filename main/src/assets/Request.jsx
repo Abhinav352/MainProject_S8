@@ -62,7 +62,7 @@ const RequestPage = () => {
         <div id='gapy'></div>
         <div className='form-group'> 
         <label htmlFor='desc' id='desclabel'>Description</label>
-        <textarea name="desc" id="desc" placeholder='Enter quantity and related info.....' cols={30} rows={13} value={description} onChange={handleDescriptionChange}></textarea>
+        <textarea name="desc" id="desc" placeholder='Enter quantity and related info.....'  value={description} onChange={handleDescriptionChange}></textarea>
         <div id='char-count'>{wordCount} words (Max 50)</div>
         </div>
         <button type="submit" id='subut'>Submit</button>
