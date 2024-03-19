@@ -4,7 +4,7 @@ import axios from 'axios';
 import './Req.css';
 
 const RequestPage = () => {
-  const [itemType, setItemType] = useState('');
+  const [itemType, setItemType] = useState('Medicine');
   const [description, setDescription] = useState('');
   const [wordCount, setWordCount] = useState(0);
   const username=localStorage.getItem("userName");
