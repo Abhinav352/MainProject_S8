@@ -1,57 +1,108 @@
-.head3 {
-    height: 100vh;
+body {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
     width: 100%;
+    padding: 5vw;
+    box-sizing: border-box;
+  }
+  form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+      }
 
-/* Styles for input fields */
-.input-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px; /* Add margin between input groups */
-    margin-top: 10px;
-}
+   #desc{
+    position: relative;
+    background-color: #e4f2f4;
+    border: 1px solid black; 
+  border-radius: 8px; 
+    font-weight: bold;
+    resize: none;
+    color: #0c0c0c;
+   }  
+   #subut:hover {
+    color: #fff;
+    background-color: #9ce2f0 ;
+  } 
+  #char-count{
+    opacity: 0.5;
+  }
 
-.input-item label {
-    margin-right: 8px; /* Add margin between label and input */
-}
+      @media screen and (min-width: 601px){
+        #req-form {
+        
+            width:90vw;
+            max-width: 400px;
+            border-radius: 8px;
+            margin-top: 5vh;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0px 4px 10px rgba(230, 224, 224, 0.3);
+            backdrop-filter: blur(9px);
+            -webkit-backdrop-filter: blur(9px);
+          }
+          #materlabel{
+            position: absolute;
+            font-size: 1.2vw;
+            color: white;
+            left:7%;
+          }
+           #material{
+            position: relative;
+            background: transparent;
+            height: 3.5vh;
+            margin-top: -15%;
+            margin-left: 30%;
+            width: 60%;
+            font-size: 15px;
+            color: rgb(245, 249, 248);
+            border: 2px solid rgb(176, 180, 180);
+          }
+          #material option {
+            
+            color: rgb(24, 206, 212);
+            height: 5vh;
+          }
+          #gapy{
+            padding: 3vh;
+          }
+          #desclabel{
+            position: absolute;
+            font-size: 1.2vw;
+            color: white;
+            bottom: 50%;
+            left:7%;
+          }
+          #desc{
+            left:15%
+          }
 
-.input-item input {
-    width: 200px; /* Adjust the width as needed */
-    
-}
-.input-quantity {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px; /* Add margin between input groups */
-}
 
-.input-quantity label {
-    margin-right: 14.9px; /* Add margin between label and input */
-}
+          #subut{
+            background-color: #ffff ;
+            color: #000000;
+            font-weight: 700 ;
+            padding: 2vh 2vh ;
+            margin-top: 6vh;
+            margin-bottom: 3vh;
+            border: none;
+            text-align: center;
+            margin-left: 17%;
+            width: 70%;
+            
+            cursor: pointer;
+            border-radius: 20px;
+            font-size: 1vw;
+            
+            transition: 0.3s ease;
+          }
+         
+      }
+      
+      /*mobile screen*/
+      
+      @media screen and (max-width: 600px){
 
-.input-quantity input {
-    width: 200px; /* Adjust the width as needed */
-    
-}
-
-.input-sub {
-    margin-left: 65px;
-}
-
-/* Styles for button */
-button {
-    margin-top: 10px; /* Add margin above the button */
-}
-
-/* Media query for smaller screens */
-@media screen and (max-width: 600px) {
-    /* Adjust styles for smaller screens here */
-    .head3 {
-        margin-left: 5%;
-        margin-right: 5%;
-    }
-}
+      }  
