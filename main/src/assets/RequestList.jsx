@@ -47,7 +47,7 @@ const RequestList = () => {
         {requests.map((request) => (
           <li key={request._id}>
             <strong>Item Type:</strong> {request.itemType},{' '}
-            <strong>Quantity:</strong> {request.quantity},{' '}
+            <strong>Description:</strong> {request.description},{' '}
             <strong>Username:</strong> {request.username},{' '}
             <strong>Email:</strong> {request.email}{' '}
             <button onClick={() => handleContactClick(request.email, request.username)}>
