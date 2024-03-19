@@ -15,9 +15,9 @@ body {
 
    #desc{
     position: relative;
-    background-color: #e4f2f4;
+    background-color: #ffffff;
     border: 1px solid black; 
-  border-radius: 8px; 
+    border-radius: 8px; 
     font-weight: bold;
     resize: none;
     color: #0c0c0c;
@@ -29,7 +29,7 @@ body {
   #char-count{
     opacity: 0.5;
   }
-
+ /*desktop */
       @media screen and (min-width: 601px){
         #req-form {
         
@@ -76,7 +76,9 @@ body {
             left:7%;
           }
           #desc{
-            left:15%
+            left:15%;
+            height: 10vw; 
+            width: 15vw; 
           }
 
 
@@ -105,4 +107,55 @@ body {
       
       @media screen and (max-width: 600px){
 
+        #req-form {
+          width: 80vw;
+          max-width: 400px;
+          border-radius: 8px;
+         
+          text-align: center;
+          border: 1px solid rgba(255, 255, 255, 0.5);
+          box-shadow: 0px 4px 10px rgba(230, 224, 224, 0.3);
+          backdrop-filter: blur(9px);
+          -webkit-backdrop-filter: blur(9px);
+      }
+      body #req-form{
+        padding: 2vh 2vw;
+        
+        margin-bottom: 5%;
+     }
+     h2{
+      padding: 2vh 2vh;
+      margin-top: 1vh;
+     }
+    
+    #materlabel{
+      position: absolute;
+      font-size: 4.8vw;
+      margin-top: 2%;
+      color: white;
+      left: 5%;
+    }
+    div #material{
+      position: relative;
+      background: transparent;
+      height: 3vh;
+      margin-bottom: 5%;
+      bottom: 10%;
+      margin-top: 2.5%;
+      margin-left: 36%;
+      width: 55%;
+      font-size: 15px;
+      color: rgb(245, 249, 248);
+      border: 2px solid rgb(176, 180, 180);
+    }
+    #gapy{
+      padding: 8vw;
+    }
+    #desclabel{
+      display: none;
+    }
+    #desc{
+      height: 10vw; 
+            width: 15vw; 
+    }
       }  
