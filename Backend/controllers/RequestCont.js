@@ -2,10 +2,10 @@ const RequestModel = require('../models/Request');
 
 const submitRequest = async (req, res) => {
   try {
-    const { itemType, quantity, username,email } = req.body;
+    const { itemType, description, username,email } = req.body;
 
     // Create a new Request document using the model
-    const newRequest = new RequestModel({ itemType, quantity, username,email });
+    const newRequest = new RequestModel({ itemType, description, username,email });
 
     // Save the document to the database
     await newRequest.save();
