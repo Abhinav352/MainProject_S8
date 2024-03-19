@@ -5,7 +5,8 @@ import './Req.css';
 
 const RequestPage = () => {
   const [itemType, setItemType] = useState('');
-  const [quantity, setQuantity] = useState('');
+  const [description, setDescription] = useState('');
+  const [wordCount, setWordCount] = useState(0);
   const username=localStorage.getItem("userName");
   const email=localStorage.getItem("userEmail")
 
@@ -14,8 +15,14 @@ const RequestPage = () => {
     setItemType(e.target.value);
   };
 
-  const handleQuantityChange = (e) => {
-    setQuantity(e.target.value);
+  const handleDescriptionChange = (e) => {
+   const value = e.target.value;
+   const words = value.trim().split(/\s+/).length;
+   setWordCount(words);
+
+   if(words <= 49){
+    setDescription(value);
+   }
   };
 
 
@@ -26,7 +33,7 @@ const RequestPage = () => {
       // Make a POST request to the backend endpoint
       await axios.post('http://localhost:5000/requests', {
         itemType,
-        quantity: parseInt(quantity, 10),
+        description,
         username,
         email,
       });
@@ -38,24 +45,29 @@ const RequestPage = () => {
   };
 
   return (
-    <div className='head3'>
-      <h2>Request Page</h2>
+       <div id='req-form'>  
+      <h2>Request</h2>
       <form onSubmit={handleRequestSubmit}>
         
-        <div className='input-item'>
-        <label>
-          Item Type :</label>
-          <input type="text" value={itemType} onChange={handleItemTypeChange} />
-        </div>
-        <br />
+        <div className='form-group'>
+        <label htmlFor='material' id='materlabel'>Item Type </label>
+       
+
+        <select name="material" id="material" value={itemType} onChange={handleItemTypeChange} >
+        <option value="Medicine">Medicine</option>
+        <option value="Food">Food</option>
+        <option value="Clothes">Clothes</option>
+        <option value="Others">Others</option>
+        </select>
         
-        <div className='input-quantity'> <label>
-          Quantity :</label>
-          <input type="number" value={quantity} onChange={handleQuantityChange} />
         </div>
-        <br />
-        
-        <div className='input-sub'><button type="submit">Submit Request</button></div>
+        <div id='gapy'></div>
+        <div className='form-group'> 
+        <label htmlFor='desc' id='desclabel'>Description</label>
+        <textarea name="desc" id="desc" placeholder='Enter quantity and related info.....'  value={description} onChange={handleDescriptionChange}></textarea>
+        <div id='char-count'>{wordCount} words (Max 50)</div>
+        </div>
+        <button type="submit" id='subut'>Submit</button>
       </form>
     </div>
   );
