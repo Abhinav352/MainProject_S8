@@ -13,7 +13,7 @@ body{
     z-index: 100;
     padding: 1.5vh 5vw;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    background-color: #645e5e;
+    background-color: #ffffff;
   } 
   
   .mobileonly{
@@ -23,36 +23,37 @@ body{
   ul {
     list-style: none;
     display: flex;
-    justify-content:space-around;
-
-    
     margin: 0;
-    padding: 0;
   }
-  
-  li {
-    margin: 0 30%;
-    padding: 0;
-    
-  }
-  
+ 
   a {
     text-decoration: none;
-    color: rgb(251, 255, 237) !important;
+   
     padding: 1vh 0.1vw;
+   /* Adjust margin as needed */
+   
     font-size: 1.5vw;
     
   }
   a:hover {
-    text-decoration:underline!important;
+    text-decoration:underline;
+    color: rgb(30, 215, 147)!important;
     
   }
-  
-  
+ 
+  #noi{
+    margin-right:20vw ;
+  }
+  .nav-text{
+    color: rgb(229, 25, 25);
+    font-weight: bold;
+  }
 
+  .nav-text:focus{
+    color: rgb(30, 215, 147);
+  }
 
-  
-  
+ 
    @media screen and (min-width: 601px) {
     .navbar {
       position: fixed;
@@ -60,10 +61,11 @@ body{
       left: 0;
       z-index: 10;
     }
-  
-    li {
-      margin-bottom: 0;
+    
+    a{
+      margin-right: 1vw;
     }
+    
     .logopic {
       position: fixed;
       width: 10%; 
