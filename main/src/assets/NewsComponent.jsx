@@ -26,14 +26,14 @@ const NewsComponent = () => {
 
   return (
     <div>
-      <h2>Disaster News</h2>
+      <h2 id='dis'>Disaster News</h2>
       <div className="news-list">
         {news.map((article, index) => (
           <div key={index} className="news-item">
             <h3>{article.title}</h3>
             <p>{article.description}</p>
             <a href={article.url} target="_blank" rel="noopener noreferrer">
-              Read more
+              For more -&gt;
             </a>
           </div>
         ))}
