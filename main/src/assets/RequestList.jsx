@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './NewsComponent.css'
 
 const RequestList = () => {
   const [requests, setRequests] = useState([]);
@@ -43,9 +44,10 @@ const RequestList = () => {
   return (
     <div>
       <h2>Requests List</h2>
+      <div className="news-list">
       <ul>
         {requests.map((request) => (
-          <li key={request._id}>
+          <li key={request._id} className='news-item'>
             <strong>Item Type:</strong> {request.itemType},{' '}
             <strong>Description:</strong> {request.description},{' '}
             <strong>Username:</strong> {request.username},{' '}
@@ -56,6 +58,7 @@ const RequestList = () => {
           </li>
         ))}
       </ul>
+      </div>
     </div>
   );
 };

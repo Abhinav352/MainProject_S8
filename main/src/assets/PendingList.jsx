@@ -35,11 +35,11 @@ const PendingList = () => {
   return (
     <div>
       <h2>Requests List</h2>
-      <ul>
+      <ul className="news-list">
         {requests.map((request) => (
-          <li key={request._id}>
+          <li key={request._id} className='news-item'>
             <strong>Item Type:</strong> {request.itemType},{' '}
-            <strong>Quantity:</strong> {request.quantity},{' '}
+            <strong>Description:</strong> {request.description},{' '}
             <strong>Username:</strong> {request.username},{' '}
             <strong>Email:</strong> {request.email},
             <button onClick={() => handleDeleteRequest(request._id)}>Delete</button>
