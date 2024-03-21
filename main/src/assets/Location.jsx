@@ -15,22 +15,20 @@ const Location = () => {
 
   const fetchAccessToken = async () => {
     try {
-      const response = await fetch('https://keycloak01.kontur.io/auth/realms/kontur/protocol/openid-connect/token', {
-        method: 'POST',
+      const response = await axios.post('https://keycloak01.kontur.io/auth/realms/kontur/protocol/openid-connect/token', new URLSearchParams({
+        client_id: 'kontur_platform',
+        username: 'abhinav0298@gmail.com',
+        password: '0096491UE5nlInx1M5',
+        grant_type: 'password',
+      }), {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: new URLSearchParams({
-          client_id: 'kontur_platform',
-          username: 'abhinav0298@gmail.com',
-          password: '0096491UE5nlInx1M5',
-          grant_type: 'password',
-        }),
       });
 
-      const data = await response.json();
-      setAccessToken(data.access_token);
-      setRefreshToken(data.refresh_token);
+      const { access_token, refresh_token } = response.data;
+      setAccessToken(access_token);
+      setRefreshToken(refresh_token);
     } catch (error) {
       console.error('Error fetching access token:', error.message);
     }
@@ -38,20 +36,18 @@ const Location = () => {
 
   const refreshAccessToken = async () => {
     try {
-      const response = await fetch('https://keycloak01.kontur.io/auth/realms/kontur/protocol/openid-connect/token', {
-        method: 'POST',
+      const response = await axios.post('https://keycloak01.kontur.io/auth/realms/kontur/protocol/openid-connect/token', new URLSearchParams({
+        grant_type: 'refresh_token',
+        refresh_token: refreshToken,
+      }), {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: new URLSearchParams({
-          grant_type: 'refresh_token',
-          refresh_token: refreshToken,
-        }),
       });
 
-      const data = await response.json();
-      setAccessToken(data.access_token);
-      setRefreshToken(data.refresh_token);
+      const { access_token, refresh_token } = response.data;
+      setAccessToken(access_token);
+      setRefreshToken(refresh_token);
     } catch (error) {
       console.error('Error refreshing access token:', error.message);
       // If the refresh token is invalid or expired, fetch a new access token
@@ -65,13 +61,14 @@ const Location = () => {
       currentDate.setDate(currentDate.getDate() - 1); // Subtract one day
       const userDatetime = currentDate.toISOString();
 
-      const response = await fetch(`https://apps.kontur.io/events/v1/?feed=kontur-public&after=${userDatetime}`, {
+      const response = await axios.get(`https://apps.kontur.io/events/v1/?feed=kontur-public&after=${userDatetime}`, {
         headers: {
           'Authorization': `Bearer ${accessToken}`,
           'Content-Type': 'application/json',
         },
       });
-
+      console.log(userDatetime);
+      console.log('Disaster Data Response:', response.data); // Log the response data
       console.log('Response Status:', response.status);
       console.log('Response Headers:', response.headers);
 
@@ -80,10 +77,7 @@ const Location = () => {
         return;
       }
 
-      const data = await response.json();
-      console.log('Response Data:', data);
-
-      setDisasterData(data.data);
+      setDisasterData(response.data.data);
     } catch (error) {
       console.error('Error fetching data:', error.message);
       // If the access token is invalid or expired, fetch a new access token
