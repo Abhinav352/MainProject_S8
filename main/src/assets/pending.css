@@ -1,0 +1,83 @@
+/* Apply styles to the table */
+body{
+    display: flex;
+   
+    
+}
+.table-container{
+  display: flex;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+  height: 100vh;
+  width: 100vw;
+}
+.table-content{
+  position: relative;
+  overflow: auto;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: top;
+  margin-top: 20px;
+  width: 40%;
+  background-color: rgb(241, 241, 241);
+  height: 560px;
+  border-radius: 10px;
+}
+table{
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border-spacing: 0;
+}
+
+tbody tr:nth-child(even){
+  background-color: #ecf3f4;
+}
+
+tr{
+  text-align: center;
+  border-bottom: 0.5px solid rgb(255, 255, 255);
+}
+th{
+  position: sticky;
+  top: 0px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: white;
+  border-bottom: 2px solid #3baeca;
+}
+
+.table-content::-webkit-scrollbar {
+  width: 12px;
+}
+
+.table-content::-webkit-scrollbar-track {
+  background-color: rgb(239, 239, 239);
+  -webkit-box-shadow: 0 0 6px rgba(245, 0, 0, 0.3); 
+  border-radius: 10px;
+}
+
+.table-content::-webkit-scrollbar-thumb {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+
+/*mobile screen */
+
+  @media screen and (max-width: 600px) {
+    .table-content{
+      border: 2px solid grey;
+      border-radius: 10px;
+      width: 80%;
+      overflow: auto;
+    }
+ 
+     th,td{
+      padding: 10px;
+     }
+  }
+

@@ -1,13 +1,13 @@
 body {
-  background-image: linear-gradient(-45deg,  #670d10 0%, #092756 100%);
+
     margin: 0;
     padding: 0;
 }
 .container {
- 
+  background-image: linear-gradient(-45deg,  #670d10 0%, #092756 100%);
   margin-top: 0;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;

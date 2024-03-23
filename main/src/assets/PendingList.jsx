@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './pending.css'
 const PendingList = () => {
   const [requests, setRequests] = useState([]);
   const userType = localStorage.getItem("userType");
@@ -33,21 +34,33 @@ const PendingList = () => {
     }
   };
   return (
-    <div>
-      <h2>Requests List</h2>
-      <ul className="news-list">
+    <div className='table-container' id='table-container'>
+    <div className='table-content'>
+    <table>
+      
+      <thead>
+        
+          <th>Item Type</th>
+          <th>Description</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Actions</th>
+        
+      </thead>
+      <tbody>
         {requests.map((request) => (
-          <li key={request._id} className='news-item'>
-            <strong>Item Type:</strong> {request.itemType},{' '}
-            <strong>Description:</strong> {request.description},{' '}
-            <strong>Username:</strong> {request.username},{' '}
-            <strong>Email:</strong> {request.email},
-            <button onClick={() => handleDeleteRequest(request._id)}>Delete</button>
-
-          </li>
+          <tr key={request._id}>
+            <td>{request.itemType}</td>
+            <td>{request.description}</td>
+            <td>{request.username}</td>
+            <td>{request.email}</td>
+            <td><button id= 'buto' onClick={() => handleDeleteRequest(request._id)}>Delete</button></td>
+          </tr>
         ))}
-      </ul>
-    </div>
+      </tbody>
+    </table>
+  </div>
+  </div>
   );
         
         

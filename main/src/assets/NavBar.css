@@ -7,11 +7,11 @@ body{
  .navbar {
   
     display:flex;
-    justify-content: space-around;
+    justify-content: right;
     align-items: center;
     width: 100%;
     z-index: 100;
-    padding: 1.5vh 5vw;
+    padding: 1.5vh ;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     background-color: #ffffff;
   } 
@@ -26,31 +26,24 @@ body{
     margin: 0;
   }
  
-  a {
-    text-decoration: none;
-   
-    padding: 1vh 0.1vw;
-   /* Adjust margin as needed */
-   
-    font-size: 1.5vw;
-    
-  }
-  a:hover {
-    text-decoration:underline;
-    color: rgb(30, 215, 147)!important;
-    
-  }
- 
-  #noi{
-    margin-right:20vw ;
-  }
-  .nav-text{
-    color: rgb(229, 25, 25);
-    font-weight: bold;
-  }
 
+   
+    
+
+ 
+  
+  .nav-text{
+    color: rgb(118, 113, 113);
+    font-weight: bold;
+    margin-right: 50px;
+    transition: 1s;
+  }
+  .nav-text:hover{
+    text-decoration: none;
+    color: rgb(95, 144, 235);
+  }
   .nav-text:focus{
-    color: rgb(30, 215, 147);
+    color: rgb(29, 125, 229);
   }
 
  
@@ -63,11 +56,12 @@ body{
     }
     
     a{
-      margin-right: 1vw;
+      align-items: right;
     }
     
     .logopic {
       position: fixed;
+      
       width: 10%; 
     height: 60px; 
     z-index: 1000;

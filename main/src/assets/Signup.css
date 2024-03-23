@@ -29,9 +29,9 @@ body {
           }
           #bu:hover {
             color: #fff;
-            background-color: #43b6cd ;
+            background-color: #4a0eb1 ;
           }
-/*mobile screen */
+
 
 @media screen and (min-width: 601px){
     #wrap {
@@ -72,7 +72,7 @@ body {
     #field input {
         position: absolute;
         
-        border-bottom: 0.2vw solid #f7fbfa;
+        border-bottom: 0.2vw solid #ffffff;
         margin-top: -14.5%;
         left: 35%;
       height: 3vh;
@@ -95,7 +95,7 @@ body {
       width: 60%;
       font-size: 15px;
       color: rgb(245, 249, 248);
-      border: 2px solid rgb(176, 180, 180);
+      border: 2px solid rgb(255, 255, 255);
     }
     div #userTypeSelect option {
       
@@ -203,7 +203,7 @@ body {
     width: 55%;
     font-size: 15px;
     color: rgb(245, 249, 248);
-    border: 2px solid rgb(176, 180, 180);
+    border: 2px solid rgb(252, 254, 254);
   }
    
   #bu{
