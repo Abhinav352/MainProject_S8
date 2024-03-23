@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import NavBar from './NavBar';
+import { authContext } from '../App';
 
 
 const Login = () => {
@@ -12,12 +13,12 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  const [authenticated, setauthenticated] = useState(null);
+  const [authState,setAuthState]= useContext(authContext);
 
-  useEffect(() => {
-    const loggedInUser = localStorage.getItem("authenticated");
-    setauthenticated(loggedInUser);
-  }, []);
+  // useEffect(() => {
+  //   const loggedInUser = JSON.parse(localStorage.getItem("authenticated"));
+  //   setAuthState(loggedInUser);
+  // }, []);
 
   const handleSignIn = async () => {
     try {
@@ -30,6 +31,7 @@ const Login = () => {
 
       const data = response.data;
       localStorage.setItem('authenticated', true);
+      setAuthState(true);
       localStorage.setItem('user', JSON.stringify(data.user));
       localStorage.setItem('token', JSON.stringify(data.token));
       localStorage.setItem('users', JSON.stringify(data.user._id));

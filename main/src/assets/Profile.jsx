@@ -1,10 +1,13 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { authContext } from '../App';
+
 
 const Profile = () => {
   const [userProfile, setUserProfile] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [authState,setAuthState] = useContext(authContext);
   const navigate = useNavigate();
 
   const fetchProfileData = useCallback(async () => {
@@ -32,6 +35,7 @@ const Profile = () => {
   const handleLogout = ()=>{
     localStorage.clear()
     localStorage.setItem ("authenticated",false)
+    setAuthState(false)
     navigate(`/Login`)
   }
   const handleUpload = async () => {
