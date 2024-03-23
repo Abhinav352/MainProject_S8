@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
   const [userProfile, setUserProfile] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
+  const navigate = useNavigate();
 
   const fetchProfileData = useCallback(async () => {
     try {
@@ -27,6 +29,11 @@ const Profile = () => {
     setSelectedFile(file);
   };
 
+  const handleLogout = ()=>{
+    localStorage.clear()
+    localStorage.setItem ("authenticated",false)
+    navigate(`/Login`)
+  }
   const handleUpload = async () => {
     try {
       const formData = new FormData();
@@ -72,6 +79,7 @@ const Profile = () => {
       ) : (
         <p>Loading user profile...</p>
       )}
+      <button onClick={handleLogout}>LogOut</button>
     </div>
   );
 };

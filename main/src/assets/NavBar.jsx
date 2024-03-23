@@ -4,6 +4,14 @@ import './NavBar.css'; // Import CSS file for styling
 import 'boxicons';
 
 const NavBar = () => {
+  const isauthenticated= localStorage.getItem("authenticated");
+  console.log(isauthenticated)
+  if(!isauthenticated)
+  {
+    console.log("nothing");
+    return console.log("nothing");
+  }
+  else{
   return (
     <div>
     <img src="/logo1.svg" alt="log" className="logopicmob" />
@@ -27,6 +35,5 @@ const NavBar = () => {
     </nav>
     </div>
   );
-}
-
+}}
 export default NavBar;

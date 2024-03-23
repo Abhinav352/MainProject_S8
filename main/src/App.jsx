@@ -18,6 +18,8 @@ import NavBar from './assets/NavBar';
 
 
 const App = () => {
+  const isauthenticated = localStorage.getItem("authenticated");
+  console.log(isauthenticated);
  return (
    <div>
     
