@@ -1,15 +1,21 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link,useLocation } from 'react-router-dom';
 import './NavBar.css'; // Import CSS file for styling
 import 'boxicons';
 
 const NavBar = () => {
-  const isauthenticated= localStorage.getItem("authenticated");
-  console.log(isauthenticated)
+  const [isauthenticated, setauthenticated] = useState(null);
+  const location = useLocation();
+  
+  useEffect(() => {
+    const loggedInUser  = JSON.parse(localStorage.getItem("authenticated"));
+    setauthenticated(loggedInUser);
+  }, [location]);
+
   if(!isauthenticated)
   {
     console.log("nothing");
-    return console.log("nothing");
+    return null;
   }
   else{
   return (

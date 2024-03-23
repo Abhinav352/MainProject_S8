@@ -15,35 +15,29 @@ import MessageList from './assets/MessageList';
 import Profile from './assets/Profile';
 import NavBar from './assets/NavBar';
 
-
-
 const App = () => {
-  const isauthenticated = localStorage.getItem("authenticated");
-  console.log(isauthenticated);
- return (
-   <div>
-    
-     <BrowserRouter>
-     <NavBar />
-       <Routes>
-         <Route path='/' element={<Location/>} />
-         <Route path='/loc' element={<Veedu/>} />
-         <Route path='/News' element={<NewsComponent/>} />
-         <Route path='/Login' element={<Login/>} />
-         <Route path='/Sign' element={<SignUp/>} />
-         <Route path='/Req' element={<Request/>} />
-         <Route path="/chat/:roomId" element={<Chat />} />
-        <Route path="/messages" element={<MessageList />} />
-         <Route path='/List' element={<RequestList/>} />
-         <Route path='/Pending' element={<PendingList/>} />
-         <Route path='/Emergency' element={<Emergency/>} />
-         <Route path='/Profile' element={<Profile/>} />
-         <Route path='/Map/:latitude/:longitude' element={<MyMap/>} />
-       </Routes>
-      
-     </BrowserRouter>
-   </div>
- )
-}
+  return (
+    <div>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<Location />} />
+          <Route path='/loc' element={<Veedu />} />
+          <Route path='/News' element={<NewsComponent />} />
+          <Route path='/Login' element={<Login />} />
+          <Route path='/Sign' element={<SignUp />} />
+          <Route path='/Req' element={<Request />} />
+          <Route path="/chat/:roomId" element={<Chat />} />
+          <Route path="/messages" element={<MessageList />} />
+          <Route path='/List' element={<RequestList />} />
+          <Route path='/Pending' element={<PendingList />} />
+          <Route path='/Emergency' element={<Emergency />} />
+          <Route path='/Profile' element={<Profile />} />
+          <Route path='/Map/:latitude/:longitude' element={<MyMap />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
+};
 
 export default App;

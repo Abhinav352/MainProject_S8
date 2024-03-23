@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
+import NavBar from './NavBar';
+
 
 const Login = () => {
+
   const [userEmail, setEmail] = useState('');
   const [userPassword, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -54,6 +57,7 @@ const Login = () => {
   };
 
   return (
+    
     <div id='wrapper'>
       <form >
       <h2>Login</h2>
