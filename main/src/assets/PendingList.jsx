@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './pending.css'
+import { authContext } from '../App';
+import { useContext } from 'react';
 const PendingList = () => {
   const [requests, setRequests] = useState([]);
   const userType = localStorage.getItem("userType");
   const navigate = useNavigate();
   const email = localStorage.getItem("userEmail");
+  const [authState,setAuthState] = useContext(authContext);
 
   useEffect(() => {
     // Fetch requests from the backend when the component mounts
@@ -33,6 +36,8 @@ const PendingList = () => {
       console.error('Error deleting request:', error.message);
     }
   };
+  if(authState)
+  {
   return (
     <div className='table-container' id='table-container'>
     <div className='table-content'>
@@ -52,8 +57,8 @@ const PendingList = () => {
           <tr key={request._id}>
             <td>{request.itemType}</td>
             <td>{request.description}</td>
-            <td>{request.username}</td>
-            <td>{request.email}</td>
+            <td>{JSON.parse(request.username)}</td>
+            <td>{JSON.parse(request.email)}</td>
             <td><button id= 'buto' onClick={() => handleDeleteRequest(request._id)}>Delete</button></td>
           </tr>
         ))}
@@ -62,7 +67,10 @@ const PendingList = () => {
   </div>
   </div>
   );
-        
+        }
+ else{
+  return(navigate(`/Login`))
+ }           
         
 };
 

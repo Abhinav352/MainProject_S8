@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Loc.css';
+import { useNavigate } from 'react-router-dom';
 
 const Location = () => {
   const [userLocation, setUserLocation] = useState({ latitude: '', longitude: '' });
@@ -164,7 +165,6 @@ const Location = () => {
       checkIfUserInAnyDisasterArea();
     }
   }, [userLocation]);
-
   return (
     <div className="container">
       {/* Button to get current location and check if in disaster area */}

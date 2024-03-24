@@ -9,10 +9,10 @@ const NavBar = () => {
   const location = useLocation();
   const [authState,setAuthState] = useContext(authContext);
   console.log(authState);
-  // useEffect(() => {
-  //   const loggedInUser  = JSON.parse(localStorage.getItem("authenticated"));
-  //   setauthenticated(loggedInUser);
-  // }, []);
+  useEffect(() => {
+    const loggedInUser  = JSON.parse(localStorage.getItem("authenticated"));
+    setAuthState(loggedInUser);
+  }, []);
 
   if(!authState)
   {
