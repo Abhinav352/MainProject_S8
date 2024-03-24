@@ -25,7 +25,8 @@ const NewsComponent = () => {
   }, []);
 
   return (
-    <div>
+    <div className='newsback'>
+      <div id='posi'>
       <h2 id='dis'>Disaster News</h2>
       <div className="news-list">
         {news.map((article, index) => (
@@ -37,6 +38,7 @@ const NewsComponent = () => {
             </a>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );
