@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useContext } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Navigate } from 'react-router-dom';
 import { authContext } from '../App';
 
 
@@ -89,7 +89,8 @@ if(authState)
   );
 }
 else{
-  return(navigate(`/Login`))
+  return(<Navigate to='/Login'/>)
+
 }
 };
 

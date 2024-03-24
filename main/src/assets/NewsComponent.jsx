@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './NewsComponent.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Navigate } from 'react-router-dom';
 import { authContext } from '../App';
 import { useContext } from 'react';
 const NewsComponent = () => {
@@ -46,7 +46,8 @@ if(authState)
   );
 }
 else{
-  return(navigate(`/Login`));
+  return(<Navigate to='/Login'/>)
+
 }
 };
 

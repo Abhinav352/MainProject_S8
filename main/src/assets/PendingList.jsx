@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Navigate } from 'react-router-dom';
 import './pending.css'
 import { authContext } from '../App';
 import { useContext } from 'react';
@@ -44,13 +44,13 @@ const PendingList = () => {
     <table>
       
       <thead>
-        
+        <tr>
           <th>Item Type</th>
           <th>Description</th>
           <th>Username</th>
           <th>Email</th>
           <th>Actions</th>
-        
+          </tr>
       </thead>
       <tbody>
         {requests.map((request) => (
@@ -69,7 +69,7 @@ const PendingList = () => {
   );
         }
  else{
-  return(navigate(`/Login`))
+  return(<Navigate to='/Login'/>)
  }           
         
 };
