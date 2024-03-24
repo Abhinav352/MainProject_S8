@@ -1,7 +1,7 @@
 // Import necessary modules
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Navigate } from 'react-router-dom';
 import './NewsComponent.css'
 import { authContext } from '../App';
 import { useContext } from 'react';
@@ -10,6 +10,7 @@ const RequestList = () => {
   const [requests, setRequests] = useState([]);
   const navigate = useNavigate();
   const [authState,setAuthState] = useContext(authContext);
+  const userType=localStorage.getItem("userType");
 
   useEffect(() => {
     const fetchRequests = async () => {
@@ -45,6 +46,8 @@ const RequestList = () => {
   };
 if(authState)
 {
+  if(userType=="volunteer")
+  {
   return (
     <div>
       <h2>Requests List</h2>
@@ -67,7 +70,12 @@ if(authState)
   );
 }
 else{
-  return(navigate(`/Login`));
+  return(<Navigate to='/'/>)
+  ;
+}
+}
+else{
+  return(<Navigate to='/Login'/>)
 }
 };
 

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Req.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Navigate } from 'react-router-dom';
 import { authContext } from '../App';
 import { useContext } from 'react';
 
@@ -82,7 +82,8 @@ if(authState)
   );
 }
 else{
-  return(navigate(`/Login`))
+  return(<Navigate to='/Login'/>)
+
 }
 };
 
