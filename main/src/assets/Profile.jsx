@@ -52,7 +52,8 @@ const Profile = () => {
       console.error('Error uploading profile picture:', error);
     }
   };
-
+if(authState)
+{
   return (
     <div>
       <h2>User Profile</h2>
@@ -86,6 +87,10 @@ const Profile = () => {
       <button onClick={handleLogout}>LogOut</button>
     </div>
   );
+}
+else{
+  return(navigate(`/Login`))
+}
 };
 
 export default Profile;

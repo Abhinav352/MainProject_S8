@@ -3,10 +3,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './NewsComponent.css'
+import { authContext } from '../App';
+import { useContext } from 'react';
 
 const RequestList = () => {
   const [requests, setRequests] = useState([]);
   const navigate = useNavigate();
+  const [authState,setAuthState] = useContext(authContext);
 
   useEffect(() => {
     const fetchRequests = async () => {
@@ -40,7 +43,8 @@ const RequestList = () => {
       console.error('Error navigating to chat room:', error.message);
     }
   };
-
+if(authState)
+{
   return (
     <div>
       <h2>Requests List</h2>
@@ -61,6 +65,10 @@ const RequestList = () => {
       </div>
     </div>
   );
+}
+else{
+  return(navigate(`/Login`));
+}
 };
 
 export default RequestList;

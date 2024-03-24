@@ -2,13 +2,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Req.css';
+import { useNavigate } from 'react-router-dom';
+import { authContext } from '../App';
+import { useContext } from 'react';
 
 const RequestPage = () => {
   const [itemType, setItemType] = useState('Medicine');
   const [description, setDescription] = useState('');
   const [wordCount, setWordCount] = useState(0);
   const username=localStorage.getItem("userName");
-  const email=localStorage.getItem("userEmail")
+  const email=localStorage.getItem("userEmail");
+  const [authState,setAuthState] = useContext(authContext);
+  const navigate = useNavigate();
 
   
   const handleItemTypeChange = (e) => {
@@ -43,7 +48,8 @@ const RequestPage = () => {
       console.error('Error submitting request:', error.message);
     }
   };
-
+if(authState)
+{
   return (
        <div id='req-form'>  
       <h2>Request</h2>
@@ -71,6 +77,10 @@ const RequestPage = () => {
       </form>
     </div>
   );
+}
+else{
+  return(navigate(`/Login`))
+}
 };
 
 export default RequestPage;

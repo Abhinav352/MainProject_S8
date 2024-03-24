@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './NewsComponent.css';
-
+import { useNavigate } from 'react-router-dom';
+import { authContext } from '../App';
+import { useContext } from 'react';
 const NewsComponent = () => {
   const [news, setNews] = useState([]);
-
+  const [authState,setAuthState] = useContext(authContext);
+  const navigate = useNavigate();
   useEffect(() => {
     const apiKey = '38655dcf36c84609b9ce91bf0574fe05'; // Replace with your News API key
     const pageSize = 10; // Number of articles per page
@@ -23,7 +26,8 @@ const NewsComponent = () => {
         console.error('Error fetching news:', error);
       });
   }, []);
-
+if(authState)
+{
   return (
     <div className='newsback'>
       <div id='posi'>
@@ -42,6 +46,10 @@ const NewsComponent = () => {
       </div>
     </div>
   );
+}
+else{
+  return(navigate(`/Login`));
+}
 };
 
 export default NewsComponent;
