@@ -3,10 +3,14 @@ body {
     position: fixed;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    width: 100%;
+    
     padding: 5vw;
     box-sizing: border-box;
+  }
+  .reqback{
+    background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
+    width:100vw;
+    height:100vh;
   }
   form {
     display: flex;
@@ -24,10 +28,10 @@ body {
    }  
    #subut:hover {
     color: #fff;
-    background-color: #9ce2f0 ;
+    background-color: #08e08d ;
   } 
   #char-count{
-    opacity: 0.5;
+    opacity: 0.7;
   }
  /*desktop */
       @media screen and (min-width: 601px){
@@ -41,9 +45,10 @@ body {
             width:90vw;
             max-width: 400px;
             border-radius: 8px;
-            margin-top: 5vh;
+            margin-top: 3vh;
+            margin-left: 35%;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            border: 1px solid rgb(255, 255, 255);
             box-shadow: 0px 4px 10px rgba(230, 224, 224, 0.3);
             backdrop-filter: blur(9px);
             -webkit-backdrop-filter: blur(9px);
@@ -63,7 +68,7 @@ body {
             width: 60%;
             font-size: 15px;
             color: rgb(245, 249, 248);
-            border: 2px solid rgb(176, 180, 180);
+            border: 2px solid rgb(255, 255, 255);
           }
           #material option {
             
@@ -129,7 +134,8 @@ body {
       }
       body #req-form{
         padding: 2vh 2vw;
-        margin-top: -3%;
+        margin-top: 15%;
+        margin-left: 7.5%;
         margin-bottom: 5%;
      }
      h2{

@@ -53,6 +53,8 @@ const SignUp = () => {
 
 
   return (
+    <div className='signback'>
+      <div className='anch'></div>
     <div id='wrap'>
       <form>
       <h2>Sign Up</h2>
@@ -95,6 +97,8 @@ const SignUp = () => {
       
     
     </form>
+    </div>
+    
     </div>
   );
 };

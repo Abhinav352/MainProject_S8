@@ -51,8 +51,10 @@ const RequestPage = () => {
 if(authState)
 {
   return (
+    <div className='reqback'>
+      <div className='anch'></div>
        <div id='req-form'>  
-      <h2>Request</h2>
+      <h2>Get Help! </h2>
       <form onSubmit={handleRequestSubmit}>
         
         <div className='form-group'>
@@ -75,6 +77,7 @@ if(authState)
         </div>
         <button type="submit" id='subut'>Submit</button>
       </form>
+    </div>
     </div>
   );
 }

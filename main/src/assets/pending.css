@@ -26,7 +26,7 @@ body{
   border-radius: 10px;
 }
 table{
-  background-color: white;
+  background-color: rgb(252, 252, 252);
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -46,7 +46,7 @@ th{
   top: 0px;
   padding-top: 15px;
   padding-bottom: 15px;
-  background-color: white;
+  background-color: rgb(166, 192, 249);
   border-bottom: 2px solid #3baeca;
 }
 
@@ -63,6 +63,15 @@ th{
 .table-content::-webkit-scrollbar-thumb {
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
+}
+#buto{
+  
+  background-color: #FF003F;
+   
+}
+#buto:hover{
+  
+  background-color: #EF0107;
 }
 
 

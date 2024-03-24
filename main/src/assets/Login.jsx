@@ -60,6 +60,7 @@ const Login = () => {
 
   return (
     <div className='backg'>
+      <div className='anch'></div>
     <div id='wrapper'>
       <form >
       <h2>Login</h2>
