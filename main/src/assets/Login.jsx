@@ -59,7 +59,7 @@ const Login = () => {
   };
 
   return (
-    
+    <div className='backg'>
     <div id='wrapper'>
       <form >
       <h2>Login</h2>
@@ -94,6 +94,7 @@ const Login = () => {
         <p>Don't have an account? <a href="/Sign">Register</a> </p>
       </div>
       </form>
+    </div>
     </div>
   );
 };
