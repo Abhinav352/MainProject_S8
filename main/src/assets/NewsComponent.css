@@ -4,10 +4,13 @@ body{
 
 .newsback{
   
-  background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
+ background-color: #ffffff;
  height: 100vh;
   
   width:100vw;
+}
+.def{
+  color: #6b6363;
 }
 
 
@@ -15,12 +18,12 @@ body{
     display: flex;
     flex-wrap: wrap; 
     overflow-y: auto;
-    
+    color: black;
   }
   
   
   .news-list::-webkit-scrollbar-thumb {
-    background-color: #ffffff;
+    background-color: #b4afaf;
     
   }
   .news-list::-webkit-scrollbar-thumb:hover {
@@ -36,6 +39,9 @@ body{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
+  #dis{
+    color: #ff3c00;
+  }
   
   
   .news-item a {
@@ -91,8 +97,8 @@ body{
 
   @media screen and (max-width: 600px) {
     #dis{
-      margin-top: 20%;
-     margin-left: 10%;
+      margin-top: 30%;
+     margin-left: 13%;
     }
    
     #posi{

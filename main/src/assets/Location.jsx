@@ -166,24 +166,25 @@ const Location = () => {
     }
   }, [userLocation]);
   return (
-    <div className="container">
+    <div className='whole'>
+    <div className="sos-container">
+      
       {/* Button to get current location and check if in disaster area */}
+      <div class="outer-circle"></div>
+  <div class="inner-circle"></div>
       <button
-        className="circle"
+        className="sos-button"
         onClick={() => {
           getCurrentLocation();
         }}
       >
         <span style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'red', fontSize: 50, fontWeight: 'bold' }} className="floating">
-          HELP!
+          SOS
         </span>
       </button>
-      <div className="circle small"></div>
-      <div className="circle smaller"></div>
-
-      {/* Your React component UI goes here */}
-      {/* You can render the fetched disaster data, display warnings, etc. */}
-    </div>
+      </div>
+      </div>
+    
   );
 };
 

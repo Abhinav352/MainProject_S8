@@ -9,7 +9,7 @@ body{
   color: black;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+background-color: #bbded6;
   height: 100vh;
   width: 100vw;
 }

@@ -3,84 +3,98 @@ body {
     margin: 0;
     padding: 0;
 }
-.container {
-  background-image: linear-gradient(-45deg,  #670d10 0%, #092756 100%);
-  margin-top: 0;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
- flex-direction: column;
- 
+.whole{
+  background-color: rgb(255, 255, 255);
+  height:100vh;
+  width:100vw;
+}
+.sos-container {
+  position: relative;
+  bottom: -30%;
+  left: 30%;
+  width: 200px; /* Adjust the size as needed */
+  height: 200px;
 }
 
-
-
-/*
-.checkButton {
-   border-radius: 50%;
-  padding: 100% ; 
-  font-size: 16px;
-  cursor: pointer;
-  width: 70%;
-  max-width: 300px;
-  background-color: #3498db;
-  color: #fff;
-  border: none;
+.outer-circle,
+.inner-circle {
+  position: absolute;
   
-  
-   
- width: 20%;
-padding: 20%;
-border-radius: 100%;
-border: none;
-background-color: #3498db;
-  color: #fff;
-
-}
-
-*/
-@media screen and (min-width: 601px){
-
-  .container{
-    height:120vh;
-  }
-}
-
-
- @media only screen and (max-width: 600px) {
-  .container {
-    margin-top: -15%;
-  }
-} 
-
-.circle {
-  width: 300px;
-  height: 300px;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 80%;
   border-radius: 50%;
-  background-color: #ffffff;
-  margin-bottom: 15px;
+  opacity: 0;
+  animation: ripple 1s infinite;
 }
-@keyframes circle {
-  0%   { transform: translateZ(0) scale(1); }
-  50%  { transform: translateZ(-5vw) scale(0.9); } 
-  100% { transform: translateZ(0) scale(1); }   
+
+.outer-circle {
+  background-color: rgba(251, 14, 14, 0.3);
+  animation-delay: 1s;
 }
-.circle :hover{
-  animation: circle 2s ease-in-out;
+
+.inner-circle {
+  background-color: rgba(242, 19, 19, 0.5);
+  animation-delay: 0.5s;
 }
-.circle.small {
+
+.sos-button {
+  position: absolute;
+  top: 40%;
+  left: 40%;
   width: 100px;
   height: 100px;
-  background-color: #f7f2f2;
+  margin-bottom: 15px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  
+  
+  background-color: transparent;
+
+  
+  cursor: pointer;
+}
+.sos-button:hover{
+  border-color: transparent;
 }
 
-.circle.smaller {
-  width: 50px;
-  height: 50px;
-  background-color: #dcdcdc;
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
 }
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+  .sos-container {
+    width: 250px;
+    height: 250px;
+    margin-left: -20px;
+    padding: 2vw;
+  }
+
+  .sos-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+
+
+
+
+
+
+
+ 
+
+
 
 .floating { 
   text-shadow: 3px px 5px rgba(162, 12, 12, 0.6); 

@@ -22,7 +22,7 @@ const NavBar = () => {
   else{
   return (
     <div>
-    <img src="/logo1.svg" alt="log" className="logopicmob" />
+    <img src="/logo-black.svg" alt="log" className="logopicmob" />
       
     <nav className="navbar">
     <img src="/logo-black.svg" alt="log" className="logopic" />

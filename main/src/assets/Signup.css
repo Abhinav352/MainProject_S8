@@ -4,7 +4,7 @@ body {
     box-sizing: border-box;
   }
   .signback{
-    background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
+    background-color: #288fb4;
     width: 100vw;
     height: 100vh;
   
@@ -34,7 +34,7 @@ body {
           }
           #bu:hover {
             color: #fff;
-            background-color: #17d5cf  ;
+            background-color: #174cc0  ;
           }
 
 
