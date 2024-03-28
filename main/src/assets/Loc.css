@@ -4,7 +4,7 @@ body {
     padding: 0;
 }
 .whole{
-  background-color: rgb(255, 255, 255);
+  background-image: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
   height:100vh;
   width:100vw;
 }
@@ -12,49 +12,10 @@ body {
   position: relative;
   bottom: -30%;
   left: 30%;
-  width: 200px; /* Adjust the size as needed */
-  height: 200px;
+  width: 250px; 
+  height: 250px;
 }
 
-.outer-circle,
-.inner-circle {
-  position: absolute;
-  
-  top: 0;
-  left: 0;
-  width: 80%;
-  height: 80%;
-  border-radius: 50%;
-  opacity: 0;
-  animation: ripple 1s infinite;
-}
-
-.outer-circle {
-  background-color: rgba(251, 14, 14, 0.3);
-  animation-delay: 1s;
-}
-
-.inner-circle {
-  background-color: rgba(242, 19, 19, 0.5);
-  animation-delay: 0.5s;
-}
-
-.sos-button {
-  position: absolute;
-  top: 40%;
-  left: 40%;
-  width: 100px;
-  height: 100px;
-  margin-bottom: 15px;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  
-  
-  background-color: transparent;
-
-  
-  cursor: pointer;
-}
 .sos-button:hover{
   border-color: transparent;
 }
@@ -70,19 +31,58 @@ body {
   }
 }
 
-/* Media query for smaller screens */
-@media (max-width: 600px) {
-  .sos-container {
+  .outer-circle,
+  .inner-circle {
+    position: absolute;
+    
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    opacity: 0;
+    animation: ripple 1s infinite;
+  }
+  .outer-circle {
+    background-color: rgba(251, 14, 14, 0.3);
+    animation-delay: 0.75s;
+  }
+  
+  .inner-circle {
+    background-color: rgba(242, 19, 19, 0.5);
+    animation-delay: 1s;
+  }
+  .sos-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 250px;
     height: 250px;
-    margin-left: -20px;
-    padding: 2vw;
+    margin-bottom: 15px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    
+    
+    background-color: rgb(243, 56, 56);
+  
+    
+    cursor: pointer;
   }
 
-  .sos-button {
-    font-size: 14px;
-    padding: 8px 16px;
+
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+
+  .sos-container {
+    position: relative;
+    bottom: -30%;
+    left: 20%;
+    width: 250px; /* Adjust the size as needed */
+    height: 250px;
   }
+
+
 }
 
 
@@ -96,15 +96,3 @@ body {
 
 
 
-.floating { 
-  text-shadow: 3px px 5px rgba(162, 12, 12, 0.6); 
-  animation-name: floating;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-}
-@keyframes floating {
-  0%   { transform: translateZ(0) scale(1); }
-  50%  { transform: translateZ(-5vw) scale(0.9); } 
-  100% { transform: translateZ(0) scale(1); }   
-}

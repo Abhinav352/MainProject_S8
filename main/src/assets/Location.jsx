@@ -170,15 +170,15 @@ const Location = () => {
     <div className="sos-container">
       
       {/* Button to get current location and check if in disaster area */}
-      <div class="outer-circle"></div>
-  <div class="inner-circle"></div>
+      <div className="outer-circle"></div>
+  <div className="inner-circle"></div>
       <button
         className="sos-button"
         onClick={() => {
           getCurrentLocation();
         }}
       >
-        <span style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'red', fontSize: 50, fontWeight: 'bold' }} className="floating">
+        <span style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: 50, fontWeight: 'bold',color:'white' }} >
           SOS
         </span>
       </button>

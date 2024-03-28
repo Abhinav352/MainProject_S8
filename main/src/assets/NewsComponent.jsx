@@ -28,7 +28,6 @@ const NewsComponent = () => {
         console.error('Error fetching news:', error);
       });
   }, [currentPage]);
-
   const handleNextPage = () => {
     setCurrentPage(currentPage + 1);
   };
@@ -38,35 +37,38 @@ const NewsComponent = () => {
       setCurrentPage(currentPage - 1);
     }
   };
-
-  if (authState) {
-    return (
-      <div className='newsback'>
-        <div id='posi'>
-          <h2 id='dis'>Disaster News</h2>
-          <div className="news-list">
-            {news.map((article, index) => (
-              <div key={index} className="news-item">
-                <h3>{article.title}</h3>
-                <p>{article.description}</p>
-                <a href={article.url} target="_blank" rel="noopener noreferrer">
-                  For more -&gt;
-                </a>
-              </div>
-            ))}
-            <div className="pagination">
+if(authState)
+{
+  return (
+    <div className='newsback'>
+      <div id='posi'>
+      <h2 id='dis'>Disaster News</h2>
+      <div className="news-list">
+        {news.map((article, index) => (
+          <div key={index} className="news-item">
+            <h3>{article.title}</h3>
+            <p className='def'>{article.description}</p>
+            <a href={article.url} target="_blank" rel="noopener noreferrer">
+              For more -&gt;
+            </a>
+          </div>
+        ))} 
+        <div className="pagination">
               <button onClick={handlePrevPage} disabled={currentPage === 1}>
                 Previous Page
               </button>
               <button onClick={handleNextPage}>Next Page</button>
             </div>
-          </div>
-        </div>
       </div>
-    );
-  } else {
-    return <Navigate to='/Login' />;
-  }
+      </div>
+    </div>
+  );
+}
+else{
+  return(<Navigate to='/Login'/>)
+
+ 
+}
 };
 
 export default NewsComponent;
