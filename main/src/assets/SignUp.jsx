@@ -1,4 +1,4 @@
-// SignUp.js
+
 import React, { useState } from 'react';
 import './Signup.css';
 import { Navigate } from 'react-router-dom';
@@ -14,6 +14,7 @@ const SignUp = () => {
   const [error, setError] = useState(null);
   const [userType, setUserType] = useState('non-volunteer');
   const theme = useTheme();
+  const [emailExists, setEmailExists] = useState(null);
 
   const handleUserTypeChange = (event) => {
     setUserType(event.target.value);
@@ -47,7 +48,15 @@ const SignUp = () => {
       setLoading(false);
     }
   };
-
+  const checkEmailExists = async (email) => {
+    try {
+      const response = await fetch(`http://localhost:5000/check-email?email=${email}`);
+      const data = await response.json();
+      setEmailExists(data.exists);
+    } catch (error) {
+      console.error('Error checking email:', error);
+    }
+  };
  
 
 
@@ -59,13 +68,22 @@ const SignUp = () => {
       <form>
       <h2>Sign Up</h2>
      
-     <div id='field'>
-      <label>Email </label>
-     
-        <input type="email" value={userEmail} onChange={(e) => setEmail(e.target.value)} />
-      </div>
-      <div id='space'></div>
-
+      <div id='field'>
+  <label>Email </label>
+  <input
+    type="email"
+    value={userEmail}
+    onChange={(e) => {
+      setEmail(e.target.value);
+      checkEmailExists(e.target.value);
+    }}
+  />
+  {emailExists !== null && (
+    <span style={{ color: emailExists ? 'red' : 'green' }}>
+      {emailExists ? 'Email already exists' : 'Email is available'}
+    </span>
+  )}
+</div>
       <div id='field'>
       <label>Password  </label>
         <input type="password" value={userPassword} onChange={(e) => setPassword(e.target.value)} />

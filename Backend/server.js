@@ -43,6 +43,17 @@ app.get('/', async (req, res) => {
 
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
+app.get('/check-email', async (req, res) => {
+  const { email } = req.query;
+  try {
+    const userExists = await userInfo.findOne({ userEmail: email }); // Use userEmail field
+    console.log(userExists);
+    res.json({ exists: !!userExists });
+  } catch (error) {
+    console.error('Error checking email:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 app.post('/requests', RequestController.submitRequest);
 app.get('/requests', RequestController.getAllRequests); 
 app.delete('/requests/:id', RequestController.deleteRequest);
