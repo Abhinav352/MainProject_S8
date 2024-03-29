@@ -67,8 +67,13 @@ const SignUp = () => {
     <div id='wrap'>
       <form>
       <h2>Sign Up</h2>
-     
+      {emailExists !== null && (
+    <span style={{ color: emailExists ? 'red' : 'green',  display:'block'  }} className='errmsg'>
+      {emailExists ? 'Email already exists' : 'Email is available'}
+    </span>
+  )}
       <div id='field'>
+        
   <label>Email </label>
   <input
     type="email"
@@ -78,12 +83,9 @@ const SignUp = () => {
       checkEmailExists(e.target.value);
     }}
   />
-  {emailExists !== null && (
-    <span style={{ color: emailExists ? 'red' : 'green' }}>
-      {emailExists ? 'Email already exists' : 'Email is available'}
-    </span>
-  )}
+  
 </div>
+<div className='pass2'></div>
       <div id='field'>
       <label>Password  </label>
         <input type="password" value={userPassword} onChange={(e) => setPassword(e.target.value)} />
@@ -107,7 +109,7 @@ const SignUp = () => {
         <option value="non-volunteer">Non-Volunteer</option>
       </select>
     </div>
-   
+ 
       <div>
       <button onClick={handleSignUp} disabled={loading} id='bu'>
         {loading ? 'Signing Up...' : 'Sign Up'}

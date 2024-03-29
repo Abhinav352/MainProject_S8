@@ -13,12 +13,22 @@ body {
     padding: 4vh;
   }
 
+  .errmsg{
+    margin-top: -10% ;
+    margin-bottom: -3%;
+    top: 50%;
+    font-size: 15px;
+  }
+
+
   form {
   
     flex-direction: column;
       }
 
-      
+     .pass2{
+      padding: 3vh;
+     }
       #field label {
         position: relative;
          color: #fff;
@@ -31,6 +41,7 @@ body {
         border: none;
         outline: none;
         color: #fff;
+      
           }
           #bu:hover {
             color: #fff;
