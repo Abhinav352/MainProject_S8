@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Navigate } from 'react-router-dom';
+import './pending.css'
+import { authContext } from '../App';
+import { useContext } from 'react';
 const PendingList = () => {
   const [requests, setRequests] = useState([]);
   const userType = localStorage.getItem("userType");
   const navigate = useNavigate();
   const email = localStorage.getItem("userEmail");
+  const [authState,setAuthState] = useContext(authContext);
 
   useEffect(() => {
     // Fetch requests from the backend when the component mounts
@@ -32,24 +36,41 @@ const PendingList = () => {
       console.error('Error deleting request:', error.message);
     }
   };
+  if(authState)
+  {
   return (
-    <div>
-      <h2>Requests List</h2>
-      <ul>
+    <div className='table-container' id='table-container'>
+    <div className='table-content'>
+    <table>
+      
+      <thead>
+        <tr>
+          <th>Item Type</th>
+          <th>Description</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Actions</th>
+          </tr>
+      </thead>
+      <tbody>
         {requests.map((request) => (
-          <li key={request._id}>
-            <strong>Item Type:</strong> {request.itemType},{' '}
-            <strong>Quantity:</strong> {request.quantity},{' '}
-            <strong>Username:</strong> {request.username},{' '}
-            <strong>Email:</strong> {request.email},
-            <button onClick={() => handleDeleteRequest(request._id)}>Delete</button>
-
-          </li>
+          <tr key={request._id}>
+            <td>{request.itemType}</td>
+            <td>{request.description}</td>
+            <td>{JSON.parse(request.username)}</td>
+            <td>{JSON.parse(request.email)}</td>
+            <td><button id= 'buto' onClick={() => handleDeleteRequest(request._id)}>Delete</button></td>
+          </tr>
         ))}
-      </ul>
-    </div>
+      </tbody>
+    </table>
+  </div>
+  </div>
   );
-        
+        }
+ else{
+  return(<Navigate to='/Login'/>)
+ }           
         
 };
 

@@ -1,27 +1,128 @@
+body{
+  display: flex;
+}
+
+.newsback{
+  
+ background-color: #ffffff;
+ height: 100vh;
+  
+  width:100vw;
+}
+.def{
+  color: #6b6363;
+}
+
+
 .news-list {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    flex-wrap: wrap; 
+    overflow-y: auto;
+    color: black;
   }
   
+  
+  .news-list::-webkit-scrollbar-thumb {
+    background-color: #b4afaf;
+    
+  }
+  .news-list::-webkit-scrollbar-thumb:hover {
+    cursor:grab;
+  }
+  
+ 
+  
   .news-item {
+  
+    border: 1px solid #ccc;
+    
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  #dis{
+    color: #ff3c00;
+  }
+  
+  
+  .news-item a {
+    font-size: 2.5vh;
+    color: #f24207;
+    text-decoration: none;
+  }
+  
+  .news-item a:hover {
+    text-decoration: underline;
+  }
+
+
+
+  
+  @media screen and (min-width: 601px) {
+
+    #dis{
+      margin-top: 3%;
+      margin-bottom: 3%;
+      margin-left: 40%;
+    }
+   
+    
+
+   .news-list{ 
+    max-height: 70vh;
+
+  } 
+  .news-list::-webkit-scrollbar {
+    width: 0.7vw;
+  }
+  .news-list::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+  }
+  .news-item{
     max-width: 400px;
+    
     margin: 16px;
     padding: 16px;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
   .news-item h3 {
     margin-bottom: 8px;
   }
-  
-  .news-item a {
-    color: #007bff;
-    text-decoration: none;
+
+  }
+
+
+ /*mobile screen */ 
+
+  @media screen and (max-width: 600px) {
+    #dis{
+      margin-top: 30%;
+     margin-left: 13%;
+    }
+   
+    #posi{
+      position: fixed;
+    }
+
+   .news-list{ 
+    max-height: 70vh;
+
+  } 
+  .news-list::-webkit-scrollbar {
+    width: 2vw;
+  }
+  .news-list::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+  }
+  .news-item{
+    max-width: 83vw;
+    margin-left: 4%;
+    margin-bottom: 5vh;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    
   }
   
-  .news-item a:hover {
-    text-decoration: underline;
   }

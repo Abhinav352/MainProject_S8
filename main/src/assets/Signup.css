@@ -1,15 +1,20 @@
 body {
     display: flex;
     
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    width: 100%;
-    padding: 5vw;
     box-sizing: border-box;
   }
+  .signback{
+    background-color: #288fb4;
+    width: 100vw;
+    height: 100vh;
+  
+  }
+  .anch{
+    padding: 4vh;
+  }
+
   form {
-    display: flex;
+  
     flex-direction: column;
       }
 
@@ -29,12 +34,13 @@ body {
           }
           #bu:hover {
             color: #fff;
-            background-color: #43b6cd ;
+            background-color: #174cc0  ;
           }
-/*mobile screen */
+
 
 @media screen and (min-width: 601px){
     #wrap {
+      
         width: 80vw;
         max-width: 400px;
         border-radius: 8px;
@@ -46,9 +52,10 @@ body {
         -webkit-backdrop-filter: blur(9px);
     }
     body #wrap{
+      position: relative;
         padding: 2vh 2vw;
-        margin-top: 15%;
-        margin-bottom: 5%;
+        margin-top: 2%;
+        margin-left: 35%;
      }
      h2{
       padding: 2vh 2vh;
@@ -72,7 +79,7 @@ body {
     #field input {
         position: absolute;
         
-        border-bottom: 0.2vw solid #f7fbfa;
+        border-bottom: 0.2vw solid #ffffff;
         margin-top: -14.5%;
         left: 35%;
       height: 3vh;
@@ -95,7 +102,7 @@ body {
       width: 60%;
       font-size: 15px;
       color: rgb(245, 249, 248);
-      border: 2px solid rgb(176, 180, 180);
+      border: 2px solid rgb(255, 255, 255);
     }
     div #userTypeSelect option {
       
@@ -149,13 +156,14 @@ body {
         -webkit-backdrop-filter: blur(9px);
       }
       body #wrap{
-        padding: vh 1vw;
-        margin-top: -8%;
+        padding: 1vh 1vw;
+        margin-left: 7%;
+        margin-top: 20%;
         margin-bottom: 5%;
       }
       h2 {
         font-size:10vw;
-        margin-bottom:9vh;
+      
         color: #fff;
       }
       #field {
@@ -203,7 +211,7 @@ body {
     width: 55%;
     font-size: 15px;
     color: rgb(245, 249, 248);
-    border: 2px solid rgb(176, 180, 180);
+    border: 2px solid rgb(252, 254, 254);
   }
    
   #bu{

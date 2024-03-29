@@ -2,13 +2,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Req.css';
+import { useNavigate,Navigate } from 'react-router-dom';
+import { authContext } from '../App';
+import { useContext } from 'react';
 
 const RequestPage = () => {
-  const [itemType, setItemType] = useState('');
+  const [itemType, setItemType] = useState('Medicine');
   const [description, setDescription] = useState('');
   const [wordCount, setWordCount] = useState(0);
   const username=localStorage.getItem("userName");
-  const email=localStorage.getItem("userEmail")
+  const email=localStorage.getItem("userEmail");
+  const [authState,setAuthState] = useContext(authContext);
+  const navigate = useNavigate();
 
   
   const handleItemTypeChange = (e) => {
@@ -43,10 +48,13 @@ const RequestPage = () => {
       console.error('Error submitting request:', error.message);
     }
   };
-
+if(authState)
+{
   return (
+    <div className='reqback'>
+      <div className='anch'></div>
        <div id='req-form'>  
-      <h2>Request</h2>
+      <h2>Get Help! </h2>
       <form onSubmit={handleRequestSubmit}>
         
         <div className='form-group'>
@@ -70,7 +78,13 @@ const RequestPage = () => {
         <button type="submit" id='subut'>Submit</button>
       </form>
     </div>
+    </div>
   );
+}
+else{
+  return(<Navigate to='/Login'/>)
+
+}
 };
 
 export default RequestPage;

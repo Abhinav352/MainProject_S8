@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { authContext } from '../App';
+import { useContext } from 'react';
 
 const Emergency = () => {
   const [emergency, setEmergency] = useState([]);
   const [userLocation, setUserLocation] = useState({ latitude: '', longitude: '' });
   const userType = localStorage.getItem('userType');
+  const [authState,setAuthState] = useContext(authContext);
+
   
   const navigate = useNavigate();
   console.log(userLocation.latitude,userLocation.longitude);
@@ -73,6 +77,8 @@ const Emergency = () => {
   const handleShowMap = (latitude, longitude) => {
     navigate(`/map/${latitude}/${longitude}`);
   };
+  if(authState)
+  {
   if (userType === '"non-volunteer"') {
     useEffect(() => {
       navigate('/req');
@@ -98,6 +104,10 @@ const Emergency = () => {
       </div>
     );
   }
+}
+else{
+  return(navigate(`/Login`));
+}
 };
 
 export default Emergency;

@@ -1,20 +1,36 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link,useLocation } from 'react-router-dom';
 import './NavBar.css'; // Import CSS file for styling
 import 'boxicons';
+import { authContext } from '../App';
+
 
 const NavBar = () => {
+  const location = useLocation();
+  const [authState,setAuthState] = useContext(authContext);
+  console.log(authState);
+  useEffect(() => {
+    const loggedInUser  = JSON.parse(localStorage.getItem("authenticated"));
+    setAuthState(loggedInUser);
+  }, []);
+
+  if(!authState)
+  {
+    console.log("nothing");
+    return null;
+  }
+  else{
   return (
     <div>
-    <img src="/logo1.svg" alt="log" className="logopicmob" />
+    <img src="/logo-black.svg" alt="log" className="logopicmob" />
       
     <nav className="navbar">
-    <img src="/logo1.svg" alt="log" className="logopic" />
+    <img src="/logo-black.svg" alt="log" className="logopic" />
       <ul >
-        <li ><Link to='/'>Home</Link></li>
-        <li ><Link to='/loc'>Location</Link></li>
-        <li ><Link to='/News'>News</Link></li>
-        <li ><Link to='/Login'>Login</Link></li>
+        <li id='noi' ><Link className='nav-text' to='/'>Home</Link></li>
+        <li id='noi'><Link className='nav-text' to='/loc'>Location</Link></li>
+        <li id='noi'><Link className='nav-text' to='/News'>News</Link></li>
+        <li ><Link className='nav-text' to='/Login'>Login</Link></li>
 
 
         
@@ -27,6 +43,5 @@ const NavBar = () => {
     </nav>
     </div>
   );
-}
-
+}}
 export default NavBar;

@@ -1,11 +1,16 @@
 // Import necessary modules
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Navigate } from 'react-router-dom';
+import './NewsComponent.css'
+import { authContext } from '../App';
+import { useContext } from 'react';
 
 const RequestList = () => {
   const [requests, setRequests] = useState([]);
   const navigate = useNavigate();
+  const [authState,setAuthState] = useContext(authContext);
+  const userType=localStorage.getItem("userType");
 
   useEffect(() => {
     const fetchRequests = async () => {
@@ -39,13 +44,17 @@ const RequestList = () => {
       console.error('Error navigating to chat room:', error.message);
     }
   };
-
+if(authState)
+{
+  if(userType=="volunteer")
+  {
   return (
     <div>
       <h2>Requests List</h2>
+      <div className="news-list">
       <ul>
         {requests.map((request) => (
-          <li key={request._id}>
+          <li key={request._id} className='news-item'>
             <strong>Item Type:</strong> {request.itemType},{' '}
             <strong>Description:</strong> {request.description},{' '}
             <strong>Username:</strong> {request.username},{' '}
@@ -56,8 +65,18 @@ const RequestList = () => {
           </li>
         ))}
       </ul>
+      </div>
     </div>
   );
+}
+else{
+  return(<Navigate to='/'/>)
+  ;
+}
+}
+else{
+  return(<Navigate to='/Login'/>)
+}
 };
 
 export default RequestList;

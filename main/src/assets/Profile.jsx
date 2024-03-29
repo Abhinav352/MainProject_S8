@@ -1,9 +1,14 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useContext } from 'react';
 import axios from 'axios';
+import { useNavigate,Navigate } from 'react-router-dom';
+import { authContext } from '../App';
+
 
 const Profile = () => {
   const [userProfile, setUserProfile] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [authState,setAuthState] = useContext(authContext);
+  const navigate = useNavigate();
 
   const fetchProfileData = useCallback(async () => {
     try {
@@ -27,6 +32,12 @@ const Profile = () => {
     setSelectedFile(file);
   };
 
+  const handleLogout = ()=>{
+    localStorage.clear()
+    localStorage.setItem ("authenticated",false)
+    setAuthState(false)
+    navigate(`/Login`)
+  }
   const handleUpload = async () => {
     try {
       const formData = new FormData();
@@ -41,7 +52,8 @@ const Profile = () => {
       console.error('Error uploading profile picture:', error);
     }
   };
-
+if(authState)
+{
   return (
     <div>
       <h2>User Profile</h2>
@@ -72,8 +84,14 @@ const Profile = () => {
       ) : (
         <p>Loading user profile...</p>
       )}
+      <button onClick={handleLogout}>LogOut</button>
     </div>
   );
+}
+else{
+  return(<Navigate to='/Login'/>)
+
+}
 };
 
 export default Profile;

@@ -3,10 +3,14 @@ body {
     position: fixed;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    width: 100%;
+    
     padding: 5vw;
     box-sizing: border-box;
+  }
+  .reqback{
+    background-color: #288fb4;
+    width:100vw;
+    height:100vh;
   }
   form {
     display: flex;
@@ -24,21 +28,27 @@ body {
    }  
    #subut:hover {
     color: #fff;
-    background-color: #9ce2f0 ;
+    background-color: #174cc0 ;
   } 
   #char-count{
-    opacity: 0.5;
+    opacity: 0.7;
   }
  /*desktop */
       @media screen and (min-width: 601px){
+
+        .form-group{
+          margin-bottom: 5%;
+        }
+
         #req-form {
         
             width:90vw;
             max-width: 400px;
             border-radius: 8px;
-            margin-top: 5vh;
+            margin-top: 3vh;
+            margin-left: 35%;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            border: 1px solid rgb(255, 255, 255);
             box-shadow: 0px 4px 10px rgba(230, 224, 224, 0.3);
             backdrop-filter: blur(9px);
             -webkit-backdrop-filter: blur(9px);
@@ -47,7 +57,7 @@ body {
             position: absolute;
             font-size: 1.2vw;
             color: white;
-            left:7%;
+            left:5%;
           }
            #material{
             position: relative;
@@ -58,7 +68,7 @@ body {
             width: 60%;
             font-size: 15px;
             color: rgb(245, 249, 248);
-            border: 2px solid rgb(176, 180, 180);
+            border: 2px solid rgb(255, 255, 255);
           }
           #material option {
             
@@ -73,7 +83,7 @@ body {
             font-size: 1.2vw;
             color: white;
             bottom: 50%;
-            left:7%;
+            left:5%;
           }
           #desc{
             left:15%;
@@ -107,6 +117,10 @@ body {
       
       @media screen and (max-width: 600px){
 
+        .form-group{
+          margin-bottom: 7%;
+        }
+
         #req-form {
           width: 80vw;
           max-width: 400px;
@@ -120,12 +134,16 @@ body {
       }
       body #req-form{
         padding: 2vh 2vw;
-        
+        margin-top: 15%;
+        margin-left: 7.5%;
         margin-bottom: 5%;
      }
      h2{
+      
       padding: 2vh 2vh;
-      margin-top: 1vh;
+      margin-top: 2vh;
+      
+      margin-bottom: 4vh;
      }
     
     #materlabel{
@@ -154,8 +172,32 @@ body {
     #desclabel{
       display: none;
     }
-    #desc{
-      height: 10vw; 
-            width: 15vw; 
+    
+      #desc{
+        margin-top: -20%;
+        left:19%;
+        height: 40vw; 
+        width: 43vw; 
+      }
+
+    #char-count{
+      margin-left:19%;
+      font-size: 1.5vh;
+    }  
+
+    #subut{
+      background-color: #ffff ;
+      color: #000000;
+      font-weight: 700 ;
+      border: none;
+      margin: 2.5vh auto;
+      width: 70%;
+      padding: 1vh 1vw 2vw 0;
+      cursor: pointer;
+      border-radius: 20px;
+      font-size: 5vw;
+      border: 0.5vw solid transparent;
+      transition: 0.3s ease;
     }
-      }  
+    }
+      
