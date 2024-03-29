@@ -68,8 +68,8 @@ const SignUp = () => {
       <form>
       <h2>Sign Up</h2>
       {emailExists !== null && (
-    <span style={{ color: emailExists ? 'red' : 'green',  display:'block'  }} className='errmsg'>
-      {emailExists ? 'Email already exists' : 'Email is available'}
+    <span style={{ color: emailExists ? 'red' : 'white',  display:'block'  }} className='errmsg'>
+      {emailExists ? 'Email already exists' : 'Email available...'}
     </span>
   )}
       <div id='field'>
@@ -101,7 +101,7 @@ const SignUp = () => {
         <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
       </div>
       
-   
+      <div id='spa'></div>
       <div>
       <label htmlFor="userTypeSelect" id='typelabel'> User Type</label>
       <select id="userTypeSelect" value={userType} onChange={handleUserTypeChange}>

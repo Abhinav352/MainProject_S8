@@ -13,12 +13,7 @@ body {
     padding: 4vh;
   }
 
-  .errmsg{
-    margin-top: -10% ;
-    margin-bottom: -3%;
-    top: 50%;
-    font-size: 15px;
-  }
+  
 
 
   form {
@@ -142,6 +137,12 @@ body {
       
       transition: 0.3s ease;
     }
+    .errmsg{
+      
+      margin-right:1vw;
+      
+      font-size: 13px;
+    }
    
 
 }
@@ -202,7 +203,7 @@ body {
     
   }
   #space{
-    padding: 8vw;
+    padding: 7vw;
   }
   #typelabel{
     position: absolute;
@@ -238,6 +239,15 @@ body {
     font-size: 5vw;
     border: 0.5vw solid transparent;
     transition: 0.3s ease;
+  }
+  .errmsg{
+     
+    margin-bottom: -2vh;
+    margin-left: 3vh;
+    font-size: 13px;
+  }
+  #spa{
+    padding: 3vw;
   }
   
     }
