@@ -54,6 +54,20 @@ app.get('/check-email', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+app.get('/image', async (req, res) => {
+  try{
+    const { userEmail } = req.query;
+    const userProfile = await userInfo.findOne({ userEmail });
+
+    if (userProfile) {
+      res.json(userProfile.profilePic);
+    } else {
+      res.status(404).json({ error: 'User not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 app.post('/requests', RequestController.submitRequest);
 app.get('/requests', RequestController.getAllRequests); 
 app.delete('/requests/:id', RequestController.deleteRequest);
