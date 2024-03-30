@@ -78,9 +78,10 @@
     display: flex;
     align-items: center;
     padding: 8px 16px;
+    
     margin-bottom: 2vh;
     background-color: #3e8d82;
-    border-top: 1px solid #ddd;
+    
   }
   
   .input-container input {
