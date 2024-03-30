@@ -173,48 +173,9 @@ const Location = () => {
 
 
   return (
+    <>
     <div className='whole'>
-
-    <div className="sos-container">
-
-
       <div className="sos-container">
-      
-      {/* Button to get current location and check if in disaster area */}
-      <div className="outer-circle"></div>
-  <div className="inner-circle"></div>
-      <button
-        className="sos-button"
-        onClick={() => {
-          getCurrentLocation();
-          console.log(userLocation);
-        }}
-
-      >
-        <span style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: 50, fontWeight: 'bold',color:'white' }} >
-          SOS
-        </span>
-      </button>
-
-      </div>
-      {/* Display message if user is not in any disaster area */}
-      {!userInDisasterArea && checkedornot && (
-        <div className="not-in-disaster-area-message">
-          <p style={{ color: 'red',fontFamily: 'Chopin Script', fontSize: 20, fontWeight: 'bold', textAlign: 'center', marginTop: '300px' ,marginRight: '160px'}}>
-            User is not in any of the disaster areas
-          </p>
-        </div>
-      )}
-      {userInDisasterArea && checkedornot && (
-        <div className="in-disaster-area-message">
-          <p style={{ color: 'red',fontFamily: 'Chopin Script', fontSize: 20, fontWeight: 'bold', textAlign: 'center', marginTop: '300px' ,marginRight: '160px'}}>
-            User is in the disaster area
-          </p>
-        </div>
-      )}
-      </div>
-
-      
         <div className="outer-circle"></div>
           <div className="inner-circle"></div>
             <button
@@ -227,9 +188,10 @@ const Location = () => {
             SOS
             </span>
             </button>
-          </div>
-          <ImageSlider/>
-        </div>
+      </div>
+      <ImageSlider/>
+    </div>
+        </>
     
   );
 };
