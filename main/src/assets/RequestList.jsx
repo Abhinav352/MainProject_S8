@@ -10,7 +10,7 @@ const RequestList = () => {
   const [requests, setRequests] = useState([]);
   const navigate = useNavigate();
   const [authState,setAuthState] = useContext(authContext);
-  const userType=localStorage.getItem("userType");
+  const userType=JSON.parse(localStorage.getItem("userType"));
 
   useEffect(() => {
     const fetchRequests = async () => {
@@ -46,7 +46,7 @@ const RequestList = () => {
   };
 if(authState)
 {
-  if(userType=="volunteer")
+  if(userType==="volunteer")
   {
   return (
     <div>
