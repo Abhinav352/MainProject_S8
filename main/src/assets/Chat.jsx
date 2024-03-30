@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useCallback } from 'react'; 
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import axios from 'axios'; 
 import { useParams, Link } from 'react-router-dom'; 
 import io from 'socket.io-client'; 
@@ -17,24 +17,25 @@ const NavBar = ({ profilePic, currentUserEmail, roomDetails }) => {
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 20px' }}>
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Link to="/messages" style={{ fontSize: '20px', color: '#333', marginRight: '20px' }}>
-          <i className="fas fa-arrow-left"></i>
+        <Link to="/messages"  style={{ fontSize: '20px', color: '#333'  }}>
+          <i className="fas fa-arrow-left" style={{color: 'white'}} id='ico'></i>
         </Link>
         {profilePic && 
           <img
             src={`http://localhost:5000/${profilePic.replace(/\\/g, '/')}`}
             alt="Profile"
-            style={{ width: '40px', height: '40px', borderRadius: '50%' }} // Make it circular
+            style={{ width: '40px', height: '40px', borderRadius: '50%',marginleft:'5vh',marginBottom:'1vh' }} // Make it circular
           />
         }
         
-        <span style={{ marginLeft: '10px', color: 'red' }}>{username}</span>
+        <span style={{ marginLeft: '10px', color: 'white' , fontSize: '2vh',marginBottom: '1vh' }}>{username}</span>
       </div>
     </div>
   );
 };
 
 const Chat = () => { 
+  const messagesContainerRef = useRef(null);
   const { roomId } = useParams(); 
   const [messages, setMessages] = useState([]); 
   const [newMessage, setNewMessage] = useState(''); 
@@ -71,6 +72,9 @@ useEffect(() => {
       try { 
         const response = await axios.get(`http://localhost:5000/messages/${roomId}`); 
         setMessages(response.data); 
+        if (messagesContainerRef.current) {
+          messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+        }
       } catch (error) { 
         console.error('Error fetching messages:', error.message); 
       } 
@@ -97,6 +101,12 @@ useEffect(() => {
     }; 
   }, [roomId]); 
 
+  useEffect(() => {
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+    }
+  }, [messages]);
+
   const handleSendMessage = () => { 
     if (roomDetails.user1 && roomDetails.user2) { 
       socket.emit('sendMessage', { 
@@ -114,9 +124,10 @@ useEffect(() => {
   return ( 
     <div className="chat-container"> 
        <NavBar profilePic={userProfile} currentUserEmail={currentUserEmail} roomDetails={roomDetails} />
-      <div className="messages-container"> 
+      <div className="messages-container" ref={messagesContainerRef}> 
         {messages.map((message) => ( 
           <div key={message._id} className={`message ${ message.sender === currentUserEmail ? 'sent' : 'received' }`} > 
+          
             <div className='texty'>{message.text}</div> 
             <span className="message-time"> 
               {new Date(message.createdAt).toLocaleTimeString(undefined,{ hour: 'numeric', minute: 'numeric', hour12: true, })} 
