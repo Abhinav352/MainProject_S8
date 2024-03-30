@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import io from 'socket.io-client';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import './Chat.css';
 
 const socket = io('http://localhost:5000', { transports: ['websocket'] });
 
@@ -58,25 +60,39 @@ const Chat = () => {
   };
 
   return (
-    <div>
-      <h2>Chat in Room {roomId}</h2>
-      <div>
+    <div className="chat-container">
+      
+      <div className="messages-container">
         {messages.map((message) => (
-          <div key={message._id}>
-            <strong>{message.sender === currentUserEmail ? 'You' : (message.sender === roomDetails.user1 ? roomDetails.userName1 : roomDetails.userName2)}:</strong> {message.text}
-            <span style={{ marginLeft: '8px', fontSize: '0.8em', color: '#888' }}>
-              {new Date(message.createdAt).toLocaleTimeString()}
+          <div
+          key={message._id}
+          className={`message ${
+            message.sender === currentUserEmail ? 'sent' : 'received'
+          }`}
+        >
+          
+            <div className='texty'>{message.text}</div>
+            
+            <span className="message-time">
+              {new Date(message.createdAt).toLocaleTimeString(undefined,{
+                hour: 'numeric',
+                minute: 'numeric',
+                hour12: true,
+              })}
             </span>
           </div>
         ))}
       </div>
-      <div>
+      <div className="input-container">
         <input
           type="text"
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
+          placeholder="Type your message..."
         />
-        <button onClick={handleSendMessage}>Send</button>
+        <button onClick={handleSendMessage}>
+        <i className="fa fa-paper-plane"></i>
+        </button>
       </div>
     </div>
   );
