@@ -1,0 +1,18 @@
+.main{
+}
+.inner{
+    width: 100%;
+    height: 100%;
+}
+.inner2{
+    display: none;
+}
+
+@media screen and (max-width: 600px){
+    .inner{
+        display: none;
+    }
+    .inner2{
+        display: block;
+    }
+}

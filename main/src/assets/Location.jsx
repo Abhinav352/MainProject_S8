@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Loc.css';
 import { useNavigate } from 'react-router-dom';
+import ImageSlider from './ImageSlider';
 
 const Location = () => {
   const [userLocation, setUserLocation] = useState({ latitude: '', longitude: '' });
@@ -165,26 +166,30 @@ const Location = () => {
       checkIfUserInAnyDisasterArea();
     }
   }, [userLocation]);
+
+
   return (
     <div className='whole'>
-    <div className="sos-container">
+
+      <div className="sos-container">
       
       {/* Button to get current location and check if in disaster area */}
-      <div className="outer-circle"></div>
-  <div className="inner-circle"></div>
-      <button
-        className="sos-button"
-        onClick={() => {
-          getCurrentLocation();
-        }}
-      >
-        <span style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: 50, fontWeight: 'bold',color:'white' }} >
-          SOS
-        </span>
-      </button>
-     
-      </div>
-      </div>
+      
+        <div className="outer-circle"></div>
+          <div className="inner-circle"></div>
+            <button
+            className="sos-button"
+            onClick={() => {
+            getCurrentLocation();
+            }}
+            >
+            <span>
+            SOS
+            </span>
+            </button>
+          </div>
+          <ImageSlider/>
+        </div>
     
   );
 };

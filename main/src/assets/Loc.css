@@ -1,5 +1,4 @@
 body {
-
     margin: 0;
     padding: 0;
 }
@@ -7,13 +6,15 @@ body {
   background-image: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
   height:100vh;
   width:100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 .sos-container {
+  margin-right: 10%;
   position: relative;
-  bottom: -30%;
-  left: 30%;
-  width: 250px; 
-  height: 250px;
+  width: 400px; 
+  height: 400px;
 }
 
 .sos-button:hover{
@@ -34,9 +35,6 @@ body {
   .outer-circle,
   .inner-circle {
     position: absolute;
-    
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -54,18 +52,13 @@ body {
   }
   .sos-button {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 250px;
-    height: 250px;
+    font-size: 45px;
+    width: 100%;
+    height: 100%;
+    font-weight: 900;
     margin-bottom: 15px;
-    transform: translate(-50%, -50%);
     border-radius: 50%;
-    
-    
     background-color: rgb(243, 56, 56);
-  
-    
     cursor: pointer;
   }
 
@@ -74,10 +67,20 @@ body {
 /* Media query for smaller screens */
 @media screen and (max-width: 600px) {
 
+  .whole{
+    background-image: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+    height:100vh;
+    width:100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
   .sos-container {
     position: relative;
-    bottom: -30%;
-    left: 20%;
+    
+  margin-right: 0%;
     width: 250px; /* Adjust the size as needed */
     height: 250px;
   }
