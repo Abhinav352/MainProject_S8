@@ -24,7 +24,21 @@
     display: flex;
     flex-direction: column;
   }
-  
+  .messages-container::-webkit-scrollbar {
+    width: 10px;
+    /* Width of the scrollbar */
+}
+
+
+.messages-container::-webkit-scrollbar-thumb {
+    background: #9ed1d1; /* Color of the handle */
+    border-radius: 6px;
+    /* Rounded corners */
+}
+
+/* Handle on hover */
+
+
   .message {
     max-width: 70%;
     padding: 8px 30px;
@@ -133,6 +147,11 @@
     background-size:cover ;
    
   }
+ .messages-container::-webkit-scrollbar{
+  display: none;
+ }
+
+
   .input-container{
     background-color: #3e8d82;
   }
