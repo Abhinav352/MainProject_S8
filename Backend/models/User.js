@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
   lastName: String,
   userType: { type: String, enum: ['volunteer', 'non-volunteer'], default: 'non-volunteer' },
   profilePic: String, // Add a field for storing the profile picture URL
+  number: String,
 });
 
 

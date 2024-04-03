@@ -14,6 +14,7 @@ const SignUp = () => {
   const [error, setError] = useState(null);
   const [userType, setUserType] = useState('non-volunteer');
   const theme = useTheme();
+  const [number,setNumber]=useState('')
   const [emailExists, setEmailExists] = useState(null);
 
   const handleUserTypeChange = (event) => {
@@ -29,7 +30,7 @@ const SignUp = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ userEmail, userPassword, userType, firstName, lastName }),
+        body: JSON.stringify({ userEmail, userPassword, userType, firstName, lastName, number }),
       });
 
       const data = await response.json();
@@ -40,6 +41,7 @@ const SignUp = () => {
       setPassword('');
       setFirstName('');
       setLastName('');
+      setNumber('');
     } catch (error) {
       setError('Error during sign up. Please try again.');
       console.error('Error during sign up:', error);
@@ -100,6 +102,12 @@ const SignUp = () => {
       <label>Last Name  </label>
         <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
       </div>
+      <div id='field'>
+      <label>PhoneNumber  </label>
+        <input type="tel" value={number} onChange={(e) => setNumber(e.target.value)} />
+      </div>
+      <div id='space'></div>
+      <div id='field'></div>
       
       <div id='spa'></div>
       <div>
