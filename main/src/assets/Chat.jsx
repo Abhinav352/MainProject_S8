@@ -57,6 +57,13 @@ const fetchProfilePic = useCallback(async (email) => {
   }
 }, []);
 
+const handleKeyDown = (e) => {
+  if (e.key === 'Enter') {
+    handleSendMessage();
+    e.preventDefault();
+  }
+};
+
 useEffect(() => {
   if (roomDetails.user1 && roomDetails.user2) {
     if (currentUserEmail === roomDetails.user1) {
@@ -136,7 +143,8 @@ useEffect(() => {
         ))} 
       </div> 
       <div className="input-container"> 
-        <input type="text" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} placeholder="Type your message..." /> 
+        <input type="text" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} placeholder="Type your message..."
+        onKeyDown={handleKeyDown} /> 
         <button onClick={handleSendMessage}> 
           <i className="fas fa-paper-plane"></i> 
         </button> 
