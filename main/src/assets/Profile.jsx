@@ -63,6 +63,7 @@ if(authState)
           <p>First Name: {userProfile.firstName}</p>
           <p>Last Name: {userProfile.lastName}</p>
           <p>User Type: {userProfile.userType}</p>
+          <p>Phone Number: {userProfile.number}</p>
           
           {/* Display profile picture if available */}
           {userProfile.profilePic ? (
