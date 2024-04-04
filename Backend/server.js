@@ -1,4 +1,5 @@
 const express = require('express');
+const axios = require('axios');
 const signupRouter = require('./controllers/register');
 const loginRouter = require('./controllers/login');
 const RequestController = require('./controllers/RequestCont');
@@ -107,6 +108,23 @@ app.get('/Profile/:userEmail', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+app.get('/News/:currentPage',async(req,res)=>
+{
+  const apiKey = '38655dcf36c84609b9ce91bf0574fe05';
+  const currentPage= req.params.currentPage;
+  console.log(currentPage);
+    const pageSize = 20;
+    const disasterKeywords = 'earthquake OR hurricane OR tornado OR flood OR tsunami OR wildfire OR drought OR blizzard OR landslide OR cyclone OR typhoon OR avalanche OR heatwave OR sandstorm OR -Activision OR -OverWatch OR -Midnight OR -AI OR -putin OR -Diablo';
+    const apiUrl = `https://newsapi.org/v2/everything?q=${encodeURIComponent(disasterKeywords)}&searchIn=title&pageSize=${pageSize}&page=${currentPage}&apiKey=${apiKey}&language=en`;
+  axios.get(apiUrl)
+  .then(response => {
+    const articlesWithDescription = response.data.articles.filter(article => article.description && article.description.trim() !== '');
+    res.send(articlesWithDescription)
+  })
+  .catch(error => {
+    console.error('Error fetching news:', error);
+  });
+})
 app.post('/Profile/upload/:userEmail', upload.single('profilePicture'), async (req, res) => {
   try {
     const userEmail = req.params.userEmail;
