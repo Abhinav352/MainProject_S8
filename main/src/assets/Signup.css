@@ -42,11 +42,23 @@ body {
             color: #fff;
             background-color: #174cc0  ;
           }
-
+      #fiel label{
+        position: relative;
+        color: #fff;
+       pointer-events: none;
+      }
+      #fiel input {
+      
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #fff;
+      
+          }
 
 @media screen and (min-width: 601px){
     #wrap {
-      
+        height: 80vh;
         width: 80vw;
         max-width: 400px;
         border-radius: 8px;
@@ -60,19 +72,21 @@ body {
     body #wrap{
       position: relative;
         padding: 2vh 2vw;
-        margin-top: 2%;
+        margin-top: 1%;
         margin-left: 35%;
      }
      h2{
       padding: 2vh 2vh;
-      margin-top: 1vh;
+      margin-top: 0.5vh;
      }
-     
+     #mesg_body{
+      margin-top: -1vh;
+     }
      #field {
         position:relative;
         
        
-       padding: 2vh 2vh;
+       padding: 2vh 1vh;
       }
       #field label {
       position: absolute;
@@ -80,7 +94,12 @@ body {
        left: 0;
        font-size:1.2vw;
     }
-   
+   #space{
+    margin-top: -1.5vh;
+   }
+   #sp{
+    margin-top: -1vh;
+   }
     
     #field input {
         position: absolute;
@@ -93,6 +112,33 @@ body {
       width: 60%;
       
     }
+
+    #fiel {
+      position:relative;
+      padding: 2vh 2vh;
+      margin-top: 3vh;
+
+    }
+    #fiel label {
+    position: absolute;
+     
+    bottom: 150%;
+     left: 0;
+     font-size:1.2vw;
+  }
+ 
+  
+  #fiel input {
+      position: absolute;
+      
+      border-bottom: 0.2vw solid #ffffff;
+      margin-top: -14.5%;
+      left: 35%;
+    height: 3vh;
+    font-size: 1.3vw;
+    width: 60%;
+    
+  }
   #typelabel{
       position: absolute;
       font-size: 1.2vw;
@@ -143,6 +189,10 @@ body {
       
       font-size: 13px;
     }
+    #spa{
+      margin-top: -10vh;
+    }
+    
    
 
 }
@@ -168,21 +218,26 @@ body {
         -webkit-backdrop-filter: blur(9px);
       }
       body #wrap{
-        padding: 1vh 1vw;
+        padding:0.5vh 1vw;
         margin-left: 7%;
-        margin-top: 20%;
+        margin-top: 15%;
         margin-bottom: 5%;
       }
       h2 {
-        font-size:10vw;
+        
+        font-size:12vw;
       
         color: #fff;
+      }
+      
+      #heady{
+        margin-top: -2vh;
       }
       #field {
         position: relative;
         
-        margin: 2vh 2vh ;
-        margin-top: 0.1vh;
+        margin: 1.5vh 1vh ;
+       
       }
       #field label {
         position: absolute;
@@ -202,6 +257,33 @@ body {
     width: 60%;
     
   }
+  #fiel {
+    position: relative;     
+    margin-top: 8vh;
+    margin-bottom: -6vh;
+   
+  }
+  #fiel label {
+    position: absolute;
+     bottom:130%;
+     left: 1vh;
+     font-size:5vw;
+}
+#fiel input {
+position: absolute;
+border-bottom: 0.2vw solid #f7fbfa;
+
+margin-top:-9.5%;
+height: 3vh;
+left: 39%;
+font-size: 5vw;
+
+width: 60%;
+
+}
+.fy{
+  margin-bottom: -2vh;
+}
   #space{
     padding: 7vw;
   }
@@ -242,12 +324,12 @@ body {
   }
   .errmsg{
      
-    margin-bottom: -2vh;
+    margin-bottom: -4vh;
     margin-left: 3vh;
     font-size: 13px;
   }
   #spa{
-    padding: 3vw;
+    padding: 1vw;
   }
   
     }

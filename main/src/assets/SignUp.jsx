@@ -5,6 +5,7 @@ import { Navigate } from 'react-router-dom';
 import { Select, MenuItem, FormControl, InputLabel, OutlinedInput } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
+
 const SignUp = () => {
   const [userEmail, setEmail] = useState('');
   const [userPassword, setPassword] = useState('');
@@ -14,13 +15,22 @@ const SignUp = () => {
   const [error, setError] = useState(null);
   const [userType, setUserType] = useState('non-volunteer');
   const theme = useTheme();
-  const [number,setNumber]=useState('')
+ 
   const [emailExists, setEmailExists] = useState(null);
+  const [number, setNumber] = useState('');
 
   const handleUserTypeChange = (event) => {
     setUserType(event.target.value);
   };
+  const handleNumberChange = (e) => {
+    const value = e.target.value.replace(/\D/g, ''); // Remove non-digit characters
+    if (value.length <= 10) {
+      setNumber(` ${value}`);
+    }
+  };
   
+ 
+
   const handleSignUp = async () => {
     try {
       setLoading(true);
@@ -50,6 +60,9 @@ const SignUp = () => {
       setLoading(false);
     }
   };
+
+
+  
   const checkEmailExists = async (email) => {
     try {
       const response = await fetch(`http://localhost:5000/check-email?email=${email}`);
@@ -68,7 +81,8 @@ const SignUp = () => {
       <div className='anch'></div>
     <div id='wrap'>
       <form>
-      <h2>Sign Up</h2>
+      <h2 id='heady'>Sign Up</h2>
+      <div id='mesg_body'>
       {emailExists !== null && (
     <span style={{ color: emailExists ? 'red' : 'white',  display:'block'  }} className='errmsg'>
       {emailExists ? 'Email already exists' : 'Email available...'}
@@ -87,6 +101,7 @@ const SignUp = () => {
   />
   
 </div>
+<div id='sp'></div>
 <div className='pass2'></div>
       <div id='field'>
       <label>Password  </label>
@@ -102,9 +117,16 @@ const SignUp = () => {
       <label>Last Name  </label>
         <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
       </div>
-      <div id='field'>
-      <label>PhoneNumber  </label>
-        <input type="tel" value={number} onChange={(e) => setNumber(e.target.value)} />
+      <div  id='fiel'>
+      <label>Phone </label>
+      <input
+        type="text"
+        value={number}
+        onChange={handleNumberChange}
+        pattern=" \d{10}"
+        maxLength={10}
+        inputMode="numeric"
+      />
       </div>
       <div id='space'></div>
       <div id='field'></div>
@@ -122,7 +144,7 @@ const SignUp = () => {
       <button onClick={handleSignUp} disabled={loading} id='bu'>
         {loading ? 'Signing Up...' : 'Sign Up'}
       </button></div> 
-      
+      </div>
     
     </form>
     </div>

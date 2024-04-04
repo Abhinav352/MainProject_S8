@@ -44,8 +44,13 @@ const RequestPage = () => {
       });
 
       console.log('Request submitted successfully');
+      alert('Request submitted successfully ^_^'); // Display success alert
+      setItemType('Medicine'); // Reset form fields
+      setDescription('');
+      setWordCount(0);
     } catch (error) {
-      console.error('Error submitting request:', error.message);
+      console.error('Error submitting request -_-', error.message);
+      alert('Error submitting request. Please try again.');
     }
   };
 if(authState)
