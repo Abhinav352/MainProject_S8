@@ -14,6 +14,7 @@ import Chat from '../assets/Chat';
 import MessageList from '../assets/MessageList';
 import Profile from '../assets/Profile';
 import NavBar from '../assets/NavBar';
+import OtherProfile from './OtherProfile';
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -36,6 +37,7 @@ const AppRoutes = () => {
         <Route path="/Emergency" element={<Emergency />} />
         <Route path="/Profile" element={<Profile />} />
         <Route path="/Map/:latitude/:longitude" element={<MyMap />} />
+        <Route path="/otherProfile/:userEmail" element={<OtherProfile />} />
       </Routes>
     </>
   );

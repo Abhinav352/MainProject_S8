@@ -92,6 +92,21 @@ app.get('/Profile', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+app.get('/Profile/:userEmail', async (req, res) => {
+  try {
+    const { userEmail } = req.params; // Corrected line
+    console.log({userEmail})
+    const userProfile = await userInfo.findOne({ userEmail });
+
+    if (userProfile) {
+      res.json(userProfile);
+    } else {
+      res.status(404).json({ error: 'User not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 app.post('/Profile/upload/:userEmail', upload.single('profilePicture'), async (req, res) => {
   try {
     const userEmail = req.params.userEmail;
