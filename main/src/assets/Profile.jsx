@@ -105,7 +105,7 @@ import defaultProfilePic from "/defco9.png";
             <div className='prof_det'>
             <p><FontAwesomeIcon icon={faEnvelope} /> &nbsp; {userProfile.userEmail}</p>
             
-            <p><FontAwesomeIcon icon={faPhoneVolume} /> &nbsp; +91 {userProfile.number}</p>
+            <p><FontAwesomeIcon icon={faPhoneVolume} /> &nbsp; {userProfile.number}</p>
             </div>
             </div>
             {/* Add more fields as needed */}

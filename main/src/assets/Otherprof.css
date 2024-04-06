@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+#profil_containe{
+   
+   font-family: 'Caudex',serif;
+}
+.back-button{
+    background-color: transparent;
+    
+}
+
+@media screen and (min-width: 601px)
+ {
+ #profil_containe{
+    position: fixed;
+    background-image: url('/defcon.jpg');
+    height: 100vh;
+    width: 100vw;
+ }
+ .back-button{
+    margin-left: -60%;
+ }
+ .back-button:hover{
+    border-color: orange;
+ }
+ #profile_cont_containe{
+    padding-top: 2vh;
+    padding-left: 40%;
+    margin-top: 3vh;
+    justify-content: center;
+ }
+ .profile-pictur {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    
+  }
+
+  
+ .prof_nam{
+      font-size: 5vh;
+      font-weight: bold;
+     padding: 1vh 1vw;
+     
+     margin-top: -2%;
+     color: rgb(148, 223, 226);
+ }
+ .prof_typ{
+    font-size: 20px;   
+    margin-left: 5%;
+     margin-top: -3%;
+     opacity: 0.7;
+     
+ }
+ .prof_detai{
+    
+    margin-left: -20%;
+    font-size: 23px;
+ }
+ .prof_contac{
+    font-size: 26px;
+    color: orange;
+    
+ }
+ .prof_de{
+   margin-left: 2%;
+ }
+
+
+}
+
+
+@media screen and (max-width: 600px) {
+    #profil_containe{
+      
+        
+        
+        background-image: url('/defcon_mob.jpg');
+        
+        height: 100vh;
+        width: 100vw;
+     }
+     .profile-pictur{
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-top: -2%;
+      margin-left: -15%;
+      margin-bottom: 10px;
+     
+    }
+    .back-button{
+        margin-left: -60%;
+    }
+    #profile_cont_containe{
+      position: fixed;
+      
+      padding-left: 40%;
+      margin-top: 5vh;
+      justify-content: center;
+   }
+   
+   .prof_nam{
+        font-size: 4vh;
+        font-weight: bold;
+       padding: 0.1vh 1vw;
+       margin-left: -20%;
+       margin-top: -5%;
+       color: rgb(148, 223, 226);
+   }
+   .prof_typ{
+      font-size: 20px;   
+      margin-left: -6%;
+       margin-top: -12%;
+       opacity: 0.6;
+       
+   }
+   .prof_detai{
+      padding-top: 2vh;
+      margin-left: -40%;
+      font-size: 23px;
+   }
+   .prof_contac{
+      font-size: 26px;
+      color: orange;
+      
+   }
+   
+}
