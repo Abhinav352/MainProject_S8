@@ -61,31 +61,11 @@ const Location = () => {
 
   const handleFetchData = async () => {
     try {
-      const currentDate = new Date();
-      currentDate.setDate(currentDate.getDate() - 1); // Subtract one day
-      const userDatetime = currentDate.toISOString();
-
-      const response = await axios.get(`https://apps.kontur.io/events/v1/?feed=kontur-public&after=${userDatetime}`, {
-        headers: {
-          'Authorization': `Bearer ${accessToken}`,
-          'Content-Type': 'application/json',
-        },
-      });
-      console.log(userDatetime);
-      console.log('Disaster Data Response:', response.data); // Log the response data
-      console.log('Response Status:', response.status);
-      console.log('Response Headers:', response.headers);
-
-      if (response.status === 204) {
-        console.log('No content in the response.');
-        return;
-      }
-
-      setDisasterData(response.data.data);
+      const response = await axios.get(`http://localhost:5000/Location/${accessToken}`);
+      setDisasterData(response.data);
+      console.log(response.data);
     } catch (error) {
-      console.error('Error fetching data:', error.message);
-      // If the access token is invalid or expired, fetch a new access token
-      fetchAccessToken();
+      console.error('Error fetching Data:', error.message);
     }
   };
 

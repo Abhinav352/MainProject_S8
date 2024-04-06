@@ -108,6 +108,38 @@ app.get('/Profile/:userEmail', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+app.get('/Location/:accessToken', async (req, res) => {
+  try {
+    const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() - 1); // Subtract one day
+    const userDatetime = currentDate.toISOString();
+    let disasterData=[];
+    accessToken = req.params.accessToken;
+
+    const response = await axios.get(`https://apps.kontur.io/events/v1/?feed=kontur-public&after=${userDatetime}`, {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    });
+    // console.log(userDatetime);
+    // console.log('Disaster Data Response:', response.data); // Log the response data
+    // console.log('Response Status:', response.status);
+    // console.log('Response Headers:', response.headers);
+
+    if (response.status === 204) {
+      console.log('No content in the response.');
+      return;
+    }
+
+    disasterData=response.data.data;
+    console.log(disasterData);
+    res.send(disasterData)
+  } catch (error) {
+    console.error('Error fetching data:', error.message);
+  }
+  });
+
 app.get('/News/:currentPage',async(req,res)=>
 {
   const apiKey = '38655dcf36c84609b9ce91bf0574fe05';
