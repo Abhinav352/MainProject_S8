@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate,Navigate } from 'react-router-dom';
-import './NewsComponent.css'
+
 import { authContext } from '../App';
 import { useContext } from 'react';
 
@@ -49,22 +49,38 @@ if(authState)
   if(userType==="volunteer")
   {
   return (
-    <div>
-      <h2>Requests List</h2>
-      <div className="news-list">
-      <ul>
+    <div className='table-container' id='table-container' >
+     
+     
+      <div className="table-content">
+      
+      
+      <table>
+      
+      <thead>
+        <tr>
+          <th>Item Type</th>
+          <th>Description</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Actions</th>
+          </tr>
+      </thead>
+      <tbody>
         {requests.map((request) => (
-          <li key={request._id} className='news-item'>
-            <strong>Item Type:</strong> {request.itemType},{' '}
-            <strong>Description:</strong> {request.description},{' '}
-            <strong>Username:</strong> {request.username},{' '}
-            <strong>Email:</strong> {request.email}{' '}
-            <button onClick={() => handleContactClick(request.email, request.username)}>
-              Contact
-            </button>
-          </li>
+          <tr key={request._id}>
+            <td>{request.itemType}</td>
+            <td>{request.description}</td>
+            <td>{JSON.parse(request.username)}</td>
+            <td>{JSON.parse(request.email)}</td>
+            <td><button id= 'buto' onClick={() => handleContactClick(request.email, request.username)}>Contact</button></td>
+          </tr>
         ))}
-      </ul>
+      </tbody>
+    </table>
+
+
+
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import './Signup.css';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { Select, MenuItem, FormControl, InputLabel, OutlinedInput } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
@@ -14,6 +14,7 @@ const SignUp = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [userType, setUserType] = useState('non-volunteer');
+  const navigate = useNavigate();
   const theme = useTheme();
  
   const [emailExists, setEmailExists] = useState(null);
@@ -45,7 +46,10 @@ const SignUp = () => {
 
       const data = await response.json();
       console.log(data);
-
+      
+      if (response.ok) {
+        navigate('/Login');
+      }
       // Clear form fields after successful signup
       setEmail('');
       setPassword('');
@@ -124,7 +128,7 @@ const SignUp = () => {
         value={number}
         onChange={handleNumberChange}
         pattern=" \d{10}"
-        maxLength={10}
+        maxLength={11}
         inputMode="numeric"
       />
       </div>
