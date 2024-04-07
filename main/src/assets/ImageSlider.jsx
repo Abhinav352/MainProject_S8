@@ -2,14 +2,12 @@ import _default from "@mui/material/styles/identifier";
 import SimpleImageSlider from "react-simple-image-slider";
 import './Image.css'
 const images = [
-  { url: "src/images/earth.jpg"},
-  { url: "src/images/flood.jpg" },
-  { url: "src/images/tsunami.jpg" },
-  { url: "src/images/hurricane.jpg" },
-  { url: "src/images/suhaill.jpg" },
-  { url: "src/images/noel.jpg" },
-  { url: "src/images/jaison.jpg" },
+  { url: "src/images/Earthquake.jpg"},
+  { url: "src/images/Flood.jpg" },
+  { url: "src/images/Tsunami.webp" },
+  { url: "src/images/Hurricane.jpg" },
 ];
+
 
 const ImageSlider = () => {
   return (

@@ -16,6 +16,7 @@ import Profile from '../assets/Profile';
 import NavBar from '../assets/NavBar';
 import OtherProfile from './OtherProfile';
 import InitialResponse from './InitialResponse';
+import DisasterPage from './DisasterPage';
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -38,7 +39,7 @@ const AppRoutes = () => {
         <Route path="/Emergency" element={<Emergency />} />
         <Route path="/Profile" element={<Profile />} />
         <Route path="/Response" element={<InitialResponse/>} />
-        <Route path="/disaster/:id" component={DisasterPage} />
+        <Route path="/disaster/:id" element={<DisasterPage />} />
         <Route path="/Map/:latitude/:longitude" element={<MyMap />} />
         <Route path="/otherProfile/:userEmail" element={<OtherProfile />} />
       </Routes>
