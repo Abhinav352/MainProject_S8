@@ -50,7 +50,7 @@ const InitialResponse = () => {
 
   return (
     <div className="disaster-page">
-      <h1>Disasters</h1>
+      <h1 className='disaster-title'>Disasters</h1>
       <div className="disaster-list">
         {disasters.map((disaster) => (
           <div

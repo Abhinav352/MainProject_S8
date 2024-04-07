@@ -1,16 +1,35 @@
 /* InitialResponse.css */
-.disaster-list {
-    display: flex;
-    flex-wrap: wrap;
+
+  .disaster-title{
+    padding-top: 2vh;
+    margin-left: 45%;
+    position: relative;
   }
   
+  .disaster-list {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 80vh;
+  }
+  .disaster-list::-webkit-scrollbar{
+    width: 1vw;
+  }
+  .disaster-list::-webkit-scrollbar-thumb{
+    background-color: gray;
+    border-radius: 5px;
+  }
+  .disaster-list::-webkit-scrollbar-thumb:hover{
+    cursor: grab;
+  }
   .card {
     margin: 10px; /* Adjust spacing between cards */
   }
   
-.card-image {
+  .card-image {
     width: 350px; /* Adjust width as needed */
     height: 250px; /* Adjust height as needed */
+    border-radius: 30px;
     overflow: hidden; /* Ensure the image doesn't exceed the specified size */
   }
   
@@ -18,6 +37,7 @@
     width: 100%; /* Make the image fill the container */
     height: 100%; /* Maintain aspect ratio */
   }
+  
   .card-content {
     text-align: center;
   }
@@ -25,4 +45,24 @@
   .card-link {
     text-decoration: none;
     color: inherit; /* Inherit color from parent */
+  }
+
+  @media (max-width: 768px) {
+    .disaster-list {
+        overflow-y: auto;
+        max-height: 80vh; /* Enable vertical scrolling */
+      }
+      .disaster-list::-webkit-scrollbar{
+        width: 2vw;
+      }
+      .disaster-title{
+        padding-top: 8vh;
+        font-size: 5vh;
+        margin-left: 29%;
+        position: relative;
+      }
+      .card {
+        margin: 5px; /* Adjust spacing between cards */
+       margin-left: 6%;
+      }
   }
