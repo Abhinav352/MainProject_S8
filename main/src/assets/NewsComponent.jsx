@@ -55,7 +55,7 @@ if(authState)
         {news.map((article, index) => (
           <div key={index} className="news-item">
           
-            <p className='def'>{article.description}</p>
+            <p className='def'>{article.title}</p>
             <a href={article.url} target="_blank" rel="noopener noreferrer">
               For more -&gt;
             </a>
