@@ -75,6 +75,9 @@ body{
    .logopicmob{
      display: none;
    }
+   .mobileonl{
+    display: none;
+   }
  } 
  
  /* Mobile Styles */
@@ -90,13 +93,22 @@ body{
    }
    .mobileonly{
      display: block;
-     z-index: 1010;
+     z-index: 100;
      
      
    }
    .mobileonly {
      margin: 0 7vw;
    }
+   .mobileonl{
+    display: block;
+    z-index: 100;
+    
+    
+  }
+   .mobileonl {
+    margin: 0 10vw;
+  }
    ul{
      display: none;
      
@@ -113,7 +125,7 @@ body{
    }
    a{
      font-size:5vw;
-      padding: 1vh 3.5vw;
+      padding: 2vh 3.5vw;
       
    }
    .logopic{

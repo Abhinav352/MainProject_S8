@@ -36,10 +36,10 @@ const NavBar = () => {
           
           
         </ul>
-        <li className='mobileonly'><Link to='/'><FontAwesomeIcon icon={faHouse} color='black' /></Link></li>
-        <li className='mobileonly'><Link to='/Sign'><FontAwesomeIcon icon={faUserPlus} color='black'  /></Link></li>
+        <li className='mobileonl'><Link to='/'><FontAwesomeIcon icon={faHouse} color='black' /></Link></li>
+        <li className='mobileonl'><Link to='/Sign'><FontAwesomeIcon icon={faUserPlus} color='black'  /></Link></li>
           
-          <li className='mobileonly'><Link to='/Login'><FontAwesomeIcon icon={faRightToBracket} color='black'/></Link></li>
+          <li className='mobileonl'><Link to='/Login'><FontAwesomeIcon icon={faRightToBracket} color='black'/></Link></li>
       </nav>
       </div>
     );
