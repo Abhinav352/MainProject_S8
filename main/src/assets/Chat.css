@@ -16,6 +16,7 @@
     flex-grow: 1;
     padding: 16px 20px;
     overflow-y: auto;
+    overflow-x: hidden;
     
     background-image: url('/peak2.jpg');
     background-repeat: no-repeat;
