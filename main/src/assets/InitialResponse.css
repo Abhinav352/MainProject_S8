@@ -1,0 +1,28 @@
+/* InitialResponse.css */
+.disaster-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    margin: 10px; /* Adjust spacing between cards */
+  }
+  
+.card-image {
+    width: 350px; /* Adjust width as needed */
+    height: 250px; /* Adjust height as needed */
+    overflow: hidden; /* Ensure the image doesn't exceed the specified size */
+  }
+  
+  .small-image {
+    width: 100%; /* Make the image fill the container */
+    height: 100%; /* Maintain aspect ratio */
+  }
+  .card-content {
+    text-align: center;
+  }
+  
+  .card-link {
+    text-decoration: none;
+    color: inherit; /* Inherit color from parent */
+  }
