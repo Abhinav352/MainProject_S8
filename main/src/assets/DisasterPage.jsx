@@ -6,18 +6,11 @@ const DisasterPage = () => {
   const [disaster, setDisaster] = useState(null);
 
   useEffect(() => {
-    // Fetch the disaster data based on the id parameter
-    // You can use an API call or access a local data source
     const fetchDisasterData = async () => {
       try {
         // Replace this with your actual data fetching logic
-        const disasterData = {
-          id: 1,
-          name: 'Earthquake',
-          description: 'A powerful earthquake struck the region, causing significant damage and loss of life.',
-          image: '/src/Images/Earthquake.jpg',
-          // Add any other relevant disaster data here
-        };
+        // For example, you could use an API call or access a local data source
+        const disasterData = await getDisasterData(id);
         setDisaster(disasterData);
       } catch (error) {
         console.error('Error fetching disaster data:', error);
@@ -25,6 +18,29 @@ const DisasterPage = () => {
     };
     fetchDisasterData();
   }, [id]);
+
+  const getDisasterData = async (disasterId) => {
+    // Replace this with your actual data fetching logic
+    switch (disasterId) {
+      case '1':
+        return {
+          id: '1',
+          name: 'Earthquake',
+          description: 'A powerful earthquake struck the region, causing significant damage and loss of life.',
+          image: '/src/Images/Earthquake.jpg',
+        };
+      case '2':
+        return {
+          id: '2',
+          name: 'Flood',
+          description: 'Heavy rainfall caused severe flooding in the affected areas.',
+          image: '/src/Images/Flood.jpg',
+        };
+      // Add more cases for different disaster IDs
+      default:
+        return null;
+    }
+  };
 
   if (!disaster) {
     return <div>Loading...</div>;
