@@ -35,7 +35,7 @@ body {
   }
  /*desktop */
       @media screen and (min-width: 601px){
-
+        
         .form-group{
           margin-bottom: 5%;
         }
@@ -45,7 +45,7 @@ body {
             width:90vw;
             max-width: 400px;
             border-radius: 8px;
-            margin-top: 3vh;
+            margin-top: 5vh;
             margin-left: 35%;
             text-align: center;
             border: 1px solid rgb(255, 255, 255);
