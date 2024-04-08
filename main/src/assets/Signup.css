@@ -163,7 +163,12 @@ body {
       
       background: transparent;
     }
-    
+    .password-toggle-icon-container {
+      position: relative;
+      left: 10rem; /* Adjust the right value as needed */
+      margin-bottom: -2%;
+      transform: translateY(-220%);
+    }
     
 
     #bu{
@@ -219,7 +224,8 @@ body {
       }
       body #wrap{
         padding:0.5vh 1vw;
-        margin-left: 7%;
+        margin-left:8%;
+       
         margin-top: 15%;
         margin-bottom: 5%;
       }
@@ -278,8 +284,14 @@ height: 3vh;
 left: 39%;
 font-size: 5vw;
 
-width: 60%;
+width: 58%;
 
+}
+.password-toggle-icon-container {
+  position: relative;
+  left:9rem; /* Adjust the right value as needed */
+  margin-bottom: -2%;
+  transform: translateY(-130%);
 }
 .fy{
   margin-bottom: -2vh;

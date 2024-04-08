@@ -123,6 +123,13 @@ body {
     font-size: 1.3vw;
     padding-bottom: 0.01vh;
   }
+  .log_eye{
+
+    position: absolute;
+    right: 2rem; /* Adjust the right value as needed */
+    
+  
+  }
   #space{
     padding: 3vh;
   }
@@ -183,7 +190,8 @@ body {
         width: 85vw;
         max-width: 400px;
         border-radius: 8px;
-        margin-left: 3.5vh;
+        margin-left: 4.5vh;
+    
         margin-top: 10vh;
         text-align: center;
         border: 1px solid rgba(255, 255, 255, 0.5);
@@ -215,6 +223,13 @@ body {
    #space{
     padding: 2vw;
    }
+   .log_eye{
+
+    position: absolute;
+    right: 2rem; /* Adjust the right value as needed */
+    
+  
+  }
   #forget {
     
     margin: 10vw 0 10vw 0;

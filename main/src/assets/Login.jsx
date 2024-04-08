@@ -72,14 +72,16 @@ const Login = () => {
           <div id="input-field">
             <label>Enter Your Password </label>
             <div className="password-input">
+            <span onClick={() => setShowPassword(!showPassword)} className='log_eye'>
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
               <input
                 type={showPassword ? 'text' : 'password'}
                 value={userPassword}
                 onChange={(e) => setPassword(e.target.value)}
+                
               />
-              <span onClick={() => setShowPassword(!showPassword)}>
-                {showPassword ? <FaEyeSlash /> : <FaEye />}
-              </span>
+              
             </div>
           </div>
           <div id='forget'>

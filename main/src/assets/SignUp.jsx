@@ -105,19 +105,23 @@ const SignUp = () => {
             />
           </div>
           {/* Password input with show password functionality */}
-          <div id='field'>
+          <div id='fiel' style={{marginBottom:'-12%'}}>
             <label>Password</label>
             <div className="password-input-container">
+            <div className="password-input-wrapper">
               <input
                 type={showPassword ? "text" : "password"}
                 value={userPassword}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <div className="password-toggle-icon-container">
               {showPassword ? (
                 <FiEyeOff className="password-toggle-icon" onClick={togglePasswordVisibility} />
               ) : (
                 <FiEye className="password-toggle-icon" onClick={togglePasswordVisibility} />
               )}
+              </div>
+            </div>
             </div>
           </div>
           {/* Remaining input fields */}
