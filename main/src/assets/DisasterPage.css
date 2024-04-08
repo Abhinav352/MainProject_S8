@@ -1,21 +1,96 @@
-body{
-    align-items: center;
-    justify-content: center;
-}
-.disaster-sm{
+
+
+.disaster-sm {
+    background-color: cadetblue;
+    height: 100%;
+    width: 100vw;
     display: flex;
     flex-direction: column;
+    align-items: center; /* Center content horizontally */
 }
 
-.disaster-di{
-    margin-left: 85%;
-    padding-top: 2vh;
+.disaster-scro {
+    overflow-y: auto;
+    max-height: 60vh; /* Adjust maximum height as needed */
 }
 
-.disaster-img{
-    margin-left: 80%;
-    width: 50%;
-    height: 50%;
+.disaster-di {
+    margin-left: auto; /* Move to the left for smaller screens */
+    margin-right: auto; /* Move to the right for smaller screens */
+    margin-bottom: 0.1%;
+    text-align: center; /* Center text */
+}
+
+.disaster-img {
+    margin-left: auto; /* Move to the left for smaller screens */
+    margin-right: auto; /* Move to the right for smaller screens */
+    width: 80%; /* Adjust width for smaller screens */
+    max-width: 600px; /* Limit maximum width for desktop screens */
+    height: auto;
     border-radius: 10px;
 }
 
+.disaster-fd {
+    overflow-y: auto;
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+.disaster-tqw{
+    text-align: center;
+}
+
+.disaster-fd li {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 2vh;
+    margin-right: 2vh;
+}
+
+/* Media query for desktop screens */
+@media screen and (min-width: 1024px) {
+    .disaster-sm {
+        flex-direction: coloumn; /* Change flex direction for desktop screens */
+        justify-content: center; 
+        min-width: 200vh;
+        /* Center content horizontally */
+    }
+    .disaster-scro {
+        overflow-y: auto;
+        max-height: 80vh; /* Adjust maximum height as needed */
+        min-width: 100vh;
+    }
+    .disaster-scro::-webkit-scrollbar{
+        width: 2vw;
+      }
+    .disaster-di {
+        padding-top: 9vh; /* Reduce padding top for desktop screens */
+        margin-left: 0; /* Remove left margin for desktop screens */
+        margin-right: 20px; /* Add right margin for desktop screens */
+    }
+
+    .disaster-img {
+        width: 50%; /* Adjust width for desktop screens */
+        max-width: none; /* Remove maximum width for desktop screens */
+        margin-left: 25%; /* Add left margin for desktop screens */
+        margin-right: 0; /* Remove right margin for desktop screens */
+        /* margin-bottom: 30%; */
+
+    }
+}
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .disaster-img {
+        width: 70%; /* Adjust width for smaller screens */
+        max-width: none; /* Remove maximum width */
+        margin-left: 15%;
+    }
+    .disaster-sm{
+        height: 100vh;
+    }
+    .disaster-di{
+        padding-top: 10vh;
+    }
+}
