@@ -1,24 +1,19 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './Login.css';
 import NavBar from './NavBar';
 import { authContext } from '../App';
-
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
-
   const [userEmail, setEmail] = useState('');
   const [userPassword, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-  const [authState,setAuthState]= useContext(authContext);
-
-  // useEffect(() => {
-  //   const loggedInUser = JSON.parse(localStorage.getItem("authenticated"));
-  //   setAuthState(loggedInUser);
-  // }, []);
+  const [authState, setAuthState] = useContext(authContext);
 
   const handleSignIn = async () => {
     try {
@@ -58,44 +53,52 @@ const Login = () => {
     navigate('/Sign');
   };
 
+  const handleForgotPassword = () => {
+    navigate('/forgot-password');
+  };
+
   return (
     <div className='backg'>
       <div className='anch'></div>
-    <div id='wrapper'>
-      <form >
-      <h2>Login</h2>
-      <div id="input-field">
-      <label>Enter your email</label>
-      <div></div>
-        <input type="email" value={userEmail} onChange={(e) => setEmail(e.target.value)} />
-        
+      <div id='wrapper'>
+        <form>
+          <h2>Login</h2>
+          <div id="input-field">
+            <label>Enter your email</label>
+            <div></div>
+            <input type="email" value={userEmail} onChange={(e) => setEmail(e.target.value)} />
+          </div>
+          <div id='space'></div>
+          <div id="input-field">
+            <label>Enter Your Password </label>
+            <div className="password-input">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                value={userPassword}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <span onClick={() => setShowPassword(!showPassword)}>
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
+          </div>
+          <div id='forget'>
+            <label htmlFor="remember">
+              <input type="checkbox" id='remember' />
+              <p>Remember me</p>
+            </label>
+            <a href="#" onClick={handleForgotPassword} id='pass'>
+              Forgot Password?
+            </a>
+          </div>
+          <button onClick={handleSignIn} disabled={loading} id='but'>
+            {loading ? 'Logging In...' : 'Log In'}
+          </button>
+          <div id='register'>
+            <p>Don't have an account? <Link to="/Sign">Register</Link></p>
+          </div>
+        </form>
       </div>
-      <div id='space'></div>
-      
-      <div id="input-field">
-        
-      <label>Enter Your Password </label>
-        <input type="password" value={userPassword} onChange={(e) => setPassword(e.target.value)} />
-       </div>
-       
-      
-      <div id='forget'>
-        <label htmlFor="remember">
-          <input type="checkbox" id='remember' />
-          <p>Remember me</p>
-        </label>
-        <a href="#" id='pass'>Forgot Password?</a>
-      </div>
-      
-      
-        <button onClick={handleSignIn} disabled={loading} id='but'>
-          {loading ? 'Logging In...' : 'Log In'}
-        </button>
-        <div id='register'>
-        <p>Don't have an account? <a href="/Sign">Register</a> </p>
-      </div>
-      </form>
-    </div>
     </div>
   );
 };

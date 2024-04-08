@@ -10,6 +10,8 @@ const userSchema = new mongoose.Schema({
   userType: { type: String, enum: ['volunteer', 'non-volunteer'], default: 'non-volunteer' },
   profilePic: String, // Add a field for storing the profile picture URL
   number: String,
+  resetToken: { type: String },
+  resetTokenExpiration: { type: Date }
 });
 
 
