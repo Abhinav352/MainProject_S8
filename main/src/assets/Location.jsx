@@ -3,6 +3,8 @@ import axios from 'axios';
 import './Loc.css';
 import { useNavigate } from 'react-router-dom';
 import ImageSlider from './ImageSlider';
+import {Link} from 'react-scroll';
+import dwnbutton from '../Images/arrow.png'
 
 const Location = () => {
   const [userLocation, setUserLocation] = useState({ latitude: '', longitude: '' });
@@ -154,23 +156,51 @@ const Location = () => {
 
   return (
     <>
-    <div className='whole'>
-      <div className="sos-container">
-        <div className="outer-circle"></div>
-          <div className="inner-circle"></div>
-            <button
-            className="sos-button"
-            onClick={() => {
-            getCurrentLocation();
-            }}
-            >
-            <span>
-            SOS
-            </span>
-            </button>
+      <div className='whole'>
+        <div className="sos-container">
+          <div className="outer-circle"></div>
+            <div className="inner-circle"></div>
+              <button
+              className="sos-button"
+              onClick={() => {
+              getCurrentLocation();
+              }}
+               >
+              <span>
+              SOS
+              </span>
+              </button>
+        </div>
+        <ImageSlider/>
       </div>
-      <ImageSlider/>
-    </div>
+
+      <div className='wholeM'>
+          <div className="sos-container">
+            <div className="outer-circle"></div>
+              <div className="inner-circle"></div>
+                <button
+                className="sos-button"
+                onClick={() => {
+                getCurrentLocation();
+                }}
+                >
+                  <span>
+                  SOS
+                  </span>
+                </button>
+          </div>
+          
+          <Link activeClass="active" 
+      to="section2" 
+      spy={true} 
+      smooth={true} 
+      offset={50} 
+      duration={500}><img className='dwn' src={dwnbutton}></img></Link>
+          </div>
+      
+      <div className='section2' id='section2'>
+          <ImageSlider/>
+          </div>
         </>
     
   );

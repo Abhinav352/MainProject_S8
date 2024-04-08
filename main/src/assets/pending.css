@@ -1,9 +1,3 @@
-/* Apply styles to the table */
-body{
-    display: flex;
-   
-    
-}
 .table-container{
   display: flex;
   color: black;
