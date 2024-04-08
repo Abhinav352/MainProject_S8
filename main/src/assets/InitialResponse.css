@@ -2,7 +2,7 @@
 
   .disaster-title{
     padding-top: 2vh;
-    margin-left: 45%;
+    margin-left: 40%;
     position: relative;
   }
   
@@ -56,9 +56,9 @@
         width: 2vw;
       }
       .disaster-title{
-        padding-top: 8vh;
+        padding-top: 10vh;
         font-size: 5vh;
-        margin-left: 29%;
+        margin-left: 34%;
         position: relative;
       }
       .card {

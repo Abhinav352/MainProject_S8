@@ -143,16 +143,18 @@ const DisasterPage = () => {
 
   return (
     <div className='disaster-sm'>
-      <h1 className='disaster-di'>{disaster.name}</h1>
+      <h2 className='disaster-di'>{disaster.name}</h2>
+      <div className='disaster-scro'>
       <img src={disaster.image} alt={disaster.name} className='disaster-img'  />
       {/* <p>{disaster.description}</p> */}
-      <h3>Instructions</h3>
+      <h3 className='disaster-tqw'>Instructions</h3>
       <ol className='disaster-fd'>
             {disaster.list.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
           </ol>
       {/* Add more disaster details here */}
+      </div>
     </div>
   );
 };
