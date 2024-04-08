@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useCallback} from 'react';
 import { Link, useNavigate, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import './Messages.css'
@@ -10,6 +10,7 @@ const Messages = () => {
   const [profilePics, setProfilePics] = useState({}); // State to store profile pictures
   const currentUserEmail = localStorage.getItem('userEmail');
   const currentUserName = localStorage.getItem('userName');
+  const [userProfile,setUserProfile]=useState();
   const navigate = useNavigate();
   const [authState, setAuthState] = useContext(authContext);
 
@@ -43,6 +44,23 @@ const Messages = () => {
     fetchProfilePics();
   }, [currentUserEmail, userRooms]);
 
+  const fetchProfileData = useCallback(async () => {
+    try {
+      const userEmail = JSON.parse(localStorage.getItem('userEmail'));
+      const response = await axios.get('http://localhost:5000/Profile', {
+        params: { userEmail },
+      });
+      const data = response.data;
+      setUserProfile(data);
+      console.log({userProfile})
+    } catch (error) {
+      console.error('Error fetching user profile:', error);
+    }
+  }, []);
+  useEffect(() => {
+    fetchProfileData();
+  }, [fetchProfileData]);
+
   const handleChatClick = (roomId) => {
     navigate(`/chat/${roomId}`);
   };
@@ -50,6 +68,7 @@ const Messages = () => {
   if (authState) {
     return (
       <div className='listmessage'>
+      
         <div className='anch'></div>
         <h2>Recent Chats</h2>
         <ul className='messageli'>
