@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import './Signup.css';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { FiEye, FiEyeOff } from 'react-icons/fi'; // Add this line
 import { Select, MenuItem, FormControl, InputLabel, OutlinedInput } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-
 
 const SignUp = () => {
   const [userEmail, setEmail] = useState('');
@@ -14,9 +14,10 @@ const SignUp = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [userType, setUserType] = useState('non-volunteer');
+  const [showPassword, setShowPassword] = useState(false); // Add this line
   const navigate = useNavigate();
   const theme = useTheme();
- 
+
   const [emailExists, setEmailExists] = useState(null);
   const [number, setNumber] = useState('');
 
@@ -24,10 +25,14 @@ const SignUp = () => {
     setUserType(event.target.value);
   };
   const handleNumberChange = (e) => {
-    const value = e.target.value.replace(/\D/g, ''); // Remove non-digit characters
+    const value = e.target.value.replace(/\D/g, '');
     if (value.length <= 10) {
       setNumber(` ${value}`);
     }
+  };
+
+  const togglePasswordVisibility = () => { // Add this function
+    setShowPassword(!showPassword);
   };
   
  
@@ -82,79 +87,82 @@ const SignUp = () => {
 
   return (
     <div className='signback'>
-      <div className='anch'></div>
+    <div className='anch'></div>
     <div id='wrap'>
       <form>
-      <h2 id='heady'>Sign Up</h2>
-      <div id='mesg_body'>
-      {emailExists !== null && (
-    <span style={{ color: emailExists ? 'red' : 'white',  display:'block'  }} className='errmsg'>
-      {emailExists ? 'Email already exists' : 'Email available...'}
-    </span>
-  )}
-      <div id='field'>
-        
-  <label>Email </label>
-  <input
-    type="email"
-    value={userEmail}
-    onChange={(e) => {
-      setEmail(e.target.value);
-      checkEmailExists(e.target.value);
-    }}
-  />
-  
-</div>
-<div id='sp'></div>
-<div className='pass2'></div>
-      <div id='field'>
-      <label>Password  </label>
-        <input type="password" value={userPassword} onChange={(e) => setPassword(e.target.value)} />
-      </div>
-      <div id='space'></div>
-      <div id='field'>
-      <label>First Name </label>
-        <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-      </div>
-      <div id='space'></div>
-      <div id='field'>
-      <label>Last Name  </label>
-        <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
-      </div>
-      <div  id='fiel'>
-      <label>Phone </label>
-      <input
-        type="text"
-        value={number}
-        onChange={handleNumberChange}
-        pattern=" \d{10}"
-        maxLength={11}
-        inputMode="numeric"
-      />
-      </div>
-      <div id='space'></div>
-      <div id='field'></div>
-      
-      <div id='spa'></div>
-      <div>
-      <label htmlFor="userTypeSelect" id='typelabel'> User Type</label>
-      <select id="userTypeSelect" value={userType} onChange={handleUserTypeChange}>
-        <option value="volunteer">Volunteer</option>
-        <option value="non-volunteer">Non-Volunteer</option>
-      </select>
+        <h2 id='heady'>Sign Up</h2>
+        <div id='mesg_body'>
+          {/* Existing email check message */}
+          <div id='field'>
+            <label>Email</label>
+            <input
+              type="email"
+              value={userEmail}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                checkEmailExists(e.target.value);
+              }}
+            />
+          </div>
+          {/* Password input with show password functionality */}
+          <div id='field'>
+            <label>Password</label>
+            <div className="password-input-container">
+              <input
+                type={showPassword ? "text" : "password"}
+                value={userPassword}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              {showPassword ? (
+                <FiEyeOff className="password-toggle-icon" onClick={togglePasswordVisibility} />
+              ) : (
+                <FiEye className="password-toggle-icon" onClick={togglePasswordVisibility} />
+              )}
+            </div>
+          </div>
+          {/* Remaining input fields */}
+          <div id='space'></div>
+          <div id='field'>
+            <label>First Name</label>
+            <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+          </div>
+          <div id='space'></div>
+          <div id='field'>
+            <label>Last Name</label>
+            <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+          </div>
+          <div id='fiel'>
+            <label>Phone</label>
+            <input
+              type="text"
+              value={number}
+              onChange={handleNumberChange}
+              pattern=" \d{10}"
+              maxLength={11}
+              inputMode="numeric"
+            />
+          </div>
+          <div id='space'></div>
+          <div id='field'></div>
+          <div id='spa'></div>
+          <div>
+            <label htmlFor="userTypeSelect" id='typelabel'> User Type</label>
+            <select id="userTypeSelect" value={userType} onChange={handleUserTypeChange}>
+              <option value="volunteer">Volunteer</option>
+              <option value="non-volunteer">Non-Volunteer</option>
+            </select>
+          </div>
+          <div>
+            <button onClick={handleSignUp} disabled={loading} id='bu'>
+              {loading ? 'Signing Up...' : 'Sign Up'}
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
- 
-      <div>
-      <button onClick={handleSignUp} disabled={loading} id='bu'>
-        {loading ? 'Signing Up...' : 'Sign Up'}
-      </button></div> 
-      </div>
-    
-    </form>
-    </div>
-    
-    </div>
-  );
+  </div>
+);
 };
+
 
 export default SignUp;
