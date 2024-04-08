@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import NavBar from './NavBar';
 import { authContext } from '../App';
-
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
 
@@ -12,13 +12,9 @@ const Login = () => {
   const [userPassword, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const navigate = useNavigate();
   const [authState,setAuthState]= useContext(authContext);
-
-  // useEffect(() => {
-  //   const loggedInUser = JSON.parse(localStorage.getItem("authenticated"));
-  //   setAuthState(loggedInUser);
-  // }, []);
 
   const handleSignIn = async () => {
     try {
@@ -75,8 +71,14 @@ const Login = () => {
       <div id="input-field">
         
       <label>Enter Your Password </label>
-        <input type="password" value={userPassword} onChange={(e) => setPassword(e.target.value)} />
-       </div>
+        <div className="password-input">
+          <input type={showPassword ? "text" : "password"} value={userPassword} onChange={(e) => setPassword(e.target.value)} />
+          {/* Show password toggle button */}
+          <span onClick={() => setShowPassword(!showPassword)}>
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+          </span>
+        </div>
+      </div>
        
       
       <div id='forget'>
