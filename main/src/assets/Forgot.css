@@ -27,7 +27,7 @@
   border-radius: 5px;
 }
 
-.forgot-row h1 {
+.forgot-h {
   margin-top: -10dvh;
 
   font-size: 2.5em;
@@ -125,14 +125,14 @@
     max-width: 75vw;
     margin-left: 6vh;
   }
-  .forgot-row h1 {
-    margin-top: -17dvh;
+  .forgot-h {
+    margin-top: -9dvh;
   
-    font-size: 2.5em;
+    font-size: 2em;
   }
   
   .forgot-row .formy-group {
-    margin: 0.5em 0;
+    margin: 1em -2em;
   }
   
   .information-text {
