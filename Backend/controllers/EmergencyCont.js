@@ -12,10 +12,10 @@ const transporter = nodemailer.createTransport({
 
 const submitEmergency = async (req, res) => {
   try {
-    const { latitude, longitude } = req.body;
+    const { latitude, longitude ,country,state} = req.body;
 
     // Create a new Emergency document using the model
-    const newEmergency = new EmergencyModel({ latitude, longitude });
+    const newEmergency = new EmergencyModel({ latitude, longitude, country, state });
 
     // Save the document to the database
     await newEmergency.save();
@@ -29,7 +29,7 @@ const submitEmergency = async (req, res) => {
       from: 'Rapid Aid Network',
       to: emails.join(', '), // Send to all users
       subject: 'New Emergency Alert',
-      text: 'A new emergency has been reported. Please check the emergency list for more details.'
+      text: `A new emergency has been reported in the State of ${state},${country} . Please check the emergency list for more details.`
     });
 
     res.status(201).json({ message: 'Request submitted successfully' });

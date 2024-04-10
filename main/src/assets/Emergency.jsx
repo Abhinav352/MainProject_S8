@@ -92,7 +92,7 @@ const Emergency = () => {
         <ul>
           {emergency.map((emergency) => (
             <li key={emergency._id}>
-              <strong>Latitude:</strong> {emergency.latitude}, <strong>Longitude:</strong>  {emergency.longitude},
+              <strong>Latitude:</strong> {emergency.latitude}, <strong>Longitude:</strong>  {emergency.longitude},<strong>State:</strong>{emergency.state},<strong>Country:</strong>{emergency.country},
               <strong>Distance:</strong> {calculateDistance(userLocation.latitude, userLocation.longitude, emergency.latitude, emergency.longitude).toFixed(2)} km,{''}
               <button onClick={() => handleShowMap(emergency.latitude, emergency.longitude)}>
               Show Map

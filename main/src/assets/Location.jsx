@@ -104,10 +104,21 @@ const Location = () => {
         console.log(userLocation);
 
         try {
-          // Make a POST request to the backend endpoint
+          // Fetch city and country information using Nominatim API
+          const nominatimResponse = await axios.get(
+            `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
+          );
+          const { state, country } = nominatimResponse.data.address;
+          console.log(country)
+          console.log(state)
+          
+
+          // Make a POST request to the backend endpoint with latitude, longitude, city, and country
           await axios.post('http://localhost:5000/emergency', {
             latitude,
-            longitude
+            longitude,
+            country,
+            state
           });
 
           console.log('Request submitted successfully');
@@ -115,9 +126,8 @@ const Location = () => {
           console.error('Error submitting request:', error.message);
         }
         // Handle the case where the user is in a disaster area
-        userInAnyDisasterArea = true;
-
-         break;
+        break;
+      
       }
     }
     console.log('User is not in any of the disaster areas.');
@@ -164,6 +174,7 @@ const Location = () => {
               className="sos-button"
               onClick={() => {
               getCurrentLocation();
+             
               }}
                >
               <span>
