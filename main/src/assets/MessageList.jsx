@@ -86,7 +86,7 @@ const Messages = () => {
               {userRooms.map((room) => (
                 <li key={room.roomId} >
                   <Link to={`/chat/${room.roomId}`} onClick={() => handleChatClick(room.roomId)}>
-                    Chat with {room.user1 === currentUserEmail ? room.userName2 : room.userName1}
+                    Chat with {room.user1 === currentUserEmail ? JSON.parse(room.userName2) : JSON.parse(room.userName1)}
                     {profilePics[room.roomId] ? (
   <img
     src={`http://localhost:5000/${profilePics[room.roomId].replace(/\\/g, '/')}`}
