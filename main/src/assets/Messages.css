@@ -1,5 +1,6 @@
 .messageli {
     display: flex;
+    position: fixed;
     flex-direction: column;
     padding: 1vh 1vh;
     margin-bottom: 10px;
