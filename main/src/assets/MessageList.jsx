@@ -79,6 +79,7 @@ const Messages = () => {
             ) : (
               <img src="/default-profile.jpg" alt="Default Profile Picture" className="profile-picture" />
             )}
+            <h1>{userProfile.firstName}</h1>
             <div className='anch'></div>
             <h2>Recent Chats</h2>
             <ul className='messageli'>
