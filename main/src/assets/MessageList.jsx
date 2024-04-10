@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useCallback, useContext } from 'react';
 import { Link, useNavigate, Navigate } from 'react-router-dom';
 import axios from 'axios';
-import './Messages.css';
+
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import { authContext } from '../App';
+import './Messages.css';
 
 const Messages = () => {
   const [userRooms, setUserRooms] = useState([]);
@@ -11,6 +13,9 @@ const Messages = () => {
   const currentUserEmail = localStorage.getItem('userEmail');
   const navigate = useNavigate();
   const [authState] = useContext(authContext);
+  const handleBackClick = () => {
+    window.history.back();
+  };
 
   useEffect(() => {
     const fetchUserRooms = async () => {
@@ -65,51 +70,58 @@ const Messages = () => {
 
   if (authState) {
     return (
-      <div className='listmessage'>
+      <div className="messagy-container">
         
-        <div className='list-navbar'></div>
+      <nav className="messagy-navbar">
+        <button className="back-button" onClick={handleBackClick}>
+          <i className="fas fa-arrow-left"></i>
+        </button>
+      
+     
         {userProfile && (
-          <div className="profile-container">
-            {/* Display profile picture if available */}
+          <div className="profile-info">
             {userProfile.profilePic ? (
               <img
                 src={`http://localhost:5000/${userProfile.profilePic.replace(/\\/g, '/')}`}
                 alt={`Profile of ${userProfile.firstName} ${userProfile.lastName}`}
-                className='profile-picture'
+             
+                className="profile-pictur"
               />
             ) : (
-              <img src="/default-profile.jpg" alt="Default Profile Picture" className="profile-picture" />
+              <img src="/default-profile.jpg" alt="Default Profile Picture" className="profile-pictur" />
             )}
             <h1>{userProfile.firstName}</h1>
-            <div className='anch'></div>
             
-            <ul className='messageli'>
-              {userRooms.map((room) => (
-                <li key={room.roomId} >
-                  <Link to={`/chat/${room.roomId}`} onClick={() => handleChatClick(room.roomId)}>
-                    Chat with {room.user1 === currentUserEmail ? JSON.parse(room.userName2) : JSON.parse(room.userName1)}
-                    {profilePics[room.roomId] ? (
-  <img
-    src={`http://localhost:5000/${profilePics[room.roomId].replace(/\\/g, '/')}`}
-    alt="Profile"
-    className='profile-picture-small'
-  />
-) : (
-  <img
-    src="/defco9.png" 
-    alt="Default Profile"
-    className='profile-picture-small'
-  />
-)}
-                
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
         )}
+        </nav>
+        <div className="messagy-content">
+          <p className='messagy-p'>Start a chat....</p>
+        <ul className="messagy-list">
+          {userRooms.map((room) => (
+            <li key={room.roomId} className="messagy-item">
+              <Link to={`/chat/${room.roomId}`} onClick={() => handleChatClick(room.roomId)} className="messagy-link">
+                <div className="user-info">
+                  {profilePics[room.roomId] ? (
+                    <img
+                      src={`http://localhost:5000/${profilePics[room.roomId].replace(/\\/g, '/')}`}
+                      alt="Profile"
+                      className="profile-picture-smally"
+                    />
+                  ) : (
+                    <img src="/defco9.png" alt="Default Profile" className="profile-picture-smally" />
+                  )}
+                  <span>{room.user1 === currentUserEmail ? JSON.parse(room.userName2) : JSON.parse(room.userName1)}</span>
+                  <h2 className='messagy-volun'>{userProfile.userType}</h2>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
-    );
+    </div>
+  );
+
   } else {
     return <Navigate to="/Login" />;
   }
