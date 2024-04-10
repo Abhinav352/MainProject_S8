@@ -33,135 +33,142 @@
 
 
 .messages-container::-webkit-scrollbar-thumb {
-    background: #9ed1d1; /* Color of the handle */
-    border-radius: 6px;
-    /* Rounded corners */
+  background: #9ed1d1;
+  /* Color of the handle */
+  border-radius: 6px;
+  /* Rounded corners */
 }
 
 /* Handle on hover */
 
 
-  .message {
-    max-width: 70%;
-    padding: 8px 30px;
-    
-    color: black;
-    word-wrap: break-word;
-    margin-bottom: 8px;
-    
+.message {
+  max-width: 70%;
+  padding: 8px 30px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align message content to start */
-    line-height: 1.5; 
-  }
+  color: black;
+  word-wrap: break-word;
+  margin-bottom: 8px;
 
-  .message.sent {
-    background-color: #57ccaf;
-  
-    color: white;
-    align-self: flex-end;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
-    border-bottom-left-radius: 40px;
-    
-  }
-  
-  .message.received {
-    background-color: #ffffff;
-    
-    align-self: flex-start;
-    border-top-left-radius: 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Align message content to start */
+  line-height: 1.5;
+}
+
+.message.sent {
+  background-color: #57ccaf;
+
+  color: white;
+  align-self: flex-end;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+
+}
+
+.message.received {
+  background-color: #ffffff;
+
+  align-self: flex-start;
+  border-top-left-radius: 40px;
   border-top-right-radius: 40px;
   border-bottom-right-radius: 40px;
-  }
-  
-  .message-sender {
-    font-weight: bold;
-    margin-right: 8px;
-  }
- 
-  
-  .message-time {
-    align-items: end;
-    font-size: 0.7vw;
-    color: #888;
-    
-  }
-  
-  /* Input Container */
-  .input-container {
-    display: flex;
-    align-items: center;
-    padding: 8px 16px;
-    
-    margin-bottom: 2vh;
-    background-color: #3e8d82;
-    
-  }
-  
-  .input-container input {
-    flex-grow: 1;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 16px;
-    font-size: 16px;
-    background-color: #dfe6e5;
-    color: black;
-  }
-  
-  .input-container button {
-    margin-left: 8px;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 16px;
-    background-color: #3a9fc7;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  #ico{
-    margin-right: 14px;
-    margin-bottom: 1vh;
-  }
- 
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
+}
 
-  .chat-container{
-    background-color: #4ca4a7 ;
+.message-sender {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+
+.message-time {
+  align-items: end;
+  font-size: 0.7vw;
+  color: #888;
+
+}
+
+/* Input Container */
+.input-container {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+
+  margin-bottom: 2vh;
+  background-color: #3e8d82;
+
+}
+
+.input-container input {
+  flex-grow: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 16px;
+  font-size: 16px;
+  background-color: #dfe6e5;
+  color: black;
+}
+
+.input-container button {
+  margin-left: 8px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 16px;
+  background-color: #3a9fc7;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#ico {
+  margin-right: 14px;
+  margin-bottom: 1vh;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+  .chat-container {
+    background-color: #4ca4a7;
   }
-  
+
   #ico {
-      margin-right: -5px;
-      font-size: 25px;
+    margin-right: -5px;
+    font-size: 25px;
   }
+
   .message.sent {
     background-color: #50c0a4;
   }
+
   .message.received {
     background-color: #ffffff;
   }
 
-  .messages-container{
-    background-image:url('/peakpx.jpg');
-    background-size:cover ;
-   
+  .messages-container {
+    background-image: url('/peakpx.jpg');
+    background-size: cover;
+
   }
- .messages-container::-webkit-scrollbar{
-  display: none;
- }
+
+  .messages-container::-webkit-scrollbar {
+    display: none;
+  }
 
 
-  .input-container{
+  .input-container {
     background-color: #3e8d82;
   }
-  .input-container input{
-   background-color: rgb(190, 228, 220);
+
+  .input-container input {
+    background-color: rgb(190, 228, 220);
   }
-  
-    .message-time {
-      font-size: 0.7em;
-    }
+
+  .message-time {
+    font-size: 0.7em;
   }
+}

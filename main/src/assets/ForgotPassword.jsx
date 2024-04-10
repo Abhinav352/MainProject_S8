@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import './Forgot.css';
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -11,26 +11,41 @@ const ForgotPassword = () => {
 
     try {
       await axios.post('http://localhost:5000/login/forgot-password', { userEmail: email });
-      setMessage('Password reset instructions have been sent to your email.');
+      alert('Password reset instructions have been sent to your email.');
       setEmail('');
     } catch (err) {
-      setError('An error occurred while processing the forgot password request.');
+      alert('Please enter valid user email');
       console.error(err);
+    }finally{
+      setEmail('');
+    }
+  };
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSubmit(e);
     }
   };
 
+
   return (
-    <div>
-      <h2>Forgot Password</h2>
-      <form onSubmit={handleSubmit}>
+    <div className='forgot-container'>
+      <div className='forgot-row'>
+        <form >
+      <h1>Forgot Password &#9785;</h1>
+      
+      <div className='formy-group'>
+      <h4 className="information-text">Enter email to reset your password</h4>
         <label>
-          Email:
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          
+          <input type="email" id="user_email" placeholder = 'Enter your email here...  ' value={email} onChange={(e) => setEmail(e.target.value)}  onKeyDown={handleKeyDown} />
         </label>
-        <button type="submit">Submit</button>
-      </form>
+        <button type="submit" onClick={handleSubmit}>Reset</button>
+
+      </div>
       {message && <p>{message}</p>}
       {error && <p>{error}</p>}
+      </form>
+    </div>
     </div>
   );
 };

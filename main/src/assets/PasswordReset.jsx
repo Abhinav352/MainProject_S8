@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './Forgot.css';
 
 const PasswordReset = () => {
   const { resetToken } = useParams();
@@ -38,27 +39,34 @@ const PasswordReset = () => {
   };
 
   return (
-    <div>
-      <h2>Reset Password</h2>
+    <div className='forgot-container'>
+      <div className='forgot-row'>
       <form onSubmit={handleSubmit}>
-        <label>
-          New Password:
+      <h1>Reset Password<span style={{fontSize:'60px'}}>&#9786;</span></h1>
+      
+         <div className='formy-group'>
+        
+          
           <input
             type="password"
             value={newPassword}
+            placeholder='New Password...'
             onChange={(e) => setNewPassword(e.target.value)}
           />
-        </label>
-        <label>
-          Confirm Password:
+       
+      
+        
           <input
             type="password"
             value={confirmPassword}
+            placeholder='Confirm Password..'
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
-        </label>
-        <button type="submit">Reset Password</button>
+      
+        <button type="submit">Reset</button>
+        </div>
       </form>
+      </div>
       {message && <p>{message}</p>}
       {error && <p>{error}</p>}
     </div>

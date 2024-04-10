@@ -1,0 +1,151 @@
+.forgot-container {
+  background-image: linear-gradient(
+    to top,
+    #ff9a9e 0%,
+    hsl(335, 41%, 73%) 99%,
+    #ad99a7 100%
+  );
+  padding-top: 2vh;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+.forgot-row {
+  display: grid;
+  width: 85vw;
+  max-width: 35vw;
+  color: #fff;
+  text-align: center;
+  place-items: center;
+  margin: 9dvh 30dvw;
+  min-height: 70vh;
+  border: 2px solid white;
+
+  border-radius: 5px;
+}
+
+.forgot-row h1 {
+  margin-top: -10dvh;
+
+  font-size: 2.5em;
+}
+
+.forgot-row .formy-group {
+  margin: 0.5em 0;
+}
+
+.information-text {
+  margin-top: -1vh;
+  color: #62ebb2dd;
+}
+
+.forgot-row .formy-group input {
+  display: block;
+  padding: 0.5em 5em;
+  width: 30%;
+  margin-top: 4em;
+  margin-left: 20%;
+  margin-bottom: 0.5em;
+  background-color: inherit;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  color: #eee;
+}
+.forgot-row .formy-group button {
+  display: block;
+
+  width: 30%;
+  margin-top: 2em;
+  text-align: center;
+  margin-left: 20%;
+  margin-bottom: 0.5em;
+  background-color: inherit;
+  border: none;
+  border-bottom: 1px solid #555;
+  color: #eee;
+}
+.forgot-row .formy-group input::placeholder {
+  color: rgb(0, 0, 0);
+  margin-left: -7vh;
+}
+
+.forgot-row .formy-group input:focus,
+.forgot-row .formy-group button:focus {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  animation: pulse 1s infinite ease;
+}
+.forgot-row .formy-group button {
+    position: relative;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  outline: none;
+  -moz-user-select: none;
+  user-select: none;
+  color: #333;
+  font-weight: 800;
+  cursor: pointer;
+  margin-top: 3em;
+  padding: 2vh 1vw;
+  margin-left:9vw;
+}
+.forgot-row .formy-group button:hover,
+.forgot-row .formy-group button:focus {
+  background-color: #fff;
+}
+.forgot-row .formy-group button.is-loading::after {
+  animation: spinner 500ms infinite linear;
+  content: "";
+  position: absolute;
+  margin-left: 2em;
+  border: 2px solid #000;
+  border-radius: 100%;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  height: 1em;
+}
+
+
+
+@media only screen and (min-width: 811px) and (max-width: 1225px) {
+  
+    
+    .forgot-row .formy-group button{
+        margin-left: 12vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+  .forgot-row {
+    
+    max-width: 75vw;
+    margin-left: 6vh;
+  }
+  .forgot-row h1 {
+    margin-top: -17dvh;
+  
+    font-size: 2.5em;
+  }
+  
+  .forgot-row .formy-group {
+    margin: 0.5em 0;
+  }
+  
+  .information-text {
+    margin-top: 3vh;
+    padding-bottom: 3vh;
+    color: #62ebb2dd;
+  }
+  .forgot-row .formy-group input:focus{
+    width:11vh;
+    height:4vh;
+  }
+  .forgot-row .formy-group button{
+    margin-left: 15vh;
+}
+
+}
