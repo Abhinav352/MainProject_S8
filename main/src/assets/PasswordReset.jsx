@@ -42,7 +42,7 @@ const PasswordReset = () => {
     <div className='forgot-container'>
       <div className='forgot-row'>
       <form onSubmit={handleSubmit}>
-      <h1>Reset Password<span style={{fontSize:'60px'}}>&#9786;</span></h1>
+      <h1 className='forgot-h'>Reset Password<span style={{fontSize:'60px'}}>&#9786;</span></h1>
       
          <div className='formy-group'>
         

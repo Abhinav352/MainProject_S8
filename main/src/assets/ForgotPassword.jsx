@@ -31,7 +31,7 @@ const ForgotPassword = () => {
     <div className='forgot-container'>
       <div className='forgot-row'>
         <form >
-      <h1>Forgot Password &#9785;</h1>
+      <h1 className='forgot-h'>Forgot Password &#9785;</h1>
       
       <div className='formy-group'>
       <h4 className="information-text">Enter email to reset your password</h4>

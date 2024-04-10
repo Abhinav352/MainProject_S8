@@ -66,7 +66,8 @@ const Messages = () => {
   if (authState) {
     return (
       <div className='listmessage'>
-        <div className='anch'></div>
+        
+        <div className='list-navbar'></div>
         {userProfile && (
           <div className="profile-container">
             {/* Display profile picture if available */}
@@ -81,7 +82,7 @@ const Messages = () => {
             )}
             <h1>{userProfile.firstName}</h1>
             <div className='anch'></div>
-            <h2>Recent Chats</h2>
+            
             <ul className='messageli'>
               {userRooms.map((room) => (
                 <li key={room.roomId} >
