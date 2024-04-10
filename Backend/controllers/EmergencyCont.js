@@ -1,14 +1,36 @@
+const nodemailer = require('nodemailer');
 const EmergencyModel = require('../models/Emergency');
+const UserModel = require('../models/User'); // Assuming you have a User model
+
+const transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+    user: 'rapidaidnetwork@gmail.com', // Your email address
+    pass: 'iagr nmox ivuk pcdo' // Your email password
+  }
+});
 
 const submitEmergency = async (req, res) => {
   try {
-    const { latitude,longitude } = req.body;
+    const { latitude, longitude } = req.body;
 
-    // Create a new Request document using the model
-    const newEmergency = new EmergencyModel({ latitude,longitude });
+    // Create a new Emergency document using the model
+    const newEmergency = new EmergencyModel({ latitude, longitude });
 
     // Save the document to the database
     await newEmergency.save();
+
+    // Fetch all users' emails (You need to have a User model and adjust this part accordingly)
+    const users = await UserModel.find({}, 'userEmail'); // Fetch userEmail instead of email
+    const emails = users.map(user => user.userEmail); // Access userEmail field
+
+    // Send email notification to all users
+    await transporter.sendMail({
+      from: 'Rapid Aid Network',
+      to: emails.join(', '), // Send to all users
+      subject: 'New Emergency Alert',
+      text: 'A new emergency has been reported. Please check the emergency list for more details.'
+    });
 
     res.status(201).json({ message: 'Request submitted successfully' });
   } catch (error) {
@@ -16,18 +38,20 @@ const submitEmergency = async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 };
+
 const getAllEmergency = async (req, res) => {
-    try {
-      // Fetch all requests from the database
-      const emergency = await EmergencyModel.find();
-  
-      res.status(200).json(emergency);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Internal server error' });
-    }
-  };
+  try {
+    // Fetch all requests from the database
+    const emergency = await EmergencyModel.find();
+
+    res.status(200).json(emergency);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
 module.exports = {
-    submitEmergency,
-    getAllEmergency,
+  submitEmergency,
+  getAllEmergency,
 };
