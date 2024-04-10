@@ -66,6 +66,7 @@ const Messages = () => {
   if (authState) {
     return (
       <div className='listmessage'>
+        <div className='anch'></div>
         {userProfile && (
           <div className="profile-container">
             {/* Display profile picture if available */}
@@ -85,13 +86,20 @@ const Messages = () => {
                 <li key={room.roomId} >
                   <Link to={`/chat/${room.roomId}`} onClick={() => handleChatClick(room.roomId)}>
                     Chat with {room.user1 === currentUserEmail ? room.userName2 : room.userName1}
-                    {profilePics[room.roomId] && (
-                      <img
-                        src={`http://localhost:5000/${profilePics[room.roomId].replace(/\\/g, '/')}`}
-                        alt="Profile"
-                        className="profile-picture-small"
-                      />
-                    )}
+                    {profilePics[room.roomId] ? (
+  <img
+    src={`http://localhost:5000/${profilePics[room.roomId].replace(/\\/g, '/')}`}
+    alt="Profile"
+    className='profile-picture-small'
+  />
+) : (
+  <img
+    src="/defco9.png" 
+    alt="Default Profile"
+    className='profile-picture-small'
+  />
+)}
+                
                   </Link>
                 </li>
               ))}
