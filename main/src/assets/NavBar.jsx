@@ -3,7 +3,7 @@ import { Link,useLocation } from 'react-router-dom';
 import './NavBar.css'; // Import CSS file for styling
 import 'boxicons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserPlus ,faHouse,faRightToBracket,faKitMedical,faNewspaper,faUser} from '@fortawesome/free-solid-svg-icons';
+import { faUserPlus ,faHouse,faRightToBracket,faKitMedical,faNewspaper,faUser,faTableList,faHandHoldingMedical} from '@fortawesome/free-solid-svg-icons';
 
 import { authContext } from '../App';
 
@@ -57,6 +57,7 @@ const NavBar = () => {
       <ul >
         <li id='noi' ><Link className='nav-text' to='/'>Home</Link></li>
         <li id='noi'><Link className='nav-text' to='/Emergency'>Urgency</Link></li>
+        <li id='noi'><Link className='nav-text' to='/List'>List</Link></li>
         <li id='noi'><Link className='nav-text' to='/News'>News</Link></li>
         <li ><Link className='nav-text' to='/Profile'>Profile</Link></li>
 
@@ -64,10 +65,10 @@ const NavBar = () => {
         
         
       </ul>
-      <li className='mobileonly'><Link to='/'><FontAwesomeIcon icon={faHouse} color='black' /></Link></li>
-      <li className='mobileonly'><Link to='/Emergency'><FontAwesomeIcon icon={faKitMedical} color='black' opacity={0.8} /></Link></li>
-        <li className='mobileonly'><Link to='/News'><FontAwesomeIcon icon={faNewspaper} color='black' opacity={0.8}/></Link></li>
-        <li className='mobileonly'><Link to='/Profile'><FontAwesomeIcon icon={faUser} color='black' opacity={0.8}/></Link></li>
+      <li className='mobileonl'><Link to='/'><FontAwesomeIcon icon={faHouse} color='black' /></Link></li>
+      <li className='mobileonl'><Link to='/Emergency'><FontAwesomeIcon icon={faKitMedical} color='black' opacity={0.8} /></Link></li>
+        <li className='mobileonl'><Link to='/List'><FontAwesomeIcon icon={faTableList} color='black' opacity={0.8}/></Link></li>
+      
     </nav>
     </div>
   );
@@ -81,7 +82,8 @@ else{
     <img src="/logo1.svg" alt="log" className="logopic" />
       <ul >
         <li id='noi' ><Link className='nav-text' to='/'>Home</Link></li>
-        <li id='noi'><Link className='nav-text' to='/Emergency'>Urgency</Link></li>
+        <li id='noi' ><Link className='nav-text' to='/Req'>Help</Link></li>
+        <li id='noi'><Link className='nav-text' to='/Pending'>List</Link></li>
         <li id='noi'><Link className='nav-text' to='/News'>News</Link></li>
         <li ><Link className='nav-text' to='/Profile'>Profile</Link></li>
 
@@ -89,10 +91,9 @@ else{
         
         
       </ul>
-      <li className='mobileonly'><Link to='/'><FontAwesomeIcon icon={faHouse} color='black' /></Link></li>
-      <li className='mobileonly'><Link to='/Emergency'><FontAwesomeIcon icon={faKitMedical} color='black' opacity={0.8} /></Link></li>
-        <li className='mobileonly'><Link to='/News'><FontAwesomeIcon icon={faNewspaper} color='black' opacity={0.8}/></Link></li>
-        <li className='mobileonly'><Link to='/Profile'><FontAwesomeIcon icon={faUser} color='black' opacity={0.8}/></Link></li>
+      <li className='mobileonl'><Link to='/'><FontAwesomeIcon icon={faHouse} color='black' /></Link></li>
+      <li className='mobileonl'><Link to='/Req'><FontAwesomeIcon icon={faHandHoldingMedical} color='black' opacity={0.8} /></Link></li>
+      <li className='mobileonl'><Link to='/Pending'><FontAwesomeIcon icon={faTableList} color='black' opacity={0.8}/></Link></li>
     </nav>
     </div>
   );
