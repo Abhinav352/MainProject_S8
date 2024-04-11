@@ -142,9 +142,10 @@ const DisasterPage = () => {
   }
 
   return (
+    <div className='disaster-scro'>
     <div className='disaster-sm'>
-      <h2 className='disaster-di'>{disaster.name}</h2>
-      <div className='disaster-scro'>
+    <h2 className='disaster-di'>{disaster.name}</h2>
+      
       <img src={disaster.image} alt={disaster.name} className='disaster-img'  />
       {/* <p>{disaster.description}</p> */}
       <h3 className='disaster-tqw'>Instructions</h3>
