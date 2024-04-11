@@ -3,7 +3,7 @@ import { Link,useLocation } from 'react-router-dom';
 import './NavBar.css'; // Import CSS file for styling
 import 'boxicons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserPlus ,faHouse,faRightToBracket } from '@fortawesome/free-solid-svg-icons';
+import { faUserPlus ,faHouse,faRightToBracket,faKitMedical,faNewspaper,faUser} from '@fortawesome/free-solid-svg-icons';
 
 import { authContext } from '../App';
 
@@ -61,10 +61,10 @@ const NavBar = () => {
         
         
       </ul>
-      <li className='mobileonly'><Link to='/'><box-icon type='solid' name='home'></box-icon></Link></li>
-      <li className='mobileonly'><Link to='/loc'><box-icon name='current-location' ></box-icon></Link></li>
-        <li className='mobileonly'><Link to='/News'><box-icon name='news'></box-icon></Link></li>
-        <li className='mobileonly'><Link to='/Profile'><box-icon name='user-circle' type='solid' ></box-icon></Link></li>
+      <li className='mobileonly'><Link to='/'><FontAwesomeIcon icon={faHouse} color='black' /></Link></li>
+      <li className='mobileonly'><Link to='/Emergency'><FontAwesomeIcon icon={faKitMedical} color='black' opacity={0.8} /></Link></li>
+        <li className='mobileonly'><Link to='/News'><FontAwesomeIcon icon={faNewspaper} color='black' opacity={0.8}/></Link></li>
+        <li className='mobileonly'><Link to='/Profile'><FontAwesomeIcon icon={faUser} color='black' opacity={0.8}/></Link></li>
     </nav>
     </div>
   );
