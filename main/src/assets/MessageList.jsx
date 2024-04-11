@@ -13,9 +13,6 @@ const Messages = () => {
   const currentUserEmail = localStorage.getItem('userEmail');
   const navigate = useNavigate();
   const [authState] = useContext(authContext);
-  const handleBackClick = () => {
-    window.history.back();
-  };
 
   useEffect(() => {
     const fetchUserRooms = async () => {
@@ -73,9 +70,11 @@ const Messages = () => {
       <div className="messagy-container">
         
       <nav className="messagy-navbar">
-        <button className="back-button" onClick={handleBackClick}>
+        <a href="/">
+        <button className="back-button" >
           <i className="fas fa-arrow-left"></i>
         </button>
+        </a>
       
      
         {userProfile && (

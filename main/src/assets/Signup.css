@@ -1,7 +1,9 @@
   .signback{
     background-color: #288fb4;
+  
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
   
   }
   .anch{

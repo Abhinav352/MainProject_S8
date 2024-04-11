@@ -120,18 +120,22 @@
 }
 
 @media screen and (max-width: 600px) {
+
   .forgot-row {
     
     max-width: 75vw;
     margin-left: 6vh;
+    
   }
+
   .forgot-h {
-    margin-top: -9dvh;
+  
   
     font-size: 2em;
   }
   
   .forgot-row .formy-group {
+    
     margin: 1em -2em;
   }
   

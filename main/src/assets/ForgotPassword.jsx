@@ -30,7 +30,8 @@ const ForgotPassword = () => {
   return (
     <div className='forgot-container'>
       <div className='forgot-row'>
-        <form >
+      
+        <form  className='forgoty-form'>
       <h1 className='forgot-h'>Forgot Password &#9785;</h1>
       
       <div className='formy-group'>

@@ -111,14 +111,15 @@ font-size: 24px;
   color: rgb(130, 26, 214);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .messagy-navbar {
     padding: 5px;
   }
 
-  .profile-pictur {
+  .profile-info .profile-pictur {
     width: 30px;
     height: 30px;
+    margin-top: 1vh;
   }
 
   .messagy-link {
@@ -126,8 +127,8 @@ font-size: 24px;
   }
 
   .profile-picture-smally {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
   }
 
   .messagy-item{
@@ -140,6 +141,7 @@ font-size: 24px;
   }
   .user-info{
     display: flex;
-    margin-top: 1vh;
+    margin-top: 3vh;
   }
+  
 }
