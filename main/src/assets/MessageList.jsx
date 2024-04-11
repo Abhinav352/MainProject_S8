@@ -112,7 +112,6 @@ const Messages = () => {
                     <img src="/defco9.png" alt="Default Profile" className="profile-picture-smally" />
                   )}
                   <span>{room.user1 === currentUserEmail ? JSON.parse(room.userName2) : JSON.parse(room.userName1)}</span>
-                  <h2 className='messagy-volun'>{userProfile.userType}</h2>
                 </div>
               </Link>
             </li>
