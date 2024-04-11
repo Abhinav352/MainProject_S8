@@ -11,6 +11,7 @@ import { authContext } from '../App';
 const NavBar = () => {
   const location = useLocation();
   const [authState,setAuthState] = useContext(authContext);
+  const userType = JSON.parse(localStorage.getItem("userType"));
   console.log(authState);
   useEffect(() => {
     const loggedInUser  = JSON.parse(localStorage.getItem("authenticated"));
@@ -19,7 +20,6 @@ const NavBar = () => {
 
   if(!authState)
   {
-    console.log("nothing");
     return (
       <div>
       <img src="/logo-black.svg" alt="log" className="logopicmob" />
@@ -45,6 +45,34 @@ const NavBar = () => {
     );
   }
   else{
+    if(userType==="volunteer")
+    {
+      // console.log(userType);
+  return (
+    <div>
+    <img src="/logo-black.svg" alt="log" className="logopicmob" />
+      
+    <nav className="navbar">
+    <img src="/logo1.svg" alt="log" className="logopic" />
+      <ul >
+        <li id='noi' ><Link className='nav-text' to='/'>Home</Link></li>
+        <li id='noi'><Link className='nav-text' to='/Emergency'>Urgency</Link></li>
+        <li id='noi'><Link className='nav-text' to='/News'>News</Link></li>
+        <li ><Link className='nav-text' to='/Profile'>Profile</Link></li>
+
+
+        
+        
+      </ul>
+      <li className='mobileonly'><Link to='/'><FontAwesomeIcon icon={faHouse} color='black' /></Link></li>
+      <li className='mobileonly'><Link to='/Emergency'><FontAwesomeIcon icon={faKitMedical} color='black' opacity={0.8} /></Link></li>
+        <li className='mobileonly'><Link to='/News'><FontAwesomeIcon icon={faNewspaper} color='black' opacity={0.8}/></Link></li>
+        <li className='mobileonly'><Link to='/Profile'><FontAwesomeIcon icon={faUser} color='black' opacity={0.8}/></Link></li>
+    </nav>
+    </div>
+  );
+}
+else{
   return (
     <div>
     <img src="/logo-black.svg" alt="log" className="logopicmob" />
@@ -69,4 +97,5 @@ const NavBar = () => {
     </div>
   );
 }}
+}
 export default NavBar;
