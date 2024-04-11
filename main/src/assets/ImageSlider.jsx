@@ -2,10 +2,10 @@ import _default from "@mui/material/styles/identifier";
 import SimpleImageSlider from "react-simple-image-slider";
 import './Image.css'
 const images = [
-  { url: "src/images/Earthquake.jpg"},
-  { url: "src/images/Flood.jpg" },
-  { url: "src/images/Tsunami.webp" },
-  { url: "src/images/Hurricane.jpg" },
+  { url: "src/images/earthq.jpg"},
+  { url: "src/images/hurri.png" },
+  { url: "src/images/tsu.jpg" },
+  { url: "src/images/wild.jpg" },
 ];
 
 
