@@ -5,6 +5,7 @@
     height: 100%;
     width: 100vw;
     display: flex;
+    position: fixed;
     flex-direction: column;
     align-items: center; /* Center content horizontally */
 }
@@ -12,6 +13,7 @@
 .disaster-scro {
     overflow-y: auto;
     max-height: 60vh; /* Adjust maximum height as needed */
+    overflow-x: hidden;
 }
 
 .disaster-di {
