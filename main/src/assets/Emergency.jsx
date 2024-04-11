@@ -3,7 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { authContext } from '../App';
 import { useContext } from 'react';
-
+import './Emergency2.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 const Emergency = () => {
   const [emergency, setEmergency] = useState([]);
   const [userLocation, setUserLocation] = useState({ latitude: '', longitude: '' });
@@ -86,20 +87,49 @@ const Emergency = () => {
     return null; // Render nothing for non-volunteers
   } else {
     return (
-      <div>
-        <h2>Emergency List</h2>
-        <p>User's Location: Latitude {userLocation.latitude}, Longitude {userLocation.longitude}</p>
-        <ul>
-          {emergency.map((emergency) => (
-            <li key={emergency._id}>
-              <strong>Latitude:</strong> {emergency.latitude}, <strong>Longitude:</strong>  {emergency.longitude},<strong>State:</strong>{emergency.state},<strong>Country:</strong>{emergency.country},
-              <strong>Distance:</strong> {calculateDistance(userLocation.latitude, userLocation.longitude, emergency.latitude, emergency.longitude).toFixed(2)} km,{''}
-              <button onClick={() => handleShowMap(emergency.latitude, emergency.longitude)}>
+      <div className='emergency-list'>
+        <div className='anch'></div>
+        <h2 className='emergency-hed'>Emergency List</h2>
+        <div className='emergency-par'>
+        <p > <i className='fa-solid fa-location-dot' />&nbsp;&nbsp;&nbsp; Latitude <span style={{ color: 'red' }}> {userLocation.latitude}&nbsp;&nbsp;</span> Longitude<span style={{ color: 'red' }}> {userLocation.longitude}</span></p>
+        </div>
+         
+        <div className='table-contain' id='table-contain'>
+        <div className='table-conte'>
+              <table>
+      
+      <thead>
+        <tr>
+          <th>Latitude:</th>
+          <th>Longitude:</th>
+          <th>State</th>
+          <th>Country</th>
+          <th>Distance</th>
+          <th>Map</th>
+          </tr>
+          </thead>
+      <tbody>
+      {emergency.map((emergency) => (
+          <tr key={emergency._id}>
+            <td>{emergency.latitude}</td>
+            <td>{emergency.longitude}</td>
+            <td>{emergency.state}</td>
+            <td>{emergency.country}</td>
+            <td>{calculateDistance(userLocation.latitude, userLocation.longitude, emergency.latitude, emergency.longitude).toFixed(2)} km</td>
+            <td><button id= 'buito' onClick={() => handleShowMap(emergency.latitude, emergency.longitude)} className='emergency-show'>
               Show Map
-            </button>
-            </li>
+            </button></td>
+          </tr>
           ))}
-        </ul>
+      </tbody>
+              
+              
+           
+            </table>
+           </div>
+           </div>
+      
+       
         
       </div>
     );
