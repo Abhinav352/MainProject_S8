@@ -19,9 +19,9 @@ const submitEmergency = async (req, res) => {
 
     // Save the document to the database
     await newEmergency.save();
-
+const userType='volunteer'
     // Fetch all users' emails (You need to have a User model and adjust this part accordingly)
-    const users = await UserModel.find({}, 'userEmail'); // Fetch userEmail instead of email
+    const users = await UserModel.find({userType}, 'userEmail'); // Fetch userEmail instead of email
     const emails = users.map(user => user.userEmail); // Access userEmail field
 
     // Send email notification to all users
