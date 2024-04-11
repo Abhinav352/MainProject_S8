@@ -9,14 +9,15 @@
 }
 
 .emergency-par{
+    
     text-align: center;
     border: 1px solid #ccc;
     border-radius: 5px;
     border-color: white;
     padding: 5px;
     margin-bottom: 5px;
-    margin-left: 62vh;
-    margin-right: 2vh;
+    margin-left: 30%;
+    /* margin-right: 2vh; */
     
     width: 40%;
 }
@@ -92,12 +93,7 @@
     background-color: #EF0107;
   }
   
-  @media screen and (min-width: 601px){
-    th,td{
-      padding: 5px;
-     }
-  
-  }
+
   /*mobile screen */
   
     @media screen and (max-width: 600px) {
@@ -117,8 +113,13 @@
         text-align: center;
     }
     .emergency-par{
-        margin-left: 8vh;
+        margin-left: 14%;
+        /* margin-right: 50%; */
         width: 70%;
+        
+    }
+    .emergency-par span {
+        display: block;
     }
     
     

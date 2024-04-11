@@ -91,7 +91,7 @@ const Emergency = () => {
         <div className='anch'></div>
         <h2 className='emergency-hed'>Emergency List</h2>
         <div className='emergency-par'>
-        <p > <i className='fa-solid fa-location-dot' />&nbsp;&nbsp;&nbsp; Latitude <span style={{ color: 'red' }}> {userLocation.latitude}&nbsp;&nbsp;</span> Longitude<span style={{ color: 'red' }}> {userLocation.longitude}</span></p>
+        <p > <i className='fa-solid fa-location-dot' />&nbsp;&nbsp;&nbsp; Latitude: <span style={{ color: 'red' }}> {userLocation.latitude}&nbsp;&nbsp;</span> Longitude:<span style={{ color: 'red' }}> {userLocation.longitude}</span></p>
         </div>
          
         <div className='table-contain' id='table-contain'>
@@ -100,8 +100,8 @@ const Emergency = () => {
       
       <thead>
         <tr>
-          <th>Latitude:</th>
-          <th>Longitude:</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
           <th>State</th>
           <th>Country</th>
           <th>Distance</th>
