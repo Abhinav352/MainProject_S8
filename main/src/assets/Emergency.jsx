@@ -117,7 +117,7 @@ const Emergency = () => {
             <td>{emergency.country}</td>
             <td>{calculateDistance(userLocation.latitude, userLocation.longitude, emergency.latitude, emergency.longitude).toFixed(2)} km</td>
             <td><button id= 'buito' onClick={() => handleShowMap(emergency.latitude, emergency.longitude)} className='emergency-show'>
-              Show Map
+               Map
             </button></td>
           </tr>
           ))}
