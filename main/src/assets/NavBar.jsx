@@ -53,7 +53,7 @@ const NavBar = () => {
     <img src="/logo1.svg" alt="log" className="logopic" />
       <ul >
         <li id='noi' ><Link className='nav-text' to='/'>Home</Link></li>
-        <li id='noi'><Link className='nav-text' to='/loc'>Location</Link></li>
+        <li id='noi'><Link className='nav-text' to='/Emergency'>Urgency</Link></li>
         <li id='noi'><Link className='nav-text' to='/News'>News</Link></li>
         <li ><Link className='nav-text' to='/Profile'>Profile</Link></li>
 
