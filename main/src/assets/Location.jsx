@@ -3,8 +3,10 @@ import axios from 'axios';
 import './Loc.css';
 import { useNavigate } from 'react-router-dom';
 import ImageSlider from './ImageSlider';
+import DropdownMenu from './DropDownMenu';
 import {Link} from 'react-scroll';
 import dwnbutton from '../Images/arrow.png'
+
 
 const Location = () => {
   const [userLocation, setUserLocation] = useState({ latitude: '', longitude: '' });
@@ -18,7 +20,7 @@ const Location = () => {
     const { name, value } = event.target;
     setUserLocation({ ...userLocation, [name]: value });
   };
-
+ 
   const fetchAccessToken = async () => {
     try {
       const response = await axios.post('https://keycloak01.kontur.io/auth/realms/kontur/protocol/openid-connect/token', new URLSearchParams({
@@ -60,6 +62,7 @@ const Location = () => {
       fetchAccessToken();
     }
   };
+
 
   const handleFetchData = async () => {
     try {
@@ -167,6 +170,8 @@ const Location = () => {
   return (
     <>
       <div className='whole'>
+       
+
         <div className="sos-container">
           <div className="outer-circle"></div>
             <div className="inner-circle"></div>
@@ -186,7 +191,9 @@ const Location = () => {
       </div>
 
       <div className='wholeM'>
+      <DropdownMenu/>
           <div className="sos-container">
+          
             <div className="outer-circle"></div>
               <div className="inner-circle"></div>
                 <button
