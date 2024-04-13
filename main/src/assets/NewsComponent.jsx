@@ -49,34 +49,33 @@ if(authState)
   return (
     <div className='newsback'>
       <div id='posi'>
-      <h2 id='dis'>Disaster News</h2>
-      <div className="news-container">
-      <div className="news-list">
-        {news.map((article, index) => (
-          <div key={index} className="news-item">
-          
-            <p className='def'>{article.title}</p>
-            <a href={article.url} target="_blank" rel="noopener noreferrer">
-              For more -&gt;
-            </a>
-          </div>
-        ))} 
-        </div>
-        
-        <div className="pagination">
-        
-              <button onClick={handlePrevPage} disabled={currentPage === 1} className='prev'>
-              <i className="fa-solid fa-arrow-left"></i>
-              </button>
-              
-              <button onClick={handleNextPage} className='next'>
-              <i className="fa-solid fa-arrow-right"></i>
-              </button>
+        <h2 id='dis'>Disaster News</h2>
+
+          <div className="news-container">
+            <div className="news-list">
+              {news.map((article, index) => (
+                <div key={index} className="news-item">
+                  <p className='def'>{article.title}</p>
+                  <a href={article.url} target="_blank"
+                  rel="noopener noreferrer">
+                    For more -&gt;
+                  </a>
+                </div>
+              ))} 
             </div>
-       
-      </div>
-      </div>
-    </div>
+        
+          <div className="pagination">
+            <button onClick={handlePrevPage} disabled={currentPage === 1} className='prev'>
+              <i className="fa-solid fa-arrow-left"></i>
+            </button>
+                
+            <button onClick={handleNextPage} className='next'>
+              <i className="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+          </div>
+        </div>
+        </div>
   );
 }
 else{

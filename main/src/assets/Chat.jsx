@@ -24,7 +24,7 @@ const NavBar = ({ profilePic, currentUserEmail, roomDetails }) => {
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 20px' }}>
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Link to="/messages" style={{ fontSize: '20px', color: '#333' }}>
+        <Link to="/Messages" style={{ fontSize: '20px', color: '#333' }}>
           <i className="fas fa-arrow-left" style={{ color: 'white' }} id="ico"></i>
         </Link>
         

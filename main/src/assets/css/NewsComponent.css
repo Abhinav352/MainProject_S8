@@ -1,7 +1,7 @@
 .newsback{
-  
- background-color: #ffffff;
- height: 100vh;
+  background-image: url('../../Images/loc-wall.jpg');
+  background-size: cover;
+  height: 100vh;
   position: fixed;
   width:100vw;
 }
@@ -13,6 +13,7 @@
 }
 
 .news-list {
+    justify-content: center;
     display: flex;
     flex-wrap: wrap; 
     overflow-y: auto;
@@ -31,14 +32,16 @@
  
   
   .news-item {
-  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border: 1px solid #ccc;
-    
+    background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   #dis{
-    color: #ff3c00;
+    color: #ffffff;
   }
   
   
@@ -52,11 +55,14 @@
     text-decoration: underline;
   }
  .prev{
-  background-color: rgb(147, 140, 140);
+  background-color: rgb(255, 255, 255);
   border-radius: 100px;
+  color: black;
  }
  .next{
-  background-color: rgb(147, 140, 140);
+  background-color: rgb(255, 255, 255);
+  color: black;
+  margin-left:10px ;
   border-radius: 100px;
  }
  
@@ -98,6 +104,7 @@
     display: flex;
     justify-content: center;
     padding-top: -5vh;
+    margin-top: 1%;
     
     /* Add any other styles you need for the pagination buttons */
   }

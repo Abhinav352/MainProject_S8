@@ -7,6 +7,7 @@ import { faComments  } from '@fortawesome/free-solid-svg-icons';
 import DropdownMenu from './DropDownMenu';
 import {Link} from 'react-scroll';
 import dwnbutton from '../Images/arrow.png'
+import wall from '../Images/loc-wall.jpg'
 
 
 const Location = () => {

@@ -10,7 +10,7 @@ body {
   z-index: 100;
   padding: 1.5vh;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-  background-color: #617391;
+  background-color: rgba(255, 255, 255, 5%)
 }
 
 .mobileonly {
@@ -30,7 +30,7 @@ ul {
   transition: 0.5s;
 }
 .nav-text:hover {
-  color: rgb(0, 0, 0);
+  color: rgb(212, 134, 134);
 }
 .nav-text-active:hover {
   color: rgb(13, 12, 12);

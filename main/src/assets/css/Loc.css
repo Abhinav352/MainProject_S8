@@ -1,5 +1,6 @@
 .whole {
-  background-color: rgb(16, 49, 56);
+  background-image: url('../../Images/loc-wall.jpg');
+  background-size: cover;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -56,23 +57,24 @@
   animation: ripple 1s infinite;
 }
 .outer-circle {
-  background-color: rgba(251, 14, 14, 0.3);
+  background-color: rgba(255, 255, 255, 0.3);
   animation-delay: 0.75s;
 }
 
 .inner-circle {
-  background-color: rgba(242, 19, 19, 0.5);
+  background-color: rgba(234, 110, 110, 0.5);
   animation-delay: 1s;
 }
 .sos-button {
   position: absolute;
   font-size: 45px;
   width: 100%;
+  color: red;
   height: 100%;
   font-weight: 900;
   margin-bottom: 15px;
   border-radius: 50%;
-  background-color: rgb(243, 56, 56);
+  background-color: rgb(247, 242, 242);
   cursor: pointer;
 }
 .loc-spacing{
@@ -83,12 +85,8 @@
 /* Media query for smaller screens */
 @media screen and (max-width: 800px) {
   .wholeM {
-    background-image: linear-gradient(
-      to top,
-      #ff9a9e 0%,
-      #fecfef 99%,
-      #fecfef 100%
-    );
+    background-image: url('../../Images/loc-wall.jpg');
+    background-size: cover;
     height: 100vh;
     width: 100vw;
     display: flex;
