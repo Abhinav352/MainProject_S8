@@ -22,7 +22,7 @@ const NavBar = () => {
   {
     return (
       <div>
-      <img src="/logo-black.svg" alt="log" className="logopicmob" />
+      <img src="/logo1.svg" alt="log" className="logopicmob" />
         
       <nav className="navbar">
       <img src="/logo1.svg" alt="log" className="logopic" />
@@ -50,7 +50,7 @@ const NavBar = () => {
       // console.log(userType);
   return (
     <div>
-    <img src="/logo-black.svg" alt="log" className="logopicmob" />
+    <img src="/logo1.svg" alt="log" className="logopicmob" />
       
     <nav className="navbar">
     <img src="/logo1.svg" alt="log" className="logopic" />
@@ -77,7 +77,7 @@ const NavBar = () => {
 else{
   return (
     <div>
-    <img src="/logo-black.svg" alt="log" className="logopicmob" />
+    <img src="/logo1.svg" alt="log" className="logopicmob" />
       
     <nav className="navbar">
     <img src="/logo1.svg" alt="log" className="logopic" />

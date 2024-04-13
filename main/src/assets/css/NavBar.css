@@ -103,11 +103,11 @@ ul {
 
   .logopicmob {
     position: fixed;
-    width: 40%;
+    width: 30%;
     opacity: 0.6;
     height: auto;
     top: 3%;
-    left: 30%;
+    left: 35%;
   }
   a {
     font-size: 5vw;
