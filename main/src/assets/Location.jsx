@@ -171,8 +171,6 @@ const Location = () => {
   return (
     <>
       <div className='whole'>
-       
-
         <div className="sos-container">
           <div className="outer-circle"></div>
             <div className="inner-circle"></div>
