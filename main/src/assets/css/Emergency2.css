@@ -109,7 +109,7 @@
       .table-conte{
         border: 2px solid grey;
         border-radius: 10px;
-        width: 80%;
+        width: 90%;
         overflow: auto;
       }
    
@@ -119,6 +119,7 @@
        
        .emergency-hed {
         margin-top: 8vh;
+        font-size: 40px;
         text-align: center;
     }
     .emergency-par{

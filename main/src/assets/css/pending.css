@@ -15,7 +15,7 @@
   margin-right: auto;
   vertical-align: top;
   margin-top: 20px;
-  width: 40%;
+  width: 70%;
   background-color: rgb(241, 241, 241);
   height: 560px;
   border-radius: 10px;
@@ -46,6 +46,8 @@ th{
   border-bottom: 2px solid #3baeca;
 }
 
+
+
 .table-content::-webkit-scrollbar {
   width: 12px;
 }
@@ -57,23 +59,25 @@ th{
 }
 
 .table-content::-webkit-scrollbar-thumb {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(224, 221, 221);
   border-radius: 10px;
 }
 #buto{
   
-  background-color: #FF003F;
+  background-color: #ffffff;
+  color: black;
+  border: 1px solid black;
   padding: 0.4vh;
    
 }
 #buto:hover{
   
-  background-color: #EF0107;
+  background-color: #f7f7f7;
 }
 
 @media screen and (min-width: 601px){
   th,td{
-    padding: 10px;
+    padding:10px;
    }
 
 }
