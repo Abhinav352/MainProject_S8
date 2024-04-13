@@ -76,7 +76,7 @@ if(authState)
         </div>
         <div id='gapy'></div>
         <div className='form-group'> 
-        <label htmlFor='desc' id='desclabel'>Description</label>
+        {/* <label htmlFor='desc' id='desclabel'>Description</label> */}
         <textarea name="desc" id="desc" placeholder='Enter quantity and related info.....'  value={description} onChange={handleDescriptionChange}></textarea>
         <div id='char-count'>{wordCount} words (Max 50)</div>
         </div>
