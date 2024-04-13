@@ -211,12 +211,7 @@ const Location = () => {
                 <button className='loc-message'><a href="/Messages"><FontAwesomeIcon icon={faComments}  fontSize={'36px'} color='white' /></a></button>
           </div>
 
-          <Link activeClass="active"
-      to="section2"
-      spy={true}
-      smooth={true}
-      offset={50}
-      duration={500}><img className='dwn' src={dwnbutton}></img></Link>
+         <div className='loc-spacing'></div>
           </div>
 
         </>
