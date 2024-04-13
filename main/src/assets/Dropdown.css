@@ -22,15 +22,13 @@
 
 .dropdown-menu {
   position: absolute;
-  transform: translate(8vh, 4.5vh); 
+  transform: translate(13vh, 4.5vh); 
   z-index: 1;
   background-color: #f1f1f1;
-  min-width: 80px;
+  min-width: 60px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 12px 16px;
-  border-top-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
 }

@@ -60,6 +60,7 @@ const NavBar = () => {
         <li id='noi'><Link className='nav-text' to='/List'>List</Link></li>
         <li id='noi'><Link className='nav-text' to='/News'>News</Link></li>
         <li ><Link className='nav-text' to='/Profile'>Profile</Link></li>
+        <li ><Link className='nav-text' to='/Messages'>Message</Link></li>
 
 
         
@@ -86,6 +87,7 @@ else{
         <li id='noi'><Link className='nav-text' to='/Pending'>List</Link></li>
         <li id='noi'><Link className='nav-text' to='/News'>News</Link></li>
         <li ><Link className='nav-text' to='/Profile'>Profile</Link></li>
+        <li ><Link className='nav-text' to='/Messages'>Message</Link></li>
 
 
         

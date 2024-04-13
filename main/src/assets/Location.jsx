@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Loc.css';
 import { useNavigate } from 'react-router-dom';
-import ImageSlider from './ImageSlider';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faComments  } from '@fortawesome/free-solid-svg-icons';
 import DropdownMenu from './DropDownMenu';
 import {Link} from 'react-scroll';
 import dwnbutton from '../Images/arrow.png'
@@ -186,14 +187,15 @@ const Location = () => {
               SOS
               </span>
               </button>
+             
         </div>
-        <ImageSlider/>
+      
       </div>
 
       <div className='wholeM'>
       <DropdownMenu/>
           <div className="sos-container">
-          
+         
             <div className="outer-circle"></div>
               <div className="inner-circle"></div>
                 <button
@@ -206,6 +208,7 @@ const Location = () => {
                   SOS
                   </span>
                 </button>
+                <button className='loc-message'><a href="/Messages"><FontAwesomeIcon icon={faComments}  fontSize={'36px'} color='white' /></a></button>
           </div>
           
           <Link activeClass="active" 
@@ -215,10 +218,7 @@ const Location = () => {
       offset={50} 
       duration={500}><img className='dwn' src={dwnbutton}></img></Link>
           </div>
-      
-      <div className='section2' id='section2'>
-          <ImageSlider/>
-          </div>
+              
         </>
     
   );

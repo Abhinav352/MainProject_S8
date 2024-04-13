@@ -14,8 +14,8 @@ const DropdownMenu = () => {
     <div className="dropdown-menu-wrapper">
       {isOpen && (
         <div className="dropdown-menu">
-          <a href="#">News</a>
-          <a href="#">Profile</a>
+          <a href="/News">News</a>
+          <a href="/Profile">Profile</a>
         </div>
       )}
       <button className="dropdown-toggle" onClick={toggleDropdown}>
