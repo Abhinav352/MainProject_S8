@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import axios from 'axios';
-import './NewsComponent.css';
+import './css/NewsComponent.css';
 import { useNavigate, Navigate } from 'react-router-dom';
 import { authContext } from '../App';
 import { useContext } from 'react';

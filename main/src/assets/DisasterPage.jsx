@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import './DisasterPage.css'; 
+import './css/DisasterPage.css'; 
 const DisasterPage = () => {
   const { id } = useParams();
   const [disaster, setDisaster] = useState(null);

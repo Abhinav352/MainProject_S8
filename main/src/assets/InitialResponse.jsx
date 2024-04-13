@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './InitialResponse.css';
+import './css/InitialResponse.css';
 
 const InitialResponse = () => {
   const navigate = useNavigate();

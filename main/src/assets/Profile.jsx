@@ -4,7 +4,7 @@ import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faPhoneVolume  } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate,Navigate } from 'react-router-dom';
 import { authContext } from '../App';
-import './Profile.css';
+import './css/Profile.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { faUserPen,faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';

@@ -4,8 +4,9 @@ import axios from 'axios';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { authContext } from '../App';
-import './Messages.css';
-import defaultProfilePic from "/defco9.png";
+import './css/Messages.css';
+
+
 const Messages = () => {
   const [userRooms, setUserRooms] = useState([]);
   const [profilePics, setProfilePics] = useState({});
