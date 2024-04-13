@@ -109,8 +109,9 @@
 
   @media screen and (max-width: 600px) {
     #dis{
-      margin-top: 30%;
-     margin-left: 13%;
+      margin-top: 20%;
+     margin-left: 10%;
+     padding: 3vh 2vw;
     }
    
     #posi{
@@ -118,7 +119,7 @@
     }
 
    .news-list{ 
-    max-height: 55vh;
+    max-height: 60vh;
 
   } 
   .news-list::-webkit-scrollbar {
