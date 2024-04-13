@@ -15,14 +15,14 @@
   border: none;
   cursor: pointer;
   font-size: 30px;
-  transform: translate(18vh, -5vh); 
+  transform: translate(19vh, -9vh); 
   padding: 0;
   order: 2;
 }
 
 .dropdown-menu {
   position: absolute;
-  transform: translate(6vh, 7.5vh); 
+  transform: translate(8vh, 4.5vh); 
   z-index: 1;
   background-color: #f1f1f1;
   min-width: 80px;
