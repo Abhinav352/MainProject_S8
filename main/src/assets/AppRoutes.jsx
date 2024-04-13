@@ -22,7 +22,7 @@ import PasswordReset from './PasswordReset';
 
 const AppRoutes = () => {
   const location = useLocation();
- const showNavBar = !(location.pathname.includes('/chat/') || location.pathname === '/messages');
+ const showNavBar = !(location.pathname.includes('/chat/') || location.pathname === '/Messages');
 
 
   return (

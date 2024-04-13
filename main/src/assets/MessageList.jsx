@@ -5,7 +5,7 @@ import axios from 'axios';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { authContext } from '../App';
 import './Messages.css';
-
+import defaultProfilePic from "/defco9.png";
 const Messages = () => {
   const [userRooms, setUserRooms] = useState([]);
   const [profilePics, setProfilePics] = useState({});
@@ -66,6 +66,7 @@ const Messages = () => {
   };
 
   if (authState) {
+    if(userRooms.length > 0){
     return (
       <div className="messagy-container">
         
@@ -108,7 +109,7 @@ const Messages = () => {
                       className="profile-picture-smally"
                     />
                   ) : (
-                    <img src="/defco9.png" alt="Default Profile" className="profile-picture-smally" />
+                    <img src={defaultProfilePic} alt="Default Profile" className="profile-picture-smally" />
                   )}
                   <span>{room.user1 === currentUserEmail ? JSON.parse(room.userName2) : JSON.parse(room.userName1)}</span>
                 </div>
@@ -119,7 +120,14 @@ const Messages = () => {
       </div>
     </div>
   );
-
+    }
+    else{
+      return (
+        <h1 className='No-Messages'>No Messages</h1>
+      );
+    }
+     
+    
   } else {
     return <Navigate to="/Login" />;
   }

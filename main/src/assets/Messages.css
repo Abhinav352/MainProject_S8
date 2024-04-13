@@ -110,6 +110,10 @@ font-size: 24px;
   text-align: right;
   color: rgb(130, 26, 214);
 }
+.No-Messages{
+ text-align: center;
+ margin-top: 25%;
+}
 
 @media (max-width: 600px) {
   .messagy-navbar {
@@ -143,5 +147,9 @@ font-size: 24px;
     display: flex;
     margin-top: 3vh;
   }
+  .No-Messages{
+    text-align: center;
+    margin-top: 80%;
+   }
   
 }
