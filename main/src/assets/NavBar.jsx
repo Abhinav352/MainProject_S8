@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link,useLocation } from 'react-router-dom';
-import './NavBar.css'; // Import CSS file for styling
+import './css/NavBar.css'; // Import CSS file for styling
 import 'boxicons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus ,faHouse,faRightToBracket,faKitMedical,faNewspaper,faUser,faTableList,faHandHoldingMedical} from '@fortawesome/free-solid-svg-icons';

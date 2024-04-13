@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import io from 'socket.io-client';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import './Chat.css';
+import './css/Chat.css';
 
 const socket = io('http://localhost:5000', { transports: ['websocket'] });
 

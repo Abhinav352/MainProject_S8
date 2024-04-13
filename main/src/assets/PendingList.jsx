@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate,Navigate } from 'react-router-dom';
-import './pending.css'
+import './css/pending.css'
 import { authContext } from '../App';
 import { useContext } from 'react';
 const PendingList = () => {

@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import './Signup.css';
+import './css/Signup.css';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { FiEye, FiEyeOff } from 'react-icons/fi'; // Add this line
 import { Select, MenuItem, FormControl, InputLabel, OutlinedInput } from '@mui/material';

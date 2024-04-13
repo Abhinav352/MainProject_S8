@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { authContext } from '../App';
-import './Messages.css';
+import './css/Messages.css';
 
 const Messages = () => {
   const [userRooms, setUserRooms] = useState([]);

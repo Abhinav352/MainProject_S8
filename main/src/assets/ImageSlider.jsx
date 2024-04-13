@@ -1,6 +1,6 @@
 import _default from "@mui/material/styles/identifier";
 import SimpleImageSlider from "react-simple-image-slider";
-import './Image.css'
+import './css/Image.css'
 import { Link } from "react-router-dom";
 const images = [
   { url: "src/images/earthq.jpg"},

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { authContext } from '../App';
 import { useContext } from 'react';
-import './Emergency2.css';
+import './css/Emergency2.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 const Emergency = () => {
   const [emergency, setEmergency] = useState([]);

@@ -1,7 +1,7 @@
 // RequestList.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import './Req.css';
+import './css/Req.css';
 import { useNavigate,Navigate } from 'react-router-dom';
 import { authContext } from '../App';
 import { useContext } from 'react';
