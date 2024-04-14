@@ -16,6 +16,7 @@ const DropdownMenu = () => {
         <div className="dropdown-menu">
           <a href="/News">News</a>
           <a href="/Profile">Profile</a>
+          <a href="/Response">Response</a>
         </div>
       )}
       <button className="dropdown-toggle" onClick={toggleDropdown}>

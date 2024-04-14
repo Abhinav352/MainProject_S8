@@ -40,11 +40,11 @@ const ForgotPassword = () => {
           
           <input type="email" id="user_email" placeholder = 'Enter your email here...  ' value={email} onChange={(e) => setEmail(e.target.value)}  onKeyDown={handleKeyDown} />
         </label>
-        <button type="submit" onClick={handleSubmit}>Reset</button>
-
-      </div>
-      {message && <p>{message}</p>}
-      {error && <p>{error}</p>}
+        
+        <button type="submit" id='button2' onClick={handleSubmit}>Reset</button>
+        </div>
+      
+     
       </form>
     </div>
     </div>

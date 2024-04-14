@@ -1,10 +1,6 @@
 .forgot-container {
-  background-image: linear-gradient(
-    to top,
-    #ff9a9e 0%,
-    hsl(335, 41%, 73%) 99%,
-    #ad99a7 100%
-  );
+  background-image: url('../../Images/loc-wall.jpg');
+  background-size: cover;
   padding-top: 2vh;
   height: 100vh;
   width: 100vw;
@@ -54,21 +50,13 @@
   border-bottom: 1px solid #ffffff;
   color: #eee;
 }
-.forgot-row .formy-group button {
-  display: block;
-
-  width: 30%;
-  margin-top: 2em;
-  text-align: center;
-  margin-left: 20%;
-  margin-bottom: 0.5em;
-  background-color: inherit;
-  border: none;
-  border-bottom: 1px solid #555;
-  color: #eee;
+#button2:hover {
+  color: #fff;
+  background-color: hsl(0, 42%, 56%);
 }
+
 .forgot-row .formy-group input::placeholder {
-  color: rgb(0, 0, 0);
+  color: rgb(180, 175, 249);
   margin-left: -7vh;
 }
 
@@ -91,24 +79,29 @@
   cursor: pointer;
   margin-top: 3em;
   padding: 2vh 1vw;
-  margin-left:7.5vw;
+  margin-left:3.5vw;
 }
 .forgot-row .formy-group button:hover,
 .forgot-row .formy-group button:focus {
   background-color: #fff;
 }
-.forgot-row .formy-group button.is-loading::after {
-  animation: spinner 500ms infinite linear;
-  content: "";
-  position: absolute;
-  margin-left: 2em;
-  border: 2px solid #000;
-  border-radius: 100%;
-  border-right-color: transparent;
-  border-left-color: transparent;
-  height: 1em;
-}
 
+ #button2{
+  background-color: #ffff ;
+  color: #000000;
+  font-weight: 700 ;
+  padding: 2vh 2vh ;
+   margin: 4vh;
+  border: none;
+ 
+  width: 50%;
+  
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 1vw;
+  
+  transition: 0.3s ease;
+ }
 
 
 @media only screen and (min-width: 811px) and (max-width: 1225px) {
@@ -127,7 +120,7 @@
     margin-left: 6vh;
     
   }
-
+   
   .forgot-h {
   
   
@@ -148,8 +141,19 @@
     width:11vh;
     height:4vh;
   }
-  .forgot-row .formy-group button{
-    margin-left: 15vh;
-}
+  #button2{
+    background-color: #ffff ;
+    color: #000000;
+    font-weight: 700 ;
+    border: none;
+    margin-bottom: 3vh;
+    width: 50%;
+    padding: 1vh 1vw 2vw 0;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 5vw;
+    border: 0.5vw solid transparent;
+    transition: 0.3s ease;
+  }
 
 }

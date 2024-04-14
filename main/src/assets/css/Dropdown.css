@@ -22,7 +22,7 @@
 
 .dropdown-menu {
   position: absolute;
-  transform: translate(13vh, 4.5vh); 
+  transform: translate(10vh, 8.5vh); 
   z-index: 1;
   background-color: #f1f1f1;
   min-width: 60px;

@@ -1,5 +1,9 @@
 /* InitialResponse.css */
-
+  .disaster-page{
+    background-image: url('../../Images/profile-backg.png');
+    background-size: cover;
+    
+  }
   .disaster-title{
     padding-top: 2vh;
     margin-left: 40%;
@@ -50,15 +54,15 @@
   @media (max-width: 768px) {
     .disaster-list {
         overflow-y: auto;
-        max-height: 80vh; /* Enable vertical scrolling */
+        max-height: 70vh; /* Enable vertical scrolling */
       }
       .disaster-list::-webkit-scrollbar{
         width: 2vw;
       }
       .disaster-title{
-        padding-top: 10vh;
-        font-size: 5vh;
-        margin-left: 34%;
+        
+        font-size: 6vh;
+        margin-left: 23%;
         position: relative;
       }
       .card {

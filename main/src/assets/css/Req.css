@@ -1,5 +1,6 @@
   .reqback{
-    background-color: #288fb4;
+    background-image: url('../../Images/loc-wall.jpg');
+    background-size: cover;
     width:100vw;
     height:100vh;
   }
@@ -19,7 +20,7 @@
    }  
    #subut:hover {
     color: #fff;
-    background-color: #174cc0 ;
+    background-color: #9c9696 ;
   } 
   #char-count{
     opacity: 0.7;
@@ -77,9 +78,9 @@
             left:5%;
           }
           #desc{
-            left:15%;
+            left:14%;
             height: 10vw; 
-            width: 15vw; 
+            width: 18vw; 
           }
 
 
@@ -167,7 +168,7 @@
       #desc{
         margin-top: -20%;
         left:19%;
-        height: 40vw; 
+        height: 50vw; 
         width: 43vw; 
       }
 

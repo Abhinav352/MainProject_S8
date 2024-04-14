@@ -1,5 +1,6 @@
   .backg{
-   background-color: #288fb4;
+    background-image: url('../../Images/loc-wall.jpg');
+    background-size: cover;
     height: 100vh;
     width: 100vw;
   }
@@ -62,7 +63,7 @@
   
   #but:hover {
     color: #fff;
-    background-color: #174cc0;
+    background-color: #bdbdbe;
   }
   
   #register {
