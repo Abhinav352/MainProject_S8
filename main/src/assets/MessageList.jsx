@@ -6,6 +6,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import { authContext } from '../App';
 import './css/Messages.css';
 import defaultProfilePic from "/defco9.png";
+import { Dialog } from '@mui/material';
 
 const Messages = () => {
   const [userRooms, setUserRooms] = useState([]);
@@ -124,7 +125,17 @@ const Messages = () => {
     }
     else{
       return (
+        <div className='messageno'>
+             <a href="/">
+        <button className="back-butto" >
+          <i className="fas fa-arrow-left"></i>
+        </button>
+        </a>
+          
+        
         <h1 className='No-Messages'>No Messages</h1>
+        
+        </div>
       );
     }
      

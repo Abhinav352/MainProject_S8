@@ -148,7 +148,8 @@
     
     display: flex;
     justify-content: center;
-    padding-top: -5vh;
+    padding-top: -3vh;
+    margin-top: 3%;
     
     /* Add any other styles you need for the pagination buttons */
   }

@@ -1,6 +1,7 @@
 
 .disaster-sm {
-    background-color: cadetblue;
+    background-image: url('../../Images/loc-wall.jpg');
+    background-size: cover;
     height: 100%;
     width: 100vw;
     display: flex;
@@ -17,7 +18,8 @@
 
 .disaster-di {
     margin-left: auto; /* Move to the left for smaller screens */
-    margin-right: auto; /* Move to the right for smaller screens */
+    margin-right: auto;
+    margin-top: 3vh; /* Move to the right for smaller screens */
     margin-bottom: 0.1%;
     text-align: center; /* Center text */
     
@@ -27,8 +29,8 @@
     margin-left: auto; /* Move to the left for smaller screens */
     margin-right: auto; /* Move to the right for smaller screens */
     width: 80%; /* Adjust width for smaller screens */
-    max-width: 600px; /* Limit maximum width for desktop screens */
-    height: auto;
+    max-width: 300px; /* Limit maximum width for desktop screens */
+    min-height: 300px;
     border-radius: 10px;
     
 }
@@ -45,14 +47,21 @@
     
 }
 
-.disaster-fd li {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-    margin-left: 2vh;
-    margin-right: 2vh;
-   
+
+@media screen and (min-width: 769px){
+       
+    
+    .disaster-fd li {
+        border: 1px solid #ccc;
+        background-color: white;
+        color: black;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+        margin-left: 2vh;
+        margin-right: 2vh;
+       
+    }
 }
 
 
@@ -60,13 +69,36 @@
 @media screen and (max-width: 768px) {
     .disaster-img {
         width: 70%; /* Adjust width for smaller screens */
-        max-width: none; /* Remove maximum width */
+        min-height: 30%;/* Remove maximum width */
         margin-left: 15%;
     }
     .disaster-sm{
         height: 100vh;
     }
     .disaster-di{
-        padding-top: 10vh;
+        padding-top: 5vh;
+    }
+    .disaster-tqw{
+        font-size: 2.5vh;
+    }
+    .disaster-fd {
+        overflow-y: auto;
+       
+        list-style-type: none;
+        padding-bottom: 80px;
+        text-align: center;
+       max-height: 90vh;
+    }
+    .disaster-fd li {
+        background-color: white;
+        color: black;
+     
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+        margin-left: 2vh;
+        margin-right: 2vh;
+       
     }
 }

@@ -36,7 +36,7 @@ const DisasterPage = () => {
             'Provide emotional support and reassurance.',
           ],
      
-          image: '/src/Images/Earthquake.jpg',
+          image: '/src/Images/earth3.jpeg',
         };
       case '2':
         return {
@@ -51,7 +51,7 @@ const DisasterPage = () => {
             'Provide temporary shelter, dry clothing, and blankets to those affected.',
             'Help clean up and disinfect flooded areas to prevent mold and contamination.rovide emotional support and reassurance.',
           ],
-          image: '/src/Images/Flood.jpg',
+          image: '/src/Images/flood3.jpeg',
         };
         case '3':
           return {
@@ -66,7 +66,7 @@ const DisasterPage = () => {
               'Provide food, water, and basic necessities to evacuees.',
               'Support efforts to rebuild and recover from the wildfire\'s impact.',
             ],
-            image: '/src/Images/Wildfire.jpg',
+            image: '/src/Images/fire3.jpeg',
           };
       case '4':
         return {
@@ -81,7 +81,7 @@ const DisasterPage = () => {
             'Assist with search and rescue operations if safe to do so.',
             'Provide emotional support and help with recovery efforts.',
           ],
-          image: '/src/Images/Tornado.jpg',
+          image: '/src/Images/tornado3.jpeg',
         };
       
         case '5':
@@ -97,13 +97,13 @@ const DisasterPage = () => {
               'Assist with clearing debris and securing property if safe.',
               'Offer shelter, food, and water to those displaced by the hurricane.',
             ],
-            image: '/src/Images/Hurricane.jpg',
+            image: '/src/Images/hurricane3.jpeg',
           };  
 
           case '6':
             return {
               id: '6',
-              name: 'Volcanic Eruption',
+              name: 'Volcano',
               description: 'A volcanic eruption has occurred, emitting ash and posing risks to nearby communities.',
               list: [
                 'Evacuate if you\'re in the vicinity of the eruption, following designated evacuation routes.',
@@ -113,7 +113,7 @@ const DisasterPage = () => {
                 'Offer medical care for respiratory issues or injuries caused by volcanic activity.',
                 'Support cleanup efforts and help with the restoration of affected communities.',
               ],
-              image: '/src/Images/Volcano.jpg',
+              image: '/src/Images/volcano3.jpeg',
             };
 
             case '7':
@@ -129,7 +129,7 @@ const DisasterPage = () => {
                   'Offer temporary shelter and basic necessities to those displaced by the tsunami.',
                   'Assist with search and rescue efforts as needed.',
                 ],
-                image: '/src/Images/Tsunami.webp',
+                image: '/src/Images/tsunami3.jpeg',
               };
       // Add more cases for different disaster IDs
       default:

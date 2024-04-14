@@ -7,6 +7,12 @@
   margin: 0;
   background-color: #319e97;
 }
+.messageno{
+  background-image: url('../../Images/loc-wall.jpg');
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
 .messagy-container {
   display: flex;
   flex-direction: column;
@@ -112,7 +118,11 @@ font-size: 24px;
 }
 .No-Messages{
  text-align: center;
- margin-top: 25%;
+ transform: translateY(25vh);
+}
+.back-butto{
+  background-color: transparent;
+  font-size: 32px;
 }
 
 @media (max-width: 600px) {
@@ -149,7 +159,7 @@ font-size: 24px;
   }
   .No-Messages{
     text-align: center;
-    margin-top: 80%;
+    transform: translateY(30vh);
    }
   
 }

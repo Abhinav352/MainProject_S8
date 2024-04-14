@@ -22,18 +22,20 @@ const PasswordReset = () => {
 
     if (newPassword !== confirmPassword) {
       setError('Passwords do not match');
+      alert('passwords do not match');
       return;
     }
 
     try {
       await axios.post('http://localhost:5000/login/reset-password', { resetToken, newPassword });
-      setMessage('Password reset successfully. Redirecting to login...');
+      alert('Password reset successfully. Redirecting to login...');
 
       setTimeout(() => {
         navigate('/login');
       }, 3000);
     } catch (err) {
       setError('An error occurred while resetting the password.');
+      alert('An Error occured, Please Try Again');
       console.error(err);
     }
   };
