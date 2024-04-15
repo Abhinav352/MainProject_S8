@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import './css/DisasterPage.css'; 
 const DisasterPage = () => {
   const { id } = useParams();
@@ -144,8 +145,13 @@ const DisasterPage = () => {
   return (
     <div className='disaster-scro'>
     <div className='disaster-sm'>
+   
     <h2 className='disaster-di'>{disaster.name}</h2>
-      
+    <a href="/Response">
+        <button  className='back-buttondis'>
+          <i className="fas fa-arrow-left" ></i>
+        </button>
+        </a>
       <img src={disaster.image} alt={disaster.name} className='disaster-img'  />
       {/* <p>{disaster.description}</p> */}
       <h3 className='disaster-tqw'>Instructions</h3>

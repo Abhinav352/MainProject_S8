@@ -75,13 +75,13 @@
   }
   
   .table-conte::-webkit-scrollbar-track {
-    background-color: rgb(239, 239, 239);
+    background-color: rgb(126, 124, 124);
     -webkit-box-shadow: 0 0 6px rgba(245, 0, 0, 0.3); 
     border-radius: 10px;
   }
   
   .table-conte::-webkit-scrollbar-thumb {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(202, 196, 196);
     border-radius: 10px;
   }
   #buito{
@@ -132,7 +132,9 @@
     .emergency-par span {
         display: block;
     }
-    
+    #buito{
+      width: 110%;
+    }
     
     }
   
