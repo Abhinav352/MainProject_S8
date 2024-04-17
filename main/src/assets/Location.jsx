@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments  } from '@fortawesome/free-solid-svg-icons';
 import DropdownMenu from './DropDownMenu';
+import Modal from 'react-modal';
 import {Link} from 'react-scroll';
 import dwnbutton from '../Images/arrow.png'
 import wall from '../Images/loc-wall.jpg'
@@ -17,6 +18,8 @@ const Location = () => {
   const [refreshToken, setRefreshToken] = useState('');
   const [userInDisasterArea, setUserInDisasterArea] = useState(false);
   const [checkedornot, setcheckedornot,] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [notInDisasterModal, setNotInDisasterModal] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -99,13 +102,14 @@ const Location = () => {
   const checkIfUserInAnyDisasterArea = async () => {
   setcheckedornot(true);
     const { latitude, longitude } = userLocation;
+    let userInCurrentDisasterArea = false; 
 
     for (const event of disasterData) {
       const bbox = event.bbox;
       const userInCurrentDisasterArea = isPointInBoundingBox(latitude, longitude, bbox);
 
       if (userInCurrentDisasterArea) {
-        window.alert(`User is in the disaster area. Location sent to volunteer.`);
+        setModalIsOpen(true);
         console.log(userLocation);
 
         try {
@@ -135,9 +139,10 @@ const Location = () => {
 
       }
     }
-    window.alert('User is not in any of the disaster areas.');
+    if (!userInCurrentDisasterArea) {
+      setNotInDisasterModal(true);
     console.log(userLocation);
-    // Continue with your application logic
+  }
   };
 
   const isPointInBoundingBox = (lat, lon, bbox) => {
@@ -171,6 +176,110 @@ const Location = () => {
 
   return (
     <>
+    <Modal
+      isOpen={modalIsOpen}
+      onRequestClose={() => setModalIsOpen(false)}
+      contentLabel="Disaster Area Alert"
+      ariaHideApp={false}
+      style={{
+        overlay: {
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        },
+        content: {
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          backgroundColor: '#fff',
+          padding: '20px',
+          border: '1px solid #ccc',
+          borderRadius: '4px',
+          outline: 'none',
+          width: '80%',
+          maxWidth: '400px',
+          height: '80%',
+          maxHeight: '300px',
+          '@media (maxWidth: 767px)': {
+            maxWidth: '300px',
+            maxHeight: '300px',
+          },
+        },
+      }}
+    >
+      <h2 className='popupmessag'>Assistance sent.. <br /> SOS detected!</h2>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <button
+          onClick={() => setModalIsOpen(false)}
+          style={{
+            backgroundColor: '#3598f0',
+            color: '#fff',
+            border: 'none',
+            padding: '10px 20px',
+            borderRadius: '4px',
+            cursor: 'pointer',
+            '@media (maxWidth: 767px)': {
+              width: '100%',
+            },
+          }}
+        >
+          Close
+        </button>
+      </div>
+    </Modal>
+    <Modal
+      isOpen={notInDisasterModal}
+      onRequestClose={() => setNotInDisasterModal(false)}
+      contentLabel="Not in Disaster Area"
+      ariaHideApp={false}
+      style={{
+        overlay: {
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        },
+        content: {
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+         
+          transform: 'translate(-50%, -50%)',
+          backgroundColor: '#fff',
+          padding: '10px',
+          border: '1px solid #ccc',
+          borderRadius: '4px',
+          outline: 'none',
+          width: '80%',
+          maxWidth: '400px',
+          height: '80%',
+          maxHeight: '300px',
+          '@media (maxWidth: 767px)': {
+            maxWidth: '300px',
+            maxHeight: '300px',
+          },
+           
+          
+          
+        },
+      }}
+    >
+      <h2 className='popupmessage'>Currently you are not in a disaster area!</h2>
+      <div style={{ display: 'flex', justifyContent: 'center' ,marginTop:'-30px'}}>
+        <button
+          onClick={() => setNotInDisasterModal(false)}
+          style={{
+            backgroundColor: '#3598f0',
+            color: '#fff',
+            border: 'none',
+            padding: '10px 20px',
+            borderRadius: '4px',
+            cursor: 'pointer',
+            '@media (maxWidth: 767px)': {
+              width: '100%',
+            },
+          }}
+        >
+          Close
+        </button>
+      </div>
+    </Modal>
       <div className='whole'>
         <div className="sos-container">
           <div className="outer-circle"></div>
